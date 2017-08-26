@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>JSON--stringify函数</title>
 </head>
 <body>
-$END$
+    <!--http://www.jianshu.com/p/bbb06a3de002-->
+    <script>
+        var book = {
+            title: "JavaScript",
+            author: [
+                "xusf",
+                "ywy"
+            ],
+            edition: 3,
+            year: 2017
+        };
+        var jsonStr = JSON.stringify(book, function (key, value) {
+//            switch (key){
+//                case "author": return value.join(',');
+//                case "year": return value + 10;
+//                case "edition": return undefined;
+//                default: return value;
+//            }
+            if(key === 'author'){
+                return value.join(',');
+            } else if(key == "year"){
+                return value + 10;
+            } else if(key == "edtion") {
+                return undefined;
+            } else {
+                return value;
+            }
+        });
+        console.log(jsonStr);
+    </script>
 </body>
 </html>
