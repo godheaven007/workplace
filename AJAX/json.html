@@ -10,29 +10,40 @@
         var book = {
             title: "JavaScript",
             author: [
-                "xusf",
-                "ywy"
+                {
+                    name: 'xusf',
+                    age: 28,
+                    year: 1990
+                },
+                {
+                    name: 'yuwy',
+                    age: 28,
+                    year: 1990
+                },
             ],
             edition: 3,
-            year: 2017
+            year: 2017,
+            releaseDate: new Date(2017,08,29)
         };
-        var jsonStr = JSON.stringify(book, function (key, value) {
-//            switch (key){
-//                case "author": return value.join(',');
-//                case "year": return value + 10;
-//                case "edition": return undefined;
-//                default: return value;
+
+        var jsonStr = JSON.stringify(book);
+        var jsonObj = JSON.parse(jsonStr)
+//        var jsonStr = JSON.stringify(book, function (key, value) {
+////            switch (key){
+////                case "author": return value.join(',');
+////                case "year": return value + 10;
+////                case "edition": return undefined;
+////                default: return value;
+////            }
+//            if(key == "year"){
+//                return value + 10;
+//            } else if(key == "edition") {
+//                return undefined;
+//            } else {
+//                // 注意!!!这里return value是必须的，否则，统统将不起作用
+//                return value;
 //            }
-            if(key === 'author'){
-                return value.join(',');
-            } else if(key == "year"){
-                return value + 10;
-            } else if(key == "edtion") {
-                return undefined;
-            } else {
-                return value;
-            }
-        });
+//        });
         console.log(jsonStr);
     </script>
 </body>
