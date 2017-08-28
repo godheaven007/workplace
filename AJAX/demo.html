@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/ajax.js"></script>
+</head>
+<body>
+    <input type="button" value="ajax请求" id="request">
+
+    <script>
+        var request = document.getElementById("request");
+        request.addEventListener("click",function () {
+            FUN.ajax({
+                type: 'post',
+                url: 'data/student.json',
+                data:{
+                    name: 'xusf',
+                    age: 28
+                },
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        })
+    </script>
+</body>
+</html>
