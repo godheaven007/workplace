@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IRT--历时诊断</title>
+    <link rel="stylesheet" href="css/irrt.css">
+    <script type="text/javascript" src="js/mobile-util.js"></script>
+</head>
+<body class="history scroll">
+    <div class="container" id="app" v-cloak>
+        <div class="header">
+            <div class="breadCrumb bb01">
+                <div class="breadBack" onclick="history.go(-1)"></div>
+                <div class="breadName">历时诊断</div>
+                <div class="breadHistory vsHidden"></div>
+            </div>
+        </div>
+        <div class="middle">
+
+            <!--整体知识水平-->
+            <div class="lineBox general">
+                <div class="title">整体知识水平</div>
+                <div class="tip">
+                    <div class="average">平均</div>
+                    <div class="personal">个人</div>
+                </div>
+                <div class="lineChart" id="line1"></div>
+            </div>
+            <!--知识-->
+            <div class="lineBox knowledge">
+                <div class="title">知识维度掌握情况</div>
+                <div class="tip other">
+                    <div class="first">第一次</div>
+                    <div class="second">第二次</div>
+                    <div class="third" v-if="historyData.length == 3">第三次</div>
+                </div>
+                <div class="lineChart" id="line2"></div>
+            </div>
+            <!--展开更多-->
+            <div class="moreInfo">
+                <div class="moreWrap">
+                    <div class="more">
+                    <!--知识点-->
+                    <div class="points">
+                        <div class="pointItem">知识点</div>
+                        <div class="pointItem" v-for="n in knowledgePoints.length">
+                            <i>{{options[n-1]}}</i>
+                            <span>{{knowledgePoints[n-1]}}</span>
+                        </div>
+                    </div>
+                    <!--第三次测验-->
+                    <div class="testTime third" v-if="knowledgeData.length == 3">
+                        <div class="testItem">第三次</div>
+                        <div class="testItem" v-for="n in knowledgeData[2]">
+                            {{n}}
+                        </div>
+                    </div>
+                    <!--第二次测验-->
+                    <div class="testTime second" v-if="knowledgeData.length >= 2">
+                        <div class="testItem">第二次</div>
+                        <div class="testItem" v-for="n in knowledgeData[1]">
+                            {{n}}
+                        </div>
+                    </div>
+                    <!--第一次测验-->
+                    <div class="testTime first" v-if="knowledgeData.length >= 2">
+                            <div class="testItem">第一次</div>
+                            <div class="testItem" v-for="n in knowledgeData[0]">
+                                {{n}}
+                            </div>
+                        </div>
+                </div>
+                </div>
+                <div class="toggle show">
+                    <i>点击展开</i>
+                </div>
+                <div class="toggle hide">
+                    <i>点击收起</i>
+                </div>
+            </div>
+
+            <!--技能-->
+            <div class="lineBox skill">
+                <div class="title">技能维度掌握情况</div>
+                <div class="tip other">
+                    <div class="first">第一次</div>
+                    <div class="second">第二次</div>
+                    <div class="third" v-if="historyData.length == 3">第三次</div>
+                </div>
+                <div class="lineChart" id="line3"></div>
+            </div>
+            <!--展开更多-->
+            <div class="moreInfo">
+                <div class="moreWrap">
+                    <div class="more">
+                        <!--技能点-->
+                        <div class="points">
+                            <div class="pointItem">技能点</div>
+                            <div class="pointItem" v-for="n in skillPoints.length">
+                                <i>{{options[n-1]}}</i>
+                                <span>{{skillPoints[n-1]}}</span>
+                            </div>
+                        </div>
+                        <!--第三次测验-->
+                        <div class="testTime third" v-if="skillData.length == 3">
+                            <div class="testItem">第三次</div>
+                            <div class="testItem" v-for="n in skillData[2]">
+                                {{n}}
+                            </div>
+                        </div>
+                        <!--第二次测验-->
+                        <div class="testTime second" v-if="skillData.length >= 2">
+                            <div class="testItem">第二次</div>
+                            <div class="testItem" v-for="n in skillData[1]">
+                                {{n}}
+                            </div>
+                        </div>
+                        <!--第一次测验-->
+                        <div class="testTime first" v-if="skillData.length >= 2">
+                            <div class="testItem">第一次</div>
+                            <div class="testItem" v-for="n in skillData[0]">
+                                {{n}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle show">
+                    <i>点击展开</i>
+                </div>
+                <div class="toggle hide">
+                    <i>点击收起</i>
+                </div>
+            </div>
+
+            <!--能力-->
+            <div class="lineBox ability">
+                <div class="title">能力维度掌握情况</div>
+                <div class="tip other">
+                    <div class="first">第一次</div>
+                    <div class="second">第二次</div>
+                    <div class="third" v-if="historyData.length == 3">第三次</div>
+                </div>
+                <div class="lineChart" id="line4"></div>
+            </div>
+            <!--展开更多-->
+            <div class="moreInfo">
+                <div class="moreWrap">
+                    <div class="more">
+                        <!--能力点-->
+                        <div class="points">
+                            <div class="pointItem">能力点</div>
+                            <div class="pointItem" v-for="n in abilityPoints.length">
+                                <i>{{options[n-1]}}</i>
+                                <span>{{abilityPoints[n-1]}}</span>
+                            </div>
+                        </div>
+                        <!--第三次测验-->
+                        <div class="testTime third" v-if="abilityData.length == 3">
+                            <div class="testItem">第三次</div>
+                            <div class="testItem" v-for="n in abilityData[2]">
+                                {{n}}
+                            </div>
+                        </div>
+                        <!--第二次测验-->
+                        <div class="testTime second" v-if="abilityData.length >= 2">
+                            <div class="testItem">第二次</div>
+                            <div class="testItem" v-for="n in abilityData[1]">
+                                {{n}}
+                            </div>
+                        </div>
+                        <!--第一次测验-->
+                        <div class="testTime first" v-if="abilityData.length >= 2">
+                            <div class="testItem">第一次</div>
+                            <div class="testItem" v-for="n in abilityData[0]">
+                                {{n}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle show">
+                    <i>点击展开</i>
+                </div>
+                <div class="toggle hide">
+                    <i>点击收起</i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue-resource.js"></script>
+    <script type="text/javascript" src="js/graph.js"></script>
+    <script type="text/javascript" src="js/history.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script>
+        $(function () {
+//            Common.overScroll(document.querySelector('.scroll'));
+//            document.body.addEventListener('touchmove', function(evt) {
+//                //In this case, the default behavior is scrolling the body, which
+//                //would result in an overflow.  Since we don't want that, we preventDefault.
+//                if(!evt._isScroller) {
+//                    evt.preventDefault();
+//                }
+//            });
+            function stopDrop() {
+                var lastY; //最后一次y坐标点
+                $(document.body).on('touchstart', function(event) {
+                    lastY = event.originalEvent.changedTouches[0].clientY; //点击屏幕时记录最后一次Y度坐标。
+                });
+                $(document.body).on('touchmove', function(event) {
+                    var y = event.originalEvent.changedTouches[0].clientY;
+                    var st = $(this).scrollTop(); //滚动条高度
+                    if (y >= lastY && st <= 10) { //如果滚动条高度小于0，可以理解为到顶了，且是下拉情况下，阻止touchmove事件。
+                        lastY = y;
+                        event.preventDefault();
+                    }
+                    lastY = y;
+                });
+            }
+            stopDrop(); // 调用 不过效果不是很彻底
+        });
+    </script>
+</body>
+</html>

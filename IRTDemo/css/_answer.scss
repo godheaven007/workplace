@@ -1,0 +1,238 @@
+@charset "UTF-8";
+/* 答题页 */
+// 答题区
+.answerArea{
+  width:100%;
+  height:100%;
+  background:#fff;
+  border-radius: 14px/$ppr;
+  -webkit-border-radius: 14px/$ppr;
+  padding: 24px/$ppr;
+  .answerTit{
+    width: 100%;
+    height: 32px/$ppr;
+    line-height: 28px/$ppr;
+    border-left: 10px solid #29aec5;
+    color: #29aec5;
+    text-indent: 16px/$ppr;
+    margin-bottom: 32px/$ppr;
+    font-size: 28px/$ppr;
+  }
+  .answerCont{
+    font-size: 26px/$ppr;
+    color: #333;
+    line-height: 1.75;
+    -ms-word-wrap:break-word;
+    word-wrap:break-word;
+  }
+}
+
+// 答案选项区
+.options{
+  width: 100%;
+  height: 144px/$ppr;
+  display: flex;
+  display: -webkit-flex;
+  justify-content:space-around;
+  -webkit-justify-content: space-around;
+  align-items: center;
+  -webkit-align-items: center;
+  font-size: 36px/$ppr;
+  background-color: #d0e9ef;
+  .itemWrap{
+    display: flex;
+    display: -webkit-flex;
+    width: 130px/$ppr;
+    height: 120px/$ppr;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    .item{
+      width: 66px/$ppr;
+      height:66px/$ppr;
+      line-height: 64px/$ppr;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      text-align: center;
+      color: #23a0bd;
+      background-color: #fff;
+    }
+    &.active .item{
+      color: #fff;
+      background-color: #24aec5;
+    }
+  }
+
+}
+
+// 下一题
+.next{
+  position:fixed;
+  right:18px/$ppr;
+  bottom: 144px/$ppr;
+  width: 174px/$ppr;
+  height: 167px/$ppr;
+  background: url("../images/next.png") no-repeat;
+  background-size: 174px/$ppr 167px/$ppr;
+  -webkit-background-size: 174px/$ppr 167px/$ppr;
+}
+.submit{
+  position:fixed;
+  right:18px/$ppr;
+  bottom: 144px/$ppr;
+  width: 174px/$ppr;
+  height: 167px/$ppr;
+  background: url("../images/submit.png") no-repeat;
+  background-size: 174px/$ppr 167px/$ppr;
+  -webkit-background-size: 174px/$ppr 167px/$ppr;
+  &.active{
+    display: none;
+  }
+}
+// 注意事项
+.attention{
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -60%);
+  -webkit-transform: translate(-50%, -60%);
+  width: 630px/$ppr;
+  padding: 0 20px/$ppr 80px/$ppr 20px/$ppr;
+  border-radius: 14px/$ppr;
+  -webkit-border-radius: 14px/$ppr;
+  background-color: #fff;
+  z-index: 100;
+  .attention_title{
+    width: 100%;
+    height: 90px/$ppr;
+    line-height: 90px/$ppr;
+    text-align: center;
+    color: #f6843f;
+    font-size: 36px/$ppr;
+    border-bottom:2px solid #efefef;
+  }
+  .attention_cont{
+    padding: 0 22px/$ppr;
+    .contTitle{
+      width:100%;
+      height:100px/$ppr;
+      line-height: 100px/$ppr;
+      font-size: 26px/$ppr;
+      color: #666;
+    }
+    li{
+      padding-left: 80px/$ppr;
+      margin-bottom:30px/$ppr;
+      p{
+        font-size: 24px/$ppr;
+        line-height: 40px/$ppr;
+      }
+    }
+    li.attentionOne{
+      background: url("../images/attention1.png") no-repeat left 10px/$ppr;
+      background-size: 48px/$ppr 56px/$ppr;
+      -webkit-background-size: 48px/$ppr 56px/$ppr;
+    }
+    li.attentionTwo{
+      background: url("../images/attention2.png") no-repeat left 16px/$ppr;
+      background-size: 48px/$ppr 56px/$ppr;
+      -webkit-background-size: 48px/$ppr 56px/$ppr;
+      span{
+        display: inline-block;
+        width: 60px/$ppr;
+        height:60px/$ppr;
+        border-radius: 50%;
+        vertical-align: middle;
+        background: url("../images/next.png") no-repeat center center;
+        background-size: contain;
+        -webkit-background-size: contain;
+      }
+    }
+    li.attentionThree{
+      background: url("../images/attention3.png") no-repeat left 10px/$ppr;
+      background-size: 48px/$ppr 60px/$ppr;
+      -webkit-background-size: 48px/$ppr 60px/$ppr;
+    }
+  }
+  .attention_btn{
+    position: absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height: 80px/$ppr;
+    line-height: 80px/$ppr;
+    font-size: 32px/$ppr;
+    text-align: center;
+    border-radius: 0 0 14px/$ppr 14px/$ppr;
+    -webkit-border-radius: 0 0 14px/$ppr 14px/$ppr;
+    color: #fff;
+    background-color: #29aec5;
+  }
+}
+.countDown{
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  -webkit-transform: translate(-50%, -60%);
+  width: 400px/$ppr;
+  height: 400px/$ppr;
+  line-height: 400px/$ppr;
+  text-align: center;
+  z-index: 100;
+  li{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 180px/$ppr;
+    font-weight: bold;
+    color: #fddc56;
+    transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    opacity: 0;
+    animation: go 1s forwards;
+    -webkit-animation: go 1s forwards;
+  }
+  #timeOne{
+    animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+  }
+  #timeTwo{
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+  }
+  #timeThree{
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+  }
+  #timeGo{
+    animation-delay: 3s;
+    -webkit-animation-delay: 3s;
+  }
+  @keyframes go {
+    0% {
+      transform: scale(2.4);
+      -webkit-transform: scale(2.4);
+      opacity: 1;
+    }
+    100%{
+      transform: scale(0.8);
+      -webkit-transform: scale(0.8);
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes go {
+    0% {
+      transform: scale(2.4);
+      -webkit-transform: scale(2.4);
+      opacity: 1;
+    }
+    100%{
+      transform: scale(0.8);
+      -webkit-transform: scale(0.8);
+      opacity: 0;
+    }
+  }
+}

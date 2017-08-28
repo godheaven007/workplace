@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IRT--登录</title>
+    <link rel="stylesheet" href="css/irrt.css">
+    <script type="text/javascript" src="js/mobile-util.js"></script>
+</head>
+<body class="scroll">
+    <div class="login">
+        <div class="logo"></div>
+        <ul class="user">
+            <li>
+                <input class="telephoneNo" type="text" maxlength="11" placeholder="请输入手机号" value="18662168888">
+            </li>
+            <li>
+                <input class="password" type="password" placeholder="请输入密码" value="123456">
+            </li>
+        </ul>
+        <div class="check">
+            <div class="forget">忘记密码</div>
+            <div class="yzm">验证码登录</div>
+        </div>
+        <div class="loginBtn" id="login">
+            登&nbsp;&nbsp;录
+        </div>
+        <div class="thirdLogin">
+            <div class="third">第三方登录</div>
+            <div class="thirdLoginItem qq">
+                QQ
+            </div>
+            <div class="thirdLoginItem wx">微信</div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script>
+        $(function(){
+            $(document).on('touchend', '#login', function () {
+                window.location.href = 'test.html';
+            });
+
+            Common.overScroll(document.querySelector('.scroll'));
+            document.body.addEventListener('touchmove', function(evt) {
+                //In this case, the default behavior is scrolling the body, which
+                //would result in an overflow.  Since we don't want that, we preventDefault.
+                if(!evt._isScroller) {
+                    evt.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

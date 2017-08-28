@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+/* 首页 */
+.index {
+  position: relative;
+  padding: 320px/$ppr 240px/$ppr 0 240px/$ppr;
+  background: #38aec7;
+  .logo{
+    width: 270px/$ppr;
+    height: 152px/$ppr;
+    background: url("../images/logo.png") no-repeat;
+    background-size: 270px/$ppr 152px/$ppr;
+    -webkit-background-size: 270px/$ppr 152px/$ppr;
+  }
+  .operate{
+    position: absolute;
+    bottom:275px/$ppr;
+    width: 300px/$ppr;
+    height: 260px/$ppr;
+    .btn{
+      width: 300px/$ppr;
+      height: 100px/$ppr;
+      line-height: 100px/$ppr;
+      font-size: 38px/$ppr;
+      padding-left:90px/$ppr;
+      border-radius: 50px/$ppr;
+      -webkit-border-radius: 50px/$ppr;
+    }
+    .btn.test{
+      color: #fddd61;
+      background: #3097ad url("../images/bi.png") no-repeat 35px/$ppr center;
+      background-size: 37px/$ppr 45px/$ppr;
+      -webkit-background-size: 37px/$ppr 45px/$ppr;
+      margin-bottom:60px/$ppr;
+      letter-spacing: 0.1rem;
+    }
+    .btn.reviewHistory{
+      display: none;
+      color: #866900;
+      background: #fcdc55 url("../images/clock.png") no-repeat 30px/$ppr center;
+      background-size: 42px/$ppr 42px/$ppr;
+      -webkit-background-size: 42px/$ppr 42px/$ppr;
+      letter-spacing: 0.1rem;
+    }
+    .btn.reviewHistory.active{
+      display: block;
+    }
+  }
+}

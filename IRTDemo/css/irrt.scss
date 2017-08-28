@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/* 公共 */
+@import "common";
+/* 登录 */
+@import "login";
+/* 首页 */
+@import "index";
+/* 测试筛选页 */
+@import "test";
+/* 答题页 */
+@import "answer";
+/* 诊断结果页 */
+@import "result";
+/* 历时作答页 */
+@import "history";
+/* 进阶训练页 */
+@import "advance";
+
+

@@ -1,0 +1,124 @@
+@charset "UTF-8";
+.login{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 120px/$ppr 80px/$ppr 50px/$ppr 80px/$ppr;
+  background: url("../images/loginBg.png") no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  .logo{
+    width: 100%;
+    height: 165px/$ppr;
+    background: url("../images/login.png") no-repeat center center;
+    background-size: 157px/$ppr 165px/$ppr;
+    -webkit-background-size: 157px/$ppr 165px/$ppr;
+    margin-bottom: 95px/$ppr;
+  }
+  .user{
+    li{
+      width: 100%;
+      height: 76px/$ppr;
+      border:1px solid #12a7c1;
+      border-radius: 14px/$ppr;
+      -webkit-border-radius: 14px/$ppr;
+      input{
+        width: 100%;
+        height: 100%;
+        padding-left: 60px/$ppr;
+        border: 1px solid transparent;
+        border-radius: 14px/$ppr;
+        -webkit-border-radius: 14px/$ppr;
+        font-size: 26px/$ppr;
+        color: #999;
+      }
+      input:focus{
+        background-color: #fff;
+      }
+      .telephoneNo{
+        background: url("../images/phone.png") no-repeat 14px/$ppr center;
+        background-size: 23px/$ppr 39px/$ppr;
+        -webkit-background-size: 23px/$ppr 39px/$ppr;
+      }
+      .password{
+        background: url("../images/pwd.png") no-repeat 14px/$ppr center;
+        background-size: 32px/$ppr 40px/$ppr;
+        -webkit-background-size: 32px/$ppr 40px/$ppr;
+      }
+      &:first-child{
+        margin-bottom:40px/$ppr;
+      }
+    }
+  }
+  .check{
+    overflow: hidden;
+    width:100%;
+    height: 76px/$ppr;
+    line-height: 76px/$ppr;
+    padding: 0 12px/$ppr;
+    margin-bottom:120px/$ppr;
+    color: #12a7c1;
+    font-size: 24px/$ppr;
+    .forget{
+      float: left;
+    }
+    .yzm{
+      float: right;
+    }
+  }
+  .loginBtn{
+    width: 100%;
+    height:80px/$ppr;
+    line-height: 80px/$ppr;
+    text-align: center;
+    background: #24aec5;
+    color: #fff;
+    font-size: 34px/$ppr;
+    border-radius: 14px/$ppr;
+    -webkit-border-radius: 14px/$ppr;
+    margin-bottom: 120px/$ppr;
+  }
+  .thirdLogin{
+    position: relative;
+    width: 100%;
+    height:180px/$ppr;
+    color: #24aec5;
+    background: url("../images/loginLine.png") no-repeat;
+    background-size: 587px/$ppr 4px/$ppr;
+    -webkit-background-size: 587px/$ppr 4px/$ppr;
+    .third{
+      position: absolute;
+      left:50%;
+      top: -22px/$ppr;
+      margin-left:-80px/$ppr;
+      width: 160px/$ppr;
+      height: 40px/$ppr;
+      line-height: 42px/$ppr;
+      font-size: 22px/$ppr;
+      text-align: center;
+      z-index:100;
+    }
+    .thirdLoginItem{
+      width: 210px/$ppr;
+      height:160px/$ppr;
+      padding-top: 130px/$ppr;
+      font-size: 24px/$ppr;
+    }
+    .qq{
+      float: left;
+      padding-left:136px/$ppr;
+      text-align: center;
+      background: url("../images/qq.png") no-repeat right center;
+      background-size: 76px/$ppr 75px/$ppr;
+      -webkit-background-size: 76px/$ppr 75px/$ppr;
+    }
+    .wx{
+      float: right;
+      padding-right:136px/$ppr;
+      text-align: center;
+      background: url("../images/wx.png") no-repeat left center;
+      background-size: 76px/$ppr 75px/$ppr;
+      -webkit-background-size: 76px/$ppr 75px/$ppr;
+    }
+  }
+}

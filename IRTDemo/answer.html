@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IRT--作答</title>
+    <link rel="stylesheet" href="css/irrt.css">
+    <script type="text/javascript" src="js/mobile-util.js"></script>
+</head>
+<body class="answer scroll">
+    <div class="container" id="app" v-cloak>
+        <div class="header">
+            <div class="breadCrumb bb01">
+                <div class="breadBack" @click="back()"></div>
+                <div class="breadProgressBar">
+                    <div class="progress-out" id="progress">
+                        <div class="progress-in"></div>
+                        <div id="time"></div>
+                    </div>
+                    <!--<div class="progress-btn" v-if="curIndex<6" v-cloak>No.{{curIndex + 1}}</div>-->
+                    <!--<div class="progress-btn" v-else @click="submit()">提交</div>-->
+                    <div class="progress-btn">No.{{curIndex + 1}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="answerArea">
+                <div class="answerCont" v-html="itemData.title">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="options" id="option">
+                <div class="itemWrap" v-for="i in itemData.option_num">
+                    <div class="item">{{options[i - 1]}}</div>
+                </div>
+            </div>
+        </div>
+        <!--下一题-->
+        <div id="next" class="next" @click="next()" v-if="curIndex < 6"></div>
+        <div id="submit" class="submit" @click="submit()" v-else></div>
+        <!--注意事项-->
+        <div class="attention">
+            <div class="attention_title">注意事项</div>
+            <div class="attention_cont">
+                <div class="contTitle">本测验是采用现代测量理论为基础的自适应测验</div>
+                <ul>
+                    <li class="attentionOne">
+                        <p>测验系统能够根据每个人不同的知识水平选择合适的试题，所以每个人的测验不一定相同。</p>
+                    </li>
+                    <li class="attentionTwo">
+                        <p>开始测试后请逐题作答，点击<span></span>进入下一题，每题作答时长30秒。</p>
+                    </li>
+                    <li class="attentionThree">
+                        <p>进入下一题后，不可修改上题答案，请谨慎作答。</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="attention_btn" id="attention_btn">
+                确&nbsp;&nbsp;定
+            </div>
+        </div>
+        <!--倒计时-->
+        <ul class="countDown">
+            <li id="timeGo">GO!</li>
+            <li id="timeThree">1</li>
+            <li id="timeTwo">2</li>
+            <li id="timeOne">3</li>
+        </ul>
+        <div class="mask"></div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue-resource.js"></script>
+    <script type="text/javascript" src="js/answer.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script>
+        $(function () {
+            Common.overScroll(document.querySelector('.scroll'));
+            document.body.addEventListener('touchmove', function(evt) {
+                //In this case, the default behavior is scrolling the body, which
+                //would result in an overflow.  Since we don't want that, we preventDefault.
+                if(!evt._isScroller) {
+                    evt.preventDefault();
+                }
+            });
+        })
+    </script>
+</body>
+</html>

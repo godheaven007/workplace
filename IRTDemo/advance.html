@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IRT--进阶训练</title>
+    <link rel="stylesheet" href="css/irrt.css">
+    <script type="text/javascript" src="js/mobile-util.js"></script>
+</head>
+<body class="advance scroll">
+    <div class="container" id="app" v-cloak>
+        <div class="header">
+            <div class="breadCrumb bb01">
+                <div class="breadBack" onclick="history.go(-1)"></div>
+                <div class="breadProgressBar2">
+                    <div class="progress-out" id="progress">
+                        <div class="progress-in"></div>
+                        <div id="time">{{(curIndex + 1)}}/{{question.length}}</div>
+                    </div>
+                    <div class="progress-btn">No.{{curIndex + 1}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="answerArea">
+                <div class="answerCont" v-html="itemData.title">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <!--答题区-->
+            <div class="answerOption" v-if="isShowAnswer">
+                <div class="options" id="option">
+                    <div class="itemWrap" v-for="i in itemData.option_num">
+                        <div class="item">{{options[i - 1]}}</div>
+                    </div>
+                </div>
+            </div>
+            <!--答案区-->
+            <div class="answer" v-else>
+                <div class="answerin">
+                    <!--<div class="anupd"></div>-->
+                    <!--答案显示-->
+                    <div class="answer_con">
+                        <div class="answerBox">
+                            <span>正确答案</span>
+                            <div class="radio correct">{{itemData.answer}}</div>
+                        </div>
+                        <div class="answerBox">
+                            <span>我的答案</span>
+                            <div class="radio mine">{{itemData.myAnswer}}</div>
+                        </div>
+                    </div>
+                    <!--考察点-->
+                    <div class="answer_zd">
+                        <ul>
+                            <li>
+                                <div class="tip zs">考察知识点：</div>
+                                {{'' | observe(itemData.knowledges)}}
+                            </li>
+                            <li>
+                                <div class="tip nl">考察能力点：</div>
+                                {{'' | observe(itemData.abilitys)}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="goNext" @click="next()" v-if="curIndex < question.length - 1">下一题</div>
+                <div class="goNext" @click="finish()" v-else>完&nbsp;&nbsp;成</div>
+            </div>
+        </div>
+        <!--提交-->
+        <div id="submit" class="submit" :class="{active: !isShowAnswer}" @click="submit()"></div>
+        <!--进阶训练完成-->
+        <div class="finishBox">
+            <div class="head"></div>
+            <div class="mid">
+                <div class="midInner">
+                    <div class="stress">恭喜完成</div>
+                    <p>本次测验的进阶训练</p>
+                </div>
+            </div>
+            <div class="bot">
+                <span class="quit">退出登录</span>
+                <span class="again">再测一次</span>
+            </div>
+        </div>
+        <div class="finishBoxMask">
+            <div id="finish">
+                <div id="quit"></div>
+                <div id="again"></div>
+            </div>
+        </div>
+        <div class="mask"></div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue-resource.js"></script>
+    <script type="text/javascript" src="js/advance.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script>
+        $(function () {
+            Common.overScroll(document.querySelector('.scroll'));
+            document.body.addEventListener('touchmove', function(evt) {
+                //In this case, the default behavior is scrolling the body, which
+                //would result in an overflow.  Since we don't want that, we preventDefault.
+                if(!evt._isScroller) {
+                    evt.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

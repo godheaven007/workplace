@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IRT--诊断结果</title>
+    <link rel="stylesheet" href="css/irrt.css?ver=1.1">
+    <script type="text/javascript" src="js/mobile-util.js"></script>
+</head>
+<body class="result scroll">
+    <div class="container" id="app">
+        <div class="header">
+            <div class="breadCrumb bb01">
+                <div class="breadBack" @click="back()"></div>
+                <div class="breadName">诊断结果</div>
+                <div class="breadHistory" v-if="isShowHistory" @click="link()">历时</div>
+                <div class="breadHistory vsHidden" v-else></div>
+            </div>
+        </div>
+        <div class="middle" :class="{active: isOverFlowHidden}">
+            <!--整体知识水平掌握情况-->
+            <div class="generalWrap mb40">
+                <!--图例说明-->
+                <div class="generalItem graphDesc">
+                    <h1>整体知识水平掌握情况<span class="nineJie">九阶说明</span></h1>
+                    <div class="lineLevelWrap">
+                        <!--背景线条-->
+                        <ul class="lineBg">
+                            <li><span class="excellent">优秀</span></li>
+                            <li><span class="good">良好</span></li>
+                            <li><span class="qualified">合格</span></li>
+                            <li><span class="unqualified">不合格</span></li>
+                        </ul>
+                        <!--水平阶级-->
+                        <div class="levelWrap">
+                            <div class="levelItem levelOne" :class="{active: level == 1}">
+                                <div class="person"></div>
+                                <span>不堪一击</span>
+                                <i class="duan">1段</i>
+                            </div>
+                            <div class="levelItem levelTwo" :class="{active: level == 2}">
+                                <div class="person"></div>
+                                <span>初学乍练</span>
+                                <i class="duan">2段</i>
+                            </div>
+                            <div class="levelItem levelThree" :class="{active: level == 3}">
+                                <div class="person"></div>
+                                <span>初窥门径</span>
+                                <i class="duan">3段</i>
+                            </div>
+                            <div class="levelItem levelFour" :class="{active: level == 4}">
+                                <div class="person"></div>
+                                <span>登堂入室</span>
+                                <i class="duan">4段</i>
+                            </div>
+                            <div class="levelItem levelFive" :class="{active: level == 5}">
+                                <div class="person"></div>
+                                <span>驾轻就熟</span>
+                                <i class="duan">5段</i>
+                            </div>
+                            <div class="levelItem levelSix" :class="{active: level == 6}">
+                                <div class="person"></div>
+                                <span>融会贯通</span>
+                                <i class="duan">6段</i>
+                            </div>
+                            <div class="levelItem levelSeven" :class="{active: level == 7}">
+                                <div class="person"></div>
+                                <span>炉火纯青</span>
+                                <i class="duan">7段</i>
+                            </div>
+                            <div class="levelItem levelEight" :class="{active: level == 8}">
+                                <div class="person"></div>
+                                <span>出神入化</span>
+                                <i class="duan">8段</i>
+                            </div>
+                            <div class="levelItem levelNine" :class="{active: level == 9}">
+                                <div class="person"></div>
+                                <span>登峰造极</span>
+                                <i class="duan">9段</i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--平均进度条-->
+                    <div class="averageWrap">
+                        <div class="lineWrap">
+                            <div class="line"></div>
+                        </div>
+                        <div class="aveItem aveItem1">
+                            <div class="aveIcon"></div>
+                        </div>
+                        <div class="aveItem aveItem2">
+                            <div class="aveIcon"></div>
+                        </div>
+                        <div class="aveItem aveItem3 active">
+                            <div class="aveIcon"></div>
+                        </div>
+                        <div class="aveItem aveItem4">
+                            <div class="aveIcon"></div>
+                        </div>
+                        <div class="aveItem aveItem5">
+                            <div class="aveIcon"></div>
+                        </div>
+                        <div class="aveItem aveItem6">
+                            <div class="aveIcon"></div>
+                        </div>
+                        <div class="aveItem aveItem7">
+                            <div class="aveIcon"></div>
+                        </div>
+                        <div class="aveItem aveItem8">
+                            <div class="aveIcon"></div>
+                        </div>
+                        <div class="aveItem aveItem9">
+                            <div class="aveIcon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="concat"></div>
+                <!--测验结果-->
+                <div class="generalItem testResult">
+                    <div class="title">本次的测验结果:</div>
+                    <p>您的知识掌握程度 <em>{{myMaster}}%</em>，</p>
+                    <p>(在当前知识的所有题目中，您大约能答对其中<em>{{myMaster}}%</em>），</p>
+                    <p>平均水平的学生知识掌握度 <em>{{aveMaster}}%</em>，</p>
+
+                    <p v-if="(myMaster - aveMaster) > 0">您的测验结果<em>高出</em>平均水平 <em>{{(myMaster*10000 - aveMaster*10000)/10000}}%</em>。</p>
+                    <p v-else-if="(myMaster - aveMaster) < 0">您的测验结果<em>低于</em>平均水平 <em>{{(aveMaster*10000 - myMaster*10000)/10000}}%</em>。</p>
+                    <p v-else>您的测验结果<em>等于</em>平均水平 <em>{{aveMaster}}%</em>。</p>
+                    <p v-if="level == 1">您完全不了解本学段的各知识点，需从基础知识、基本概念开始认真学习。</p>
+                    <p v-else-if="level == 2">您已初步了解本学段的各知识点，能够解答一些容易的试题，对各个知识点的掌握程度还需要加强练习。</p>
+                    <p v-else-if="level == 3">您已基本了解本学段的各知识点，但无法有效掌握和运用，能够解答大部分较易试题，对知识点的熟练程度尚需加强练习。</p>
+                    <p v-else-if="level == 4">您已掌握本学段的大部分知识点，能够解答中等难度的试题，但对于难度较高或灵活应用的情境尚需加强练习。</p>
+                    <p v-else-if="level == 5">您已基本掌握本学段的所有知识点，能够解答中等偏难的试题，但对于难度偏高或者灵活应用的情境尚需加强练习。</p>
+                    <p v-else-if="level == 6">您已掌握本学段的各知识点，能够解答偏难的试题，对于知识点的灵活应用情境尚需加强练习。</p>
+                    <p v-else-if="level == 7">您已熟练掌握本学段的各知识点，能够解答难的试题，在大多数情况下，针对知识点各种应用情境均可掌握。</p>
+                    <p v-else-if="level == 8">您已精通本学段的各知识点，几乎能够答对所有各种难度的试题，且能够在不同情境灵活应用。</p>
+                    <p v-else>您已完全精通本学段的各知识点，能够答对各种难度的试题，且能够针对各种灵活情境应用知识。</p>
+                    <div class="level level1" v-if="(level == 1 || level == 2 || level == 3)"></div>
+                    <div class="level level2" v-else-if="(level == 4 || level == 5)"></div>
+                    <div class="level level3" v-else-if="(level == 6 || level == 7)"></div>
+                    <div class="level level4" v-else></div>
+                </div>
+                <div class="concat"></div>
+                <!--进阶说明-->
+                <div class="generalItem advanceDesc">
+                    <div class="title">进阶说明:</div>
+                    <p>
+                        依据《义务教育英语课程标准》/《普通高中英语课程标准》学习要求，
+                        我们将该学段知识修炼的过程共分为9个段，分别为：
+                        <em>不堪一击、初学乍练、初窥门径、登堂入室、驾轻就熟、融会贯通、炉火纯青、出神入化、登峰造极</em>，
+                        经本次测验，您当前已大致处于第<em> {{level}} </em>段的<em> {{''| levelFilter(level)}} </em>，为了接下来更好的让您修炼提升至第<em> {{level + 1}} </em>段的<em> {{''| levelFilter(level + 1)}}</em>，
+                        我们针对您本次的测验特征，特为您准备了下一段进阶修炼的练习试题，您可以点击以下进阶修炼按钮，开始新一段的修炼升级。
+                    </p>
+                    <div class="advanceBtn">
+                        <div id="advance">进阶训练</div>
+                    </div>
+                </div>
+            </div>
+            <!--九阶说明-->
+            <div class="helpInfo">
+                <div class="helpItem">
+                    <div class="title">
+                        <span>九阶说明</span>
+                    </div>
+                    <div class="item">
+                        <div class="name">不堪一击</div>
+                        <div class="comment">完全不了解本学段的各知识点，需从基础知识、基本概念开始认真学习。</div>
+                    </div>
+                    <div class="item">
+                        <div class="name">初学乍练</div>
+                        <div class="comment">初步了解本学段的各知识点，能够解答一些容易的试题，对各个知识点的掌握程度还需要加强练习。</div>
+                    </div>
+                    <div class="item">
+                        <div class="name">初窥门径</div>
+                        <div class="comment">基本了解本学段的各知识点，但无法有效掌握和运用，能够解答大部分较易试题，对知识点的熟练程度尚需加强练习。</div>
+                    </div>
+                    <div class="item">
+                        <div class="name">登堂入室</div>
+                        <div class="comment">掌握本学段的大部分知识点，能够解答中等难度的试题，但对于难度较高或灵活应用的情境尚需加强练习。</div>
+                    </div>
+                    <div class="item">
+                        <div class="name">驾轻就熟</div>
+                        <div class="comment">基本掌握本学段的所有知识点，能够解答中等偏难的试题，但对于难度偏高或者灵活应用的情境尚需加强练习。</div>
+                    </div>
+                    <div class="item">
+                        <div class="name">融会贯通</div>
+                        <div class="comment">掌握本学段的各知识点，能够解答偏难的试题，对于知识点的灵活应用情境尚需加强练习。</div>
+                    </div>
+                    <div class="item">
+                        <div class="name">炉火纯青</div>
+                        <div class="comment">熟练掌握本学段的各知识点，能够解答难的试题，在大多数情况下，针对知识点各种应用情境均可掌握。</div>
+                    </div>
+                    <div class="item">
+                        <div class="name">出神入化</div>
+                        <div class="comment">精通本学段的各知识点，几乎能够答对所有各种难度的试题，且能够在不同情境灵活应用。</div>
+                    </div>
+                    <div class="item">
+                        <div class="name">登峰造极</div>
+                        <div class="comment">完全精通本学段的各知识点，能够答对各种难度的试题，且能够针对各种灵活情境应用知识。</div>
+                    </div>
+                </div>
+                <div class="helpClose" id="close"></div>
+            </div>
+
+            <!--知识维度掌握情况-->
+            <div class="lineBox" id="knowledge">
+                <div class="title">知识维度掌握情况</div>
+                <div class="lineChart" id="line1"></div>
+            </div>
+            <!--展开更多-->
+            <div class="moreInfo">
+                <div class="moreWrap">
+                    <div class="more">
+                        <!--知识点-->
+                        <div class="points">
+                            <div class="pointItem">知识点</div>
+                            <div class="pointItem" v-for="n in knowledgePoints.length">
+                                <i>{{options[n-1]}}</i>
+                                <span>{{knowledgePoints[n-1]}}</span>
+                            </div>
+                        </div>
+                        <!--当次测验-->
+                        <div class="testTime current">
+                            <div class="testItem">当次</div>
+                            <div class="testItem" v-for="n in knowledgeData">
+                                {{n}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle show">
+                    <i>点击展开</i>
+                </div>
+                <div class="toggle hide">
+                    <i>点击收起</i>
+                </div>
+            </div>
+
+            <!--技能维度掌握情况-->
+            <div class="lineBox" id="skill">
+                <div class="title">技能维度掌握情况</div>
+                <div class="lineChart" id="line2"></div>
+            </div>
+            <!--展开更多-->
+            <div class="moreInfo">
+                <div class="moreWrap">
+                    <div class="more">
+                        <!--技能点-->
+                        <div class="points">
+                            <div class="pointItem">技能点</div>
+                            <div class="pointItem" v-for="n in skillPoints.length">
+                                <i>{{options[n-1]}}</i>
+                                <span>{{skillPoints[n-1]}}</span>
+                            </div>
+                        </div>
+                        <!--当次测验-->
+                        <div class="testTime current">
+                            <div class="testItem">当次</div>
+                            <div class="testItem" v-for="n in skillData">
+                                {{n}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle show">
+                    <i>点击展开</i>
+                </div>
+                <div class="toggle hide">
+                    <i>点击收起</i>
+                </div>
+            </div>
+
+            <!--能力维度掌握情况-->
+            <div class="lineBox" id="ability">
+                <div class="title">能力维度掌握情况</div>
+                <div class="lineChart" id="line3"></div>
+            </div>
+            <!--展开更多-->
+            <div class="moreInfo">
+                <div class="moreWrap">
+                    <div class="more">
+                        <!--能力点-->
+                        <div class="points">
+                            <div class="pointItem">能力点</div>
+                            <div class="pointItem" v-for="n in abilityPoints.length">
+                                <i>{{options[n-1]}}</i>
+                                <span>{{abilityPoints[n-1]}}</span>
+                            </div>
+                        </div>
+                        <!--当次测验-->
+                        <div class="testTime current">
+                            <div class="testItem">当次</div>
+                            <div class="testItem" v-for="n in abilityData">
+                                {{n}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle show">
+                    <i>点击展开</i>
+                </div>
+                <div class="toggle hide">
+                    <i>点击收起</i>
+                </div>
+            </div>
+
+        </div>
+        <div class="mask"></div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue-resource.js"></script>
+    <script type="text/javascript" src="js/graph.js"></script>
+    <script type="text/javascript" src="js/result.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script>
+        $(function () {
+//            Common.overScroll(document.querySelector('.scroll'));
+//            document.body.addEventListener('touchmove', function(evt) {
+//                //In this case, the default behavior is scrolling the body, which
+//                //would result in an overflow.  Since we don't want that, we preventDefault.
+//                if(!evt._isScroller) {
+//                    evt.preventDefault();
+//                }
+//            });
+            
+//            function stopDrop() {
+//                var lastY; //最后一次y坐标点
+//                $(document.body).on('touchstart', function(event) {
+//                    lastY = event.originalEvent.changedTouches[0].clientY; //点击屏幕时记录最后一次Y度坐标。
+//                });
+//                $(document.body).on('touchmove', function(event) {
+//                    var y = event.originalEvent.changedTouches[0].clientY;
+//                    var st = $(this).scrollTop(); //滚动条高度
+//                    if (y >= lastY && st <= 10) { //如果滚动条高度小于0，可以理解为到顶了，且是下拉情况下，阻止touchmove事件。
+//                        lastY = y;
+//                        event.preventDefault();
+//                    }
+//                    lastY = y;
+//                });
+//            }
+//            stopDrop(); // 调用 不过效果不是很彻底
+        });
+    </script>
+</body>
+</html>
