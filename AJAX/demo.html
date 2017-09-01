@@ -2,27 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="js/ajax.js"></script>
+    <title>获取相关学生信息</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/demo.css">
 </head>
 <body>
-    <input type="button" value="ajax请求" id="request">
-
-    <script>
-        var request = document.getElementById("request");
-        request.addEventListener("click",function () {
-            FUN.ajax({
-                type: 'post',
-                url: 'data/student.json',
-                data:{
-                    name: 'xusf',
-                    age: 28
-                },
-                success: function (response) {
-                    console.log(response);
-                }
-            });
-        })
-    </script>
+    <div class="stuWrap">
+        <!-- 学生信息展示 -->
+        <div class="stuInfo">
+            <div class="stuTit">
+                <span>姓名</span>
+                <span>年龄</span>
+                <span>性别</span>
+            </div>
+            <div class="stuCont" id="stuInfo">
+            </div>
+        </div>
+        <!-- 学生选择 -->
+        <div class="stuSelect">
+            <div class="name">选择学生</div>
+            <ul class="stuSelectBox">
+                <li stuId="1">小明</li>
+                <li stuId="2">小红</li>
+                <li stuId="3">小军</li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/ajax.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/demo.js"></script>
 </body>
 </html>

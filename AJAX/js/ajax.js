@@ -36,7 +36,7 @@ var FUN = {
         if(typeof _options.data !== 'undefined'){
             if(this.type == 'get'){
                 // get:URL追加字符串
-                this.url = this.setQueryString(_options.data);
+                this.url = this.url + this.setQueryString(_options.data);
             } else if(this.type == 'post'){
                 // post: 数据请求
                 this.data = _options.data;
@@ -82,6 +82,7 @@ var FUN = {
                 }
             }
         }
+
         xhr.open(this.type, this.url, this.async);
         xhr.send(this.data);
     },
