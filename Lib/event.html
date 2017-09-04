@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件之stopPropagation与stopImmediatePropagation</title>
+    <script src="lib.js"></script>
+    <style>
+        #main{
+            width:200px;
+            line-height: 40px;
+            background-color: #e0dfe3;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<a href="http://www.baidu.com" id="link" target="_blank">链接</a>
+    <div id="main">点击我，并查看控制台！</div>
+<img src="fish.gif" alt="" width="400" height="400" onload="alert(222);">
+    <script>
+        var main = document.getElementById('main');
+        var html = document.getElementsByTagName('html')[0];
+        var link = document.getElementById('link');
+
+
+        // 阻止事件的默认行为
+        EventUtil.addHandler(link, 'click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        });
+
+        EventUtil.addHandler(main, 'click', function () {
+//            event.stopPropagation();
+            event.stopImmediatePropagation();
+            console.log(111);
+        });
+
+        EventUtil.addHandler(main, 'click', function () {
+            console.log(222);
+        });
+
+        EventUtil.addHandler(main, 'click', function () {
+            console.log(333);
+        });
+
+        EventUtil.addHandler(html, 'click', function () {
+            console.log('html');
+        });
+    </script>
+    <div class="main" style="color:#f00;">
+        <h2>stopPropagation：</h2>
+        <p>阻止事件冒泡。</p>
+
+        <h2>stopImmediatePropagation：</h2>
+        <p>阻止事件冒泡的同时， 若某元素在同一个事件上绑定多个方法时，后续方法被禁止执行！</p>
+    </div>
+</body>
+</html>
