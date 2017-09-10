@@ -5,6 +5,7 @@
  */
 
 var DEMO = {
+    json: '',
     init: function () {
         this.eventHandle();
     },
