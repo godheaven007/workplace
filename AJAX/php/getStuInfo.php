@@ -3,7 +3,9 @@
  * 获取学生信息
  */
 
-$stuId = $_REQUEST['stuId'];
+$stuId = $_POST['stuId'];
+echo $stuId;
+
 $stuInfo = array(
     "1"=>array("小明",22,"男"),
     "2"=>array("小红",24,"女"),

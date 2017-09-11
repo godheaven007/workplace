@@ -40,9 +40,10 @@ var DEMO = {
     // 获取学生信息
     getStuInfo: function (stuId) {
         FUN.ajax({
+            type: 'post',
             url:'php/getStuInfo.php',
             data:{
-                stuId: stuId
+                'stuId': stuId
             },
             success: function (res) {
                 var json = JSON.parse(res);

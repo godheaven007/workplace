@@ -22,15 +22,9 @@ var FUN = {
 
     init: function (_options) {
         this.url = _options.url || this.url;
+        this.type = (_options.type || 'GET').toLowerCase();
         this.async = _options.async || this.async;
         this.dataType = _options.dataType || this.dataType;
-
-        // 请求类型设定
-        if(!_options.type || _options.type.toLowerCase() !== 'post'){
-            // get方式请求
-        } else {
-            this.type = _options.type.toLowerCase();
-        }
 
         // 数据初始化
         if(typeof _options.data !== 'undefined'){
@@ -82,7 +76,7 @@ var FUN = {
                 }
             }
         }
-
+        console.log(this.data,23123)
         xhr.open(this.type, this.url, this.async);
         xhr.send(this.data);
     },
