@@ -1,0 +1,44 @@
+http://blog.csdn.net/zm2714/article/details/7975207
+
+wampserver：3.0.6 64bit
+
+有人经常为MySQL存取数据涉及到的乱码感到烦心，其实解决这个问题非常简单。只需四步解决问题：
+
+一、配置My.ini文件
+[client]
+port=3306
+default-character-set=utf8
+[mysql]
+default-character-set=utf8
+[mysqld]
+character_set_server=utf8
+重启MySQL。
+
+二、建立数据库时的编码配置
+建立数据库时默认就是下面的值：
+Character set: utf8
+Collation:     utf8_general_ci
+
+三、检验配置结果
+如果更改My.ini配置文件，请重启MySQL服务。
+通过 show variables like 'character%' 和 show variables like 'collation_%' 命令可查看配置结果
+
+四、PHP中要注意的4个地方
+1、在PHP页面开头要加上
+header('conten-type:text/html;charset=utf-8');
+
+2、在执行CRUD操作前先执行一下
+mysql_query("set names 'utf8'");
+
+3、综合小例子
+    <?php
+    header("Content-Type:text/html;charset=utf-8");
+    $conn=@mysql_connect("localhost","root","123456") or die("数据库连接错误");
+    mysql_select_db("test",$conn);
+    mysql_query("set names 'UTF8'");
+    ...
+    插入数据/读取数据/修改数据
+    ...
+    ?>
+
+4、保存PHP文件时要保存为utf8格式，不要选择BOM

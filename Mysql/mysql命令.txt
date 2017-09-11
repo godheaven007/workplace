@@ -1,0 +1,39 @@
+编码格式：
+
+查看数据库编码格式
+SHOW CREATE DATABASE database_name;
+修改数据库编码格式
+ALTER DATABASE database_name CHARACTER SET UTF8;
+修改表编码
+ALTER TABLE table_name DEFAULT CHARACTER SET utf8; 
+查看所有字符集
+SHOW VARIABLES LIKE 'character_set_%';
+
+创建数据库
+CREATE DATABASE IF NOT EXISTS T2 CHARACTER SET GBK;
+删除数据库
+DROP DATABASE IF EXISTS T1 ;
+显示存在多少个数据库
+SHOW DATABASES;
+查看当前数据库
+SELECT DATABASE();
+
+查看数据表
+SHOW TABLES();
+查看其它数据库的数据表
+SHOW TABLES FROM DBNAME;
+查看数据表结构1(sql语句)
+SHOW CREATE TABLE TABLE_NAME;
+查看数据表结构2(结构)
+SHOW COLUMNS FROM TABLENAME;
+查看数据表结构3(结构)
+DESC table_name;
+
+显示警告信息
+SHOW WARNINGS;
+
+显示索引
+SHOW INDEXES FROM TABLE_NAME\G;
+
+
+
