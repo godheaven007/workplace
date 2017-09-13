@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简易评论系统</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/comment.js"></script>
+</head>
+<body>
+    <div class="main">
+        <!--展示区-->
+        <div class="showArea">
+            <div class="comment">
+                <img class="comment-avatar" src="images/1.jpg" width="30" height="30" alt="图像">
+                <div class="comment-name">彭于晏</div>
+                <div class="comment-date">2017年09月13日 03:26:05</div>
+                <div class="comment-cont">
+                    简易评论功能实现简易评论功能实现简易评论
+                </div>
+            </div>
+            <div class="comment">
+                <img class="comment-avatar" src="images/1.jpg" width="30" height="30" alt="图像">
+                <div class="comment-name">彭于晏</div>
+                <div class="comment-date">2017年09月13日 03:26:05</div>
+                <div class="comment-cont">
+                    简易评论功能实现简易评论功能实现简易评论
+                </div>
+            </div>
+        </div>
+        <!--评论区-->
+        <div class="commentArea">
+            <form class="comment_form" id="comment_form" action="" name="comment_form" method="post">
+                <ul>
+                    <li class="commentItem comment_form_head">
+                        <h2>简易评论功能实现</h2>
+                        <span class="required_notification">* 表示必填项</span>
+                    </li>
+                    <li class="commentItem">
+                        <label for="name">姓&nbsp;&nbsp;名:</label>
+                        <input type="text" name="name" id="name" placeholder="请输入您的姓名" required/>
+                    </li>
+                    <li class="commentItem">
+                        <label>头&nbsp;&nbsp;像:</label>
+                        <img id="avatar" src="images/1.jpg" width="50" height="50" alt="头像">
+                        <div class="dropDownBox">
+                            <div class="dropDownCont">请选择头像</div>
+                            <ul class="dropDownList">
+                                <li avatarid="1">彭于晏</li>
+                                <li avatarid="2">高圆圆</li>
+                                <li avatarid="3">吴彦祖</li>
+                                <li avatarid="4">谢霆锋</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="commentItem">
+                        <label for="email">邮&nbsp;&nbsp;箱:</label>
+                        <input type="email" name="email" id="email" placeholder="请输入您的邮箱地址" required/>
+                        <span class="form_hint">正确格式为：xxx@example.com</span>
+                    </li>
+                    <li class="commentItem">
+                        <label for="blog">个人网站:</label>
+                        <input type="url" name="blog" id="blog" placeholder="请填写您的个人网站"/>
+                    </li>
+                    <li class="commentItem">
+                        <label for="comment">评论内容:</label>
+                        <textarea name="message" cols="40" rows="6" id="comment" required placeholder="写点评论吧~"></textarea>
+                    </li>
+                    <li class="commentItem">
+                        <button class="submit" id="submit" type="submit">提&nbsp;&nbsp;交</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
