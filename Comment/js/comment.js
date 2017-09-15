@@ -59,13 +59,15 @@ var Comment = {
 
     // 将时间戳转换为正常日期
     convertUnixDate: function (time) {
-        // 2017年09月13日 03:26:05
         var myDate = new Date(time * 1000),
             year = myDate.getFullYear(),
             month = myDate.getMonth() + 1,
-            day = myDate.getDate();
+            day = myDate.getDate(),
+            hours = myDate.getHours(),
+            minutes = myDate.getMinutes(),
+            seconds = myDate.getSeconds();
 
-        return year + '年' + month + '月' + day + '日';
+        return year + '年' + month + '月' + day + '日 ' + hours + '时' + minutes + '分' + seconds + '秒';
     },
 
     // ajax请求数据
