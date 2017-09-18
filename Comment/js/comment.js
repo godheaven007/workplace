@@ -17,6 +17,7 @@ var Comment = {
     // 初始化操作
     init: function () {
         this.eventHandle();
+        this.getCurPageData();
     },
 
     // 事件绑定
@@ -84,7 +85,7 @@ var Comment = {
             comment: $('#comment').val()
         };
         // $.post('/php/doAction.php', {data:JSON.stringify(data)}, function (data) {
-        $.post('/php/doAction.php', data, function (data) {
+        $.post('php/doAction2.php', data, function (data) {
             if(data.status){
                 // 请求成功
                 Comment.commitFlag = true;
@@ -99,6 +100,13 @@ var Comment = {
                 // 请求失败
             }
         },'json');
+    },
+
+    // 获取当前页的数据
+    getCurPageData: function () {
+        $.post('php/doAction2.php?act=getCurPageData',function (res) {
+            console.log(res);
+        });
     }
 };
 

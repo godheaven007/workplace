@@ -1,23 +1,19 @@
 <?php
-require_once 'db.php';
+require_once 'MPdo.php';
 /**
  * author: xusf
  * description: 评论类
  * createDate: 2017-09-13
  */
 class Comment{
-    // 用户名
-    public $username;
-    // 头像
-    public $avatar;
-    // 邮箱
-    public $email;
-    // 个人网站
-    public $blog;
-    // 评论内容
-    public $comment;
-    // 提交时间
-    public $pubtime;
+    private $pdo = null;                // pdo实例
+    public $username;                   // 用户名
+    public $avatar;                     // 头像
+    public $email;                      // 邮箱
+    public $blog;                       // 个人网站
+    public $comment;                    // 评论内容
+    public $pubtime;                    // 提交时间
+
 
     // 相关数据
     public $data = array();
@@ -26,13 +22,8 @@ class Comment{
     public $errors = array();
 
     // 构造函数
-    public function __construct(){
-        $this->username = $_POST['username'];
-        $this->avatar = $_POST['avatar'];
-        $this->email = $_POST['email'];
-        $this->blog = $_POST['blog'];
-        $this->comment = $_POST['comment'];
-        $this->pubtime = time();
+    public function __construct($pdo){
+        $this->pdo = $pdo;
     }
 
     // 返回错误信息
@@ -51,6 +42,13 @@ class Comment{
      * @return bool
      */
     public function validate(){
+        $this->username = $_POST['username'];
+        $this->avatar = $_POST['avatar'];
+        $this->email = $_POST['email'];
+        $this->blog = $_POST['blog'];
+        $this->comment = $_POST['comment'];
+        $this->pubtime = time();
+
         // 用户名
         if(!filter_var($this->username,FILTER_CALLBACK, array('options'=> 'Comment::validate_str'))){
             $this->errors['username'] = '请输入合法用户名';
@@ -99,4 +97,9 @@ class Comment{
         $str = nl2br(htmlspecialchars($str,ENT_QUOTES));
         return $str;
     }
+
+    public function getCurPageData(){
+        return $this->pdo->test();
+    }
 }
+
