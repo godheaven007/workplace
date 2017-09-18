@@ -1,8 +1,8 @@
 <?php
 
-$data = "foo:*:1023:1000::/home/foo:/bin/sh";
-list($user, $pass, $uid, $gid, $gecos, $home, $shell) = explode(":", $data);
-echo $user; // foo
-echo $pass; // *
-echo $uid;
-echo $gid;
+$arr = array(
+  "name"=>"xsf",
+  "age"=>22
+);
+$str = json_encode($arr);
+echo $str;

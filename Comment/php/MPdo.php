@@ -362,9 +362,6 @@ class MPdo{
         return $result;
     }
 
-    public function test(){
-        return 'bbccdd';
-    }
     /**
      * 关闭连接
      * PHP 在脚本结束时会自动关闭连接。

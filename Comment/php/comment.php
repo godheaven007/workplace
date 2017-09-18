@@ -14,7 +14,6 @@ class Comment{
     public $comment;                    // 评论内容
     public $pubtime;                    // 提交时间
 
-
     // 相关数据
     public $data = array();
 
@@ -98,8 +97,13 @@ class Comment{
         return $str;
     }
 
+    /**
+     * 获取所有数据
+     * @return mixed
+     */
     public function getCurPageData(){
-        return $this->pdo->test();
+        $tableName = 'user';
+        return json_encode($this->pdo->select($tableName));
     }
 }
 

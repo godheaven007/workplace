@@ -85,17 +85,11 @@ var Comment = {
             comment: $('#comment').val()
         };
         // $.post('/php/doAction.php', {data:JSON.stringify(data)}, function (data) {
-        $.post('php/doAction2.php', data, function (data) {
-            if(data.status){
+        $.post('php/doAction2.php?act=add', data, function (res) {
+            if(res.status){
                 // 请求成功
                 Comment.commitFlag = true;
-                var _html = '<div class="comment">' +
-                                '<img class="comment-avatar" src="images/'+ data['data']['avatar'] +'.jpg" width="30" height="30" alt="图像">' +
-                                '<div class="comment-name">'+ data['data']['username'] +'</div>' +
-                                '<div class="comment-date">'+ Comment.convertUnixDate(data['data']['pubtime']) +'</div>' +
-                                '<div class="comment-cont">'+ data['data']['comment'] +'</div>' +
-                            '</div>';
-                $('.showArea').append(_html);
+                Comment.getHtmlCont(res['data'],1);
             } else {
                 // 请求失败
             }
@@ -104,9 +98,27 @@ var Comment = {
 
     // 获取当前页的数据
     getCurPageData: function () {
-        $.post('php/doAction2.php?act=getCurPageData',function (res) {
-            console.log(res);
-        });
+        $.post('php/doAction2.php?act=all',function (res) {
+            Comment.getHtmlCont(res, res.length);
+        },'json');
+    },
+
+    // 获取评论html
+    getHtmlCont: function (data,length) {
+        var _htmlCont = '';
+        if(length){
+            for(var i = 0; i < length; i++){
+                _htmlCont += '<div class="comment">' +
+                    '<img class="comment-avatar" src="images/'+ data[i]['avatar'] +'.jpg" width="30" height="30" alt="图像">' +
+                    '<div class="comment-name">'+ data[i]['username'] +'</div>' +
+                    '<div class="comment-date">'+ Comment.convertUnixDate(data[i]['pubtime']) +'</div>' +
+                    '<div class="comment-cont">'+ data[i]['comment'] +'</div>' +
+                    '</div>';
+            }
+        } else {
+            _htmlCont = '<p>该页暂无数据！！！</p>';
+        }
+        $('.showArea').append(_htmlCont);
     }
 };
 

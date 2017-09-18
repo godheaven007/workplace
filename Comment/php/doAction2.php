@@ -9,13 +9,13 @@ $comment = new Comment($pdo);
 
 
 $act = $_GET['act'];
-if($act == 'getCurPageData'){
+if($act == 'all'){
     // 获取当前页数据
     echo $comment->getCurPageData();
-} else if($act == 'delData'){
+} else if($act == 'del'){
     // 删除该条数据
 
-} else if($act == 'addData'){
+} else if($act == 'add'){
     if($comment->validate()){
         // 输入正确，插入数据库
         $affectRows = $pdo->insert('user',array(
@@ -29,7 +29,7 @@ if($act == 'getCurPageData'){
 
         if($affectRows){
             // 返回数据至前台
-            die('{"status":1,"data":'. json_encode($comment->getData()) .'}');
+            die('{"status":1,"data":['. json_encode($comment->getData()) .']}');
         }
     } else {
         // 前台输入有错误
