@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab 切换</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="tab.js"></script>
+</head>
+<body>
+    <div class="tab">
+        <ul id="tabIndex">
+            <li>tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <div class="tabCont">
+            <div class="tabContItem">
+                tabContItem1
+            </div>
+            <div class="tabContItem">
+                tabContItem2
+            </div>
+            <div class="tabContItem">
+                tabContItem3
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.tab').tab({
+            triggerType:'mouseover',
+            invoke:2
+        });
+    </script>
+</body>
+</html>

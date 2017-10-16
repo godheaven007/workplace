@@ -1,0 +1,29 @@
+*{margin:0; padding:0;}
+ul,li{list-style:none;}
+.tab{
+	width:300px;
+	height:120px;
+	margin: 100px auto;
+	border:1px solid #eee;
+}
+#tabIndex{
+	width:100%;
+	height:60px;
+	line-height: 60px;
+}
+#tabIndex li{
+	float:left;
+	width:33.33%;
+	text-align: center;
+	cursor:pointer;
+}
+#tabIndex li.active{
+	background: #eee;
+}
+.tabContItem{
+	display: none;
+	width: 100%;
+	line-height: 60px;
+	text-align: center;
+}
+.tabContItem.active{display: block;}
