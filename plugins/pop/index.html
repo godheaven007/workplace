@@ -1,0 +1,135 @@
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>弹框demo</title>
+    <link rel="stylesheet" href="css/layer-animate.css">
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .btn{
+            float:left;
+            font-size: 18px;
+            margin:30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="">
+<div class="btn btn1">从上滑落</div>
+<div class="btn btn2">从下划入</div>
+<div class="btn btn3">中间扩散</div>
+<div class="btn btn4">中间扩散渐入</div>
+<div class="btn btn5">从下方平滑进入</div>
+<div class="btn btn6">翻转</div>
+<div class="btn btn7">晃动</div>
+<div class="btn btn8">左右伸缩</div>
+<div class="btn btn9">透明度渐入</div>
+<div class="btn btn10">无动效弹框</div>
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script><script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/method.js"></script>
+<script>
+    $(".btn1").on("click",function(){
+        var obj={
+            type:"slideFromTop",
+            close:"true",
+            title:"弹框标题",
+            content:"<div>弹框内容弹框内容弹框框内容弹框内容弹框内容弹框内容弹框内容",
+            btn:["取消","保存"],
+            callBack1:function(){
+                alert("取消");
+            },
+            callBack2:function(){
+                method.msg_layer({title:"确认框标题",content:"保存成功"})
+            }
+        };
+        method.msg_layer(obj);
+    });
+   $(".btn2").on("click",function(){
+       var obj={
+           type:"slideFromBottom",
+           //有title属性的话，则有标题，标题内容为title值，无title属性则无标题
+           title:"弹框标题",
+           content:"<div>弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容",
+           btn:["","保存"]
+       };
+       method.msg_layer(obj);
+   });
+   $(".btn3").on("click",function(){
+       var obj={
+           type:"showSweetAlert",
+           title:"弹框标题",
+           content:"<div>弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容",
+           btn:["取消","提交"]
+       };
+       method.msg_layer(obj);
+   });
+   $(".btn4").on("click",function(){
+       var obj={
+           type:"layerFadeIn",
+           title:"弹框标题",
+           close:"true",
+           content:"<div>弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容",
+            btn:["取消",""]
+       };
+       method.msg_layer(obj);
+   });
+   $(".btn5").on("click",function(){
+       var obj={
+           type:"layer-fadeInUpBig",
+           title:"弹框标题",
+           content:"<div>弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容",
+       };
+       method.msg_layer(obj);
+   });
+   $(".btn6").on("click",function(){
+       var obj={
+           type:"layer-rollIn",
+           title:"弹框标题",
+           content:"<div>弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容",
+       };
+       method.msg_layer(obj);
+   });
+   $(".btn7").on("click",function(){
+       var obj={
+           type:"layer-shake",
+           title:"弹框标题",
+           content:"<div>弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容",
+           area:["500px","200px"]
+       };
+       method.msg_layer(obj);
+   });
+   $(".btn8").on("click",function(){
+       var obj={
+           type:"layer-spread",
+           title:"弹框标题",
+           content:"<div>弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容",
+           area:["300px","200px"]
+       };
+       method.msg_layer(obj);
+   });
+   $(".btn9").on("click",function(){
+       var obj={
+           type:"layer-fadeIn",
+           title:"弹框标题",
+           content:"<div>弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容",
+       };
+       method.msg_layer(obj);
+   });
+   $(".btn10").on("click",function(){
+       var obj={
+           type:"none",
+           title:"弹框标题",
+           content:"<div>弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容弹框内容",
+           area:["500px","200px"]
+       };
+       method.msg_layer(obj);
+   });
+    $("body").delegate(".msg-layer-bg","click",function(){
+        method.msg_close()
+    });
+
+</script>
+</body></html>
