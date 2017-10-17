@@ -9,6 +9,7 @@
 
 	var Calendar = function(year, month){
 		this.monthData = this.getMonthData(year, month);
+		this.eventHandle();
 	};
 
 
@@ -126,6 +127,34 @@
 		build: function($target){
 			var html = this.getTemplate();
 			$target.html(html);
+		},
+
+		// 事件绑定
+		eventHandle: function(){
+
+			var _this = this;
+			// 采用事件委托机制
+			$(document).on('click','.ui-datepicker-wrapper', function(e){
+				var domNode = e.target;
+				if(domNode.tagName.toLowerCase() == 'td'){
+					if(domNode.className === 'notAllowed'){
+						return;
+					} else if(domNode.className === 'allow'){
+						var date = _this.monthData.year + "年" + _this.monthData.month + '月' + $(domNode).text() + '日';
+						alert(date);
+						return;
+					}
+				} else if(domNode.className.indexOf('ui-datepicker-btn-next') > 0){
+					// 下一月
+					_this.monthData.month++;
+				} else if(domNode.className.indexOf('ui-datepicker-btn-prev') > 0){
+					// 上一月
+					_this.monthData.month--;
+				}
+				
+				_this.monthData = _this.getMonthData(_this.monthData.year, _this.monthData.month);
+				$(e.currentTarget).html(_this.getTemplate());
+			})
 		}
 	};
 
