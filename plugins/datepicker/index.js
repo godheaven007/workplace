@@ -18,11 +18,11 @@
 		// 返回某一个月的数据
 		getMonthData: function(_year, _month){
 			var ret = [];
-			if(!_year || !_month){
-				var date = new Date();
-				_year = date.getFullYear();
-				_month = date.getMonth + 1;
-			}
+			// if(!_year || !_month){
+			// 	var date = new Date();
+			// 	_year = date.getFullYear();
+			// 	_month = date.getMonth() + 1;
+			// }
 
 			// 获取当月的第一天
 			var firstDate = new Date(_year, _month - 1, 1);
@@ -53,12 +53,11 @@
 					showDate = date,
 					thisMonth = _month,
 					allow = 0;				// 只有当前月的数据可以访问
-
 				if(showDate <= 0){
 					// 上一个月
 					thisMonth = _month - 1;
 					showDate = lastDayOfLastMonth + date;
-				} else if(showDate > lastDayOfLastMonth){
+				} else if(showDate > lastDayOfCurMonth){
 					// 下一个月
 					thisMonth = _month + 1;
 					showDate = showDate - lastDayOfCurMonth;
@@ -76,7 +75,7 @@
 					allow: allow
 				});
 			}
-
+			
 			return {
 				year: _year,
 				month: _month,
@@ -151,7 +150,7 @@
 					// 上一月
 					_this.monthData.month--;
 				}
-				
+
 				_this.monthData = _this.getMonthData(_this.monthData.year, _this.monthData.month);
 				$(e.currentTarget).html(_this.getTemplate());
 			})
