@@ -11,7 +11,6 @@
 
 		// dom元素设定
 		this.$ele = ele;
-		this.$input = ele.find('input');
 		this.$wrapper = ele.find('.ui-datepicker-wrapper');
 
 		// 设置默认参数
@@ -168,7 +167,6 @@
 		eventHandle: function(){
 
 			var _this = this;
-				$input = this.$ele.find('input');
 
 			// 单元格点击
 			$(document).on('click','.ui-datepicker-wrapper td', function(e){
@@ -178,8 +176,10 @@
 					return;
 				} else if($(this).hasClass('allow')){
 
+					var $wrapper = $(this).parents('.ui-datepicker-wrapper');
+
 					// 重置单元格选中样式
-					_this.$wrapper.find('.allow').removeClass('active');
+					$wrapper.find('.allow').removeClass('active');
 
 					var date = _this.monthData.year + "年" + _this.monthData.month + '月' + $(this).text() + '日';
 
@@ -192,9 +192,8 @@
 					} else {
 						$(this).removeClass('active');
 					}
-
-					_this.$input.val(date);
-					_this.$wrapper.removeClass('active');
+					$wrapper.prev().val(date);
+					$wrapper.removeClass('active');
 					_this.settings.callback();
 				}
 			});
@@ -221,6 +220,7 @@
 				// 日历组件
 				var $next = $(this).next();
 				if(!$next.hasClass('active')){
+					$('.ui-datepicker-wrapper').removeClass('active');
 					$next.addClass('active');
 				} else {
 					$next.removeClass('active');
@@ -236,9 +236,9 @@
 
 	// jQuery插件形式
 	$.fn.datepicker = function(options){
-		var calendar = new Calendar(this, options, new Date());
-		calendar.build(this);
-		
+
+		var calendar = new Calendar($(this), options, new Date());
+		calendar.build($(this));
 		// 保留jQUery的链式调用
 		return this;
 	}
