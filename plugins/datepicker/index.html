@@ -6,14 +6,44 @@
 	<script type="text/javascript" src="../jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="index.js"></script>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<style type="text/css">
+		/*注意！这个不属于组件的内容*/
+		.datepickerBox{
+			position: relative;
+			width:300px;
+			height: 300px;
+			margin:100px;
+		}
+		.datapickerInput{
+			border:1px solid #666;
+			border-radius: 4px;
+			padding:5px;
+			height: 40px;
+			line-height: 40px;
+			width:240px;
+		}
+		.datapickerInput:focus{
+			outline: 0 none;
+			border:1px solid #1abc9c;
+		}
+	</style>
 </head>
 <body>
-	<div class="ui-datepicker-wrapper" id="calendar"></div>
-	<div class="ui-datepicker-wrapper" id="calendar2"></div>
-
+	<div class="datepickerBox">
+		<input type="text" class="datapickerInput" readonly="true">
+		<div class="ui-datepicker-wrapper"></div>
+	</div>
 	
 	<script>
-		$('#calendar').datepicker();
+		var test = function(){
+			alert(111);
+		}
+		$('.datepickerBox').datepicker({
+			// callback: test,
+			// year: 2016,
+			// month: 8,
+			// day:12
+		});
 	</script>
 </body>
 </html>

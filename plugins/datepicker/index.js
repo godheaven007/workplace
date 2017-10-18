@@ -7,16 +7,27 @@
 
 ;(function($){
 
+	// 用来保存选中的日期
+	var data = {};
+
 	var Calendar = function(ele, options, date){
 
+		// dom元素设定
 		this.$ele = ele;
+		this.$input = ele.find('input');
+		this.$wrapper = ele.find('.ui-datepicker-wrapper');
 
 		// 设置默认参数
 		this.default = {
-			year: date.getFullYear(),	// 默认年
-			month: date.getMonth() + 1,	// 默认月
-			day: date.getDate(),		// 默认日
-			// isShowPrevNext: false,		// 是否显示上一个月以及下一个月的数据
+			year: date.getFullYear(),	// 默认当年
+			month: date.getMonth() + 1,	// 默认当月
+			day: date.getDate(),		// 默认当日
+			yearActive: null,			// 选中的年
+			monthActive: null,			// 选中的月
+			dayActive: null,			// 选中的日
+			callback: function(){
+				
+			}			
 		};
 
 		// 参数覆盖（这里采用深拷贝）
@@ -26,7 +37,6 @@
 
 		this.eventHandle();
 	};
-
 
 	Calendar.prototype = {
 		// 初始化操作
@@ -121,7 +131,7 @@
 
 			var monthData = this.monthData.data;
 
-			for(var i = 0; i < monthData.length; i++){
+			for(var i = 0, j = monthData.length; i < j; i++){
 				// tr标签开始
 				if(i % 7 === 0) _html += '<tr>';
 				var classNames = !monthData[i].allow ? 'notAllowed' : 'allow';
@@ -131,16 +141,22 @@
 					&& (this.settings.day == monthData[i].showDate)){
 					classNames += ' today';
 				}
+				
+				// 增加选中样式
+				if((this.settings.yearActive == this.monthData.year) && (this.settings.monthActive == monthData[i].thisMonth)
+					&& (this.settings.dayActive == monthData[i].showDate)){
+					classNames += ' active';
+				}
 
-				_html += '<td class="'+ classNames +'" date="'+ 1 +'">'+ monthData[i].showDate +'</td>'
+				_html += '<td class="'+ classNames +'">'+ monthData[i].showDate +'</td>'
 
 				// tr标签结束
 				if(i % 7 === 6) _html += '</tr>';
 			}
 			
-			_html += '</tbody>' +
-				'</table>' +
-			'</div>';
+			_html += 	'</tbody>' +
+					'</table>' +
+				'</div>';
 
 			return _html;
 		},
@@ -148,35 +164,76 @@
 		// 渲染页面
 		build: function(){
 			var html = this.getTemplate();
-			this.$ele.html(html);
+			this.$wrapper.html(html);
 		},
 
 		// 事件绑定
 		eventHandle: function(){
 
 			var _this = this;
-			// 采用事件委托机制
-			$(document).on('click','.ui-datepicker-wrapper', function(e){
-				var domNode = e.target;
-				if(domNode.tagName.toLowerCase() == 'td'){
-					if(domNode.className === 'notAllowed'){
-						return;
-					} else if(domNode.className === 'allow'){
-						var date = _this.monthData.year + "年" + _this.monthData.month + '月' + $(domNode).text() + '日';
-						alert(date);
-						return;
+				$input = this.$ele.find('input');
+
+			// 单元格点击
+			$(document).on('click','.ui-datepicker-wrapper td', function(e){
+				e.stopPropagation();
+
+				if($(this).hasClass('notAllowed')){
+					return;
+				} else if($(this).hasClass('allow')){
+
+					// 重置单元格选中样式
+					_this.$wrapper.find('.allow').removeClass('active');
+
+					var date = _this.monthData.year + "年" + _this.monthData.month + '月' + $(this).text() + '日';
+
+					_this.settings.yearActive = _this.monthData.year;
+					_this.settings.monthActive = _this.monthData.month;
+					_this.settings.dayActive = $(this).text();
+
+					if(!$(this).hasClass('active')){
+						$(this).addClass('active');
+					} else {
+						$(this).removeClass('active');
 					}
-				} else if(domNode.className.indexOf('ui-datepicker-btn-next') > 0){
+
+					_this.$input.val(date);
+					_this.$wrapper.removeClass('active');
+					_this.settings.callback();
+				}
+			});
+
+			// 月份切换
+			$(document).on('click', '.ui-datepicker-wrapper .ui-datepicker-btn', function(e){
+				e.stopPropagation();
+
+				if($(this).hasClass('ui-datepicker-btn-next')){
 					// 下一月
 					_this.monthData.month++;
-				} else if(domNode.className.indexOf('ui-datepicker-btn-prev') > 0){
+				} else if($(this).hasClass('ui-datepicker-btn-prev')){
 					// 上一月
 					_this.monthData.month--;
 				}
-
 				_this.monthData = _this.getMonthData(_this.monthData.year, _this.monthData.month);
-				$(e.currentTarget).html(_this.getTemplate());
-			})
+				
+				_this.$wrapper.html(_this.getTemplate());
+			});
+
+			// 输入框点击
+			$(document).on('click', '.datapickerInput', function(e){
+				e.stopPropagation();
+				// 日历组件
+				var $next = $(this).next();
+				if(!$next.hasClass('active')){
+					$next.addClass('active');
+				} else {
+					$next.removeClass('active');
+				}
+			});
+
+			// 点击空白处,消失
+			$(document).on('click', 'html,body', function(){
+				$('.ui-datepicker-wrapper').removeClass('active');
+			});
 		}
 	};
 
@@ -184,7 +241,7 @@
 	$.fn.datepicker = function(options){
 		var calendar = new Calendar(this, options, new Date());
 		calendar.build(this);
-
+		
 		// 保留jQUery的链式调用
 		return this;
 	}
