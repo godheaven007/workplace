@@ -7,9 +7,6 @@
 
 ;(function($){
 
-	// 用来保存选中的日期
-	var data = {};
-
 	var Calendar = function(ele, options, date){
 
 		// dom元素设定
