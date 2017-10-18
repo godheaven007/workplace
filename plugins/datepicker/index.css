@@ -45,7 +45,7 @@ table{width:100%; border-collapse: collapse;}
 	line-height: 40px;
 }
 .ui-datepicker-wrapper .ui-datepicker-body td{
-	border: 1px solid #f0f0f0;
+	/*border: 1px solid #f0f0f0;*/
 	font-size:12px;
 	cursor: pointer;
 }
@@ -53,6 +53,9 @@ table{width:100%; border-collapse: collapse;}
 	cursor:not-allowed;
 	color: #d1d1d1;
 	/*background-color: #f0f0f0;*/
+}
+.ui-datepicker-wrapper .ui-datepicker-body td.today{
+	border:1px solid orange;
 }
 .ui-datepicker-wrapper .ui-datepicker-body td.allow{
 	color: #000;

@@ -7,22 +7,36 @@
 
 ;(function($){
 
-	var Calendar = function(year, month){
-		this.monthData = this.getMonthData(year, month);
+	var Calendar = function(ele, options, date){
+
+		this.$ele = ele;
+
+		// 设置默认参数
+		this.default = {
+			year: date.getFullYear(),	// 默认年
+			month: date.getMonth() + 1,	// 默认月
+			day: date.getDate(),		// 默认日
+			// isShowPrevNext: false,		// 是否显示上一个月以及下一个月的数据
+		};
+
+		// 参数覆盖（这里采用深拷贝）
+		this.settings = $.extend(true, {}, this.default, options);
+		
+		this.monthData = this.getMonthData(this.settings.year, this.settings.month);
+
 		this.eventHandle();
 	};
 
 
 	Calendar.prototype = {
-		
+		// 初始化操作
+		init: function(){
+
+		},
+
 		// 返回某一个月的数据
 		getMonthData: function(_year, _month){
 			var ret = [];
-			// if(!_year || !_month){
-			// 	var date = new Date();
-			// 	_year = date.getFullYear();
-			// 	_month = date.getMonth() + 1;
-			// }
 
 			// 获取当月的第一天
 			var firstDate = new Date(_year, _month - 1, 1);
@@ -75,7 +89,7 @@
 					allow: allow
 				});
 			}
-			
+
 			return {
 				year: _year,
 				month: _month,
@@ -104,12 +118,21 @@
 									'</tr>	' +
 								'</thead>' +
 								'<tbody>';
+
 			var monthData = this.monthData.data;
+
 			for(var i = 0; i < monthData.length; i++){
 				// tr标签开始
 				if(i % 7 === 0) _html += '<tr>';
-				var allowFlag = !monthData[i].allow ? 'notAllowed' : 'allow';
-				_html += '<td class="'+ allowFlag +'">'+ monthData[i].showDate +'</td>'
+				var classNames = !monthData[i].allow ? 'notAllowed' : 'allow';
+
+				// 增加当天选中日期样式
+				if((this.settings.year == this.monthData.year) && (this.settings.month == this.monthData.month)
+					&& (this.settings.day == monthData[i].showDate)){
+					classNames += ' today';
+				}
+
+				_html += '<td class="'+ classNames +'" date="'+ 1 +'">'+ monthData[i].showDate +'</td>'
 
 				// tr标签结束
 				if(i % 7 === 6) _html += '</tr>';
@@ -123,9 +146,9 @@
 		},
 
 		// 渲染页面
-		build: function($target){
+		build: function(){
 			var html = this.getTemplate();
-			$target.html(html);
+			this.$ele.html(html);
 		},
 
 		// 事件绑定
@@ -158,8 +181,8 @@
 	};
 
 	// jQuery插件形式
-	$.fn.datepicker = function(year, month){
-		var calendar = new Calendar(year, month);
+	$.fn.datepicker = function(options){
+		var calendar = new Calendar(this, options, new Date());
 		calendar.build(this);
 
 		// 保留jQUery的链式调用
