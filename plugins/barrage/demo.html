@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用Cavans实现弹幕效果</title>
+	<style type="text/css">
+		.barrage{
+			width: 640px;
+			height: 360px;
+			border:2px solid #f00;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="barrage" class="barrage"></canvas>
+	<script type="text/javascript" src="../jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="barrage.js"></script>
+	<script>
+		var dataBarrage = [
+			{
+				value: 'aaa',
+				fontSize: 40,
+				range: [0, 0.7]
+			}, 
+			{
+				value: 'bbb',
+				range: [0, 0.2]
+			},
+			 {
+				value: 'ccc',
+				color: 'green',
+				range: [0.5, 0.9]
+			}
+		]
+
+		$('#barrage').barrage(dataBarrage);
+	</script>
+</body>
+</html>

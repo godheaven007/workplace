@@ -1,5 +1,8 @@
 编码格式：
 
+设置客户端显示模式，不影响真实数据
+SET NAMES gbk;
+
 查看数据库编码格式
 SHOW CREATE DATABASE database_name;
 修改数据库编码格式
@@ -19,7 +22,7 @@ SHOW DATABASES;
 SELECT DATABASE();
 
 查看数据表
-SHOW TABLES();
+SHOW TABLES;
 查看其它数据库的数据表
 SHOW TABLES FROM DBNAME;
 查看数据表结构1(sql语句)
