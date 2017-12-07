@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="test">hello world!</h1>
+	<script>
+		var Test = {
+			num: 222,
+			eventHandle: function(){
+				var node = document.getElementById('test');
+				node.addEventListener('click', () => {
+					console.log(this.num);
+				})
+			}
+		};
+
+		Test.eventHandle();
+	</script>
+</body>
+</html>

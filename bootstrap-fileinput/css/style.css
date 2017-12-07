@@ -1,0 +1,331 @@
+*{margin:0; padding:0; box-sizing: border-box;}
+li{list-style: none;}
+html,body{height: 100%;}
+body{padding: 20px 0; background: #eee;}
+input{outline: none; border:none;}
+.mCS-light-3.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{background-color: #209E85;}
+.mCSB_inside>.mCSB_container{margin-right: 0;}
+.fl{float:left;}
+.clearfix{clear:both;}
+.mask{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+.vhCenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.t_container{
+    width: 1200px;
+    height:100%;
+    margin: 0px auto;
+    /* background-color: #d4f2ff;
+    box-shadow: 0 0 10px 4px #e4ebf3; */
+}
+.breadCrumb{
+    width:100%;
+    height:120px;
+    padding: 20px 80px;
+}
+.breadCrumb .breadItem{
+    position: relative;
+    float: left;
+    width:240px;
+    height: 70px;
+    background: #ccc;
+    margin-right: 16px;
+    color: #fff;
+    font-size: 16px;
+    cursor: not-allowed;
+}
+.breadCrumb .breadItem.active{cursor: default;}
+.breadCrumb .breadItem.active{background: #209E85;}
+.breadCrumb .breadItem:first-child{
+    border-radius: 10px 0 0 10px;
+}
+.breadCrumb .breadItem:last-child{
+    border-radius: 0 10px 10px 0;
+}
+.breadCrumb .breadItem:after{
+    content: "";
+    border-top: 35px solid transparent;
+    border-bottom: 35px solid transparent;
+    border-left: 35px solid #ccc;
+    position: absolute;
+    right: -35px;
+    top: 0;
+    z-index: 2;
+}
+.breadCrumb .breadItem.active:after{border-left: 35px solid #209E85;}
+.breadCrumb .breadItem:last-child:after{display: none;}
+.breadCrumb .breadItem:before{
+    content: '';
+    border-top: 35px solid transparent;
+    border-bottom: 35px solid transparent;
+    border-left: 35px solid #eee;
+    position: absolute;
+    left: 0px;
+    top: 0;
+    z-index: 1;
+}
+.breadCrumb .breadItem:first-child:before{display: none;}
+.breadItem .breadBtn{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width:100px;
+    height:36px;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+.breadItem .breadBtn{
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 2px #fff inset, 0 -1px 0 #ccc inset;
+    background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);
+}
+.breadItem.active .breadBtn{
+    cursor: pointer;
+    border: 1px solid #1e7db9;
+    box-shadow: 0 1px 2px #8fcaee inset, 0 -1px 0 #497897 inset, 0 -2px 3px #8fcaee inset;
+    background: -webkit-linear-gradient(top,#42a4e0,#2e88c0);
+}
+.breadItem.active .breadBtn:active{
+    margin-top:1px;
+    margin-left:1px;
+}
+.breadItem .status{
+    display: none;
+    width:100%;
+    height:70px;
+    line-height: 70px;
+    text-indent:20px;
+    text-align: center;
+}
+.breadItem .status.active{display: block;}
+
+/*上传*/
+.uploadBox{
+    display: none;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width:800px;
+    padding:15px;
+    background-color: #fff;
+    z-index: 101;
+}
+.uploadBox .uploadClose{
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+    text-align: right;
+}
+.uploadBox .uploadClose span{
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    background-color: #209E85;
+}
+
+/*题型弹框*/
+.questionBox{
+    display: none;
+    width: 420px;
+    padding: 16px;
+    line-height: 40px;
+    color: #9092a4;
+    border-radius:4px;
+    background-color: #fff;
+    z-index: 101;
+}
+.questionTop{
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+}
+.questionMid ul{overflow: hidden;}
+.questionMid .radioItem{
+    float:left;
+    width: 33.3%;
+    padding-left: 30px;
+    line-height: 50px;
+    cursor: pointer;
+    background: url(../img/radio.png) no-repeat left center;
+}
+.questionMid .radioItem.active{
+    background: url(../img/radioActive.png) no-repeat left center;   
+}
+.questionBot{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+}
+.questionBot span{
+    display: inline-block;
+    margin-right: 20px;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #209E85;
+}
+.questionBot span:hover{opacity: 0.8;}
+
+/*下拉框*/
+.dropDownBox{
+    position: relative;
+    display: inline-block;
+    width: 110px;
+    height:38px;
+    border-radius:4px;
+    background-color: #fff;
+}
+.dropDownBox:last-child{margin-right:0;}
+.dropDownCont{
+    width: 100%;
+    height:38px;
+    line-height: 38px;
+    padding:0 8px 0 12px;
+    cursor: pointer;
+    font-size:14px;
+    border:1px solid #e7e6e6;
+    border-radius:4px;
+    text-align: center;
+    background: url(../img/downSj.png) no-repeat right center;
+}
+.dropDownList{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 140px;
+    background-color: #fff;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 0 8px #cbe6f7;
+    text-align: center;
+    z-index: 1;
+}
+.dropDownList ul{margin-bottom: 0;}
+.dropDownBox.active .dropDownList{display: block;}
+.dropDownList li{
+    width:100%;
+    height:32px;
+    line-height: 32px;
+    cursor: pointer;
+    color: #9a9cac;
+}
+.dropDownList li:hover{color: #5399d3;}
+.dropDownList li:nth-child(2n){background:#edf9fd;}
+
+/*题目区域*/
+.main{
+    padding: 0 80px;
+}
+.quesItem{
+    color: #666;
+    font-size: 14px;
+    background: #fff;
+    border-radius:8px;
+    padding:20px 25px;
+    margin-bottom: 20px;
+}
+.quesItemIn{
+    min-height: 80px;
+    margin-bottom:5px;
+}
+.quesItemIn .quesTit{
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-indent: 22px;
+}
+.quesItemIn .quesTit:after{
+    content: '';
+    position:absolute;
+    top: 10px;
+    left: 0;
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    background: #e6b22c;
+}
+.quesItemIn .quesCont{
+    padding:0 40px;
+
+}
+.quesItemIn .quesCont > span{
+    float: left;
+    padding: 0 5px;
+    height: 38px;
+    line-height: 38px;
+}
+.quesItemIn .quesCont > span:first-child{
+    width: 86px;
+}
+.quesCont .quesEditBtn{
+    float: left;
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    background-color: #209E85;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+.quesType label{
+    float: left;
+    width: 86px;
+    line-height: 28px;
+}
+.quesNoOptions{
+    overflow: hidden;
+    margin-top: 12px;
+}
+.quesNoOption{
+    float: left;
+    width: 20%;
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 8px;
+}
+.quesNoOption input{
+    float: left;
+    width: 80px;
+    padding: 0 10px;
+    color: #9092a4;
+    border:1px solid #e7e6e6;
+    border-radius:2px;
+    vertical-align: top;
+}
+.quesNoOption span{
+    float: left;
+    padding: 0 5px;
+}
+.quesNoOption span:first-child{
+    width: 86px;
+}
+.quesNoOption span:first-child:after{
+    content:'';
+    display: inline-block;
+    width: 100%;
+}

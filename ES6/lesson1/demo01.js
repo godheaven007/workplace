@@ -5,11 +5,11 @@
 
 // 循环变量泄露为全局变量
 
-for(var i = 0; i < 10; i++) {
+// for(var i = 0; i < 10; i++) {
 
-}
+// }
 
-console.log(i);	// 结果?
+// console.log(i);	// 结果?
 
 
 // 变量覆盖

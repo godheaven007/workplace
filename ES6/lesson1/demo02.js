@@ -43,9 +43,9 @@
  *	循环体外部是一个作用域，循环体内部是一个单独的作用域
  */
 
- // {
- // 	for(let i = 1; i < 3; i++) {
- // 		let i = 4;
- // 		console.log(i)
- // 	}
- // }
+ {
+ 	for(let i = 1; i < 3; i++) {
+ 		let i = 13;
+ 		console.log(i);
+ 	}
+ }

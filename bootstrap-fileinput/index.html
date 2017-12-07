@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fileinput.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min2.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="t_container">
+        <!-- 流程 -->
+        <ul class="breadCrumb">
+            <li class="breadItem active">
+                <div class="breadBtn" id="uploadBtn">上&nbsp;&nbsp;传</div>
+                <div class="uploadWrap">
+
+                </div>
+            </li>
+            <li class="breadItem">
+                <div class="status active">word智能识别中</div>
+                <div class="status">识别完成</div>
+            </li>
+            <li class="breadItem">
+                <div class="status active">审核中</div>
+                <div class="status">审核完成</div>
+            </li>
+            <li class="breadItem">
+                <div class="breadBtn" id="save">保&nbsp;&nbsp;存</div>
+            </li>
+        </ul>
+        <!-- 主体 -->
+        <div class="main">
+            <div class="quesItem">
+                <div class="quesItemIn quesArea">
+                    <div class="quesTit">题目录入</div>
+                    <div class="quesCont">
+                        XXXXXXXXXXXXXXXXXXXXXXX
+                    </div>
+                </div>
+                <div class="quesItemIn quesType">
+                    <div class="quesTit">题型</div>
+                    <div class="quesCont">
+                        <label value="2">填空题</label>
+                        <div class="quesEditBtn" value="3">修改</div>
+                    </div>
+                </div>
+                <div class="quesItemIn quesOption">
+                    <div class="quesTit">分值和选项</div>
+                    <div class="quesCont">
+                        <span>本题共</span>
+                        <div class="dropDownBox fl">
+                            <div class="dropDownCont">4</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem score" value="1">1</li>
+                                    <li class="dropDownItem score" value="2">2</li>
+                                    <li class="dropDownItem score" value="3">3</li>
+                                    <li class="dropDownItem score" value="4">4</li>
+                                    <li class="dropDownItem score" value="5">5</li>
+                                    <li class="dropDownItem score" value="6">6</li>
+                                    <li class="dropDownItem score" value="7">7</li>
+                                    <li class="dropDownItem score" value="8">8</li>
+                                    <li class="dropDownItem score" value="9">9</li>
+                                    <li class="dropDownItem score" value="10">10</li>
+                                    <li class="dropDownItem score" value="11">11</li>
+                                    <li class="dropDownItem score" value="12">12</li>
+                                    <li class="dropDownItem score" value="13">13</li>
+                                    <li class="dropDownItem score" value="14">14</li>
+                                    <li class="dropDownItem score" value="15">15</li>
+                                    <li class="dropDownItem score" value="16">16</li>
+                                    <li class="dropDownItem score" value="17">17</li>
+                                    <li class="dropDownItem score" value="18">18</li>
+                                    <li class="dropDownItem score" value="19">19</li>
+                                    <li class="dropDownItem score" value="20">20</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span>小题</span>
+                        <div class="clearfix"></div>
+                        <ul class="quesNoOptions">
+                            <li class="quesNoOption">
+                                <span>第1小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                            <li class="quesNoOption">
+                                <span>第2小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                            <li class="quesNoOption">
+                                <span>第3小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                            <li class="quesNoOption">
+                                <span>第4小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="quesItemIn quesNo">
+                    <div class="quesTit">题号</div>
+                    <div class="quesCont">
+                        <!-- 一级题号 -->
+                        <div class="dropDownBox">
+                            <div class="dropDownCont">一</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem firstNo" value="1">一</li>
+                                    <li class="dropDownItem firstNo" value="2">二</li>
+                                    <li class="dropDownItem firstNo" value="3">三</li>
+                                    <li class="dropDownItem firstNo" value="4">四</li>
+                                    <li class="dropDownItem firstNo" value="5">五</li>
+                                    <li class="dropDownItem firstNo" value="6">六</li>
+                                    <li class="dropDownItem firstNo" value="7">七</li>
+                                    <li class="dropDownItem firstNo" value="8">八</li>
+                                    <li class="dropDownItem firstNo" value="9">九</li>
+                                    <li class="dropDownItem firstNo" value="10">十</li>
+                                    <li class="dropDownItem firstNo" value="11">十一</li>
+                                    <li class="dropDownItem firstNo" value="12">十二</li>
+                                    <li class="dropDownItem firstNo" value="13">十三</li>
+                                    <li class="dropDownItem firstNo" value="14">十四</li>
+                                    <li class="dropDownItem firstNo" value="15">十五</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 二级题号 -->
+                        <div class="dropDownBox">
+                            <div class="dropDownCont">二级题号</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem secondNo" value="0">无</li>
+                                    <li class="dropDownItem secondNo" value="1">1</li>
+                                    <li class="dropDownItem secondNo" value="2">2</li>
+                                    <li class="dropDownItem secondNo" value="3">3</li>
+                                    <li class="dropDownItem secondNo" value="4">4</li>
+                                    <li class="dropDownItem secondNo" value="5">5</li>
+                                    <li class="dropDownItem secondNo" value="6">6</li>
+                                    <li class="dropDownItem secondNo" value="7">7</li>
+                                    <li class="dropDownItem secondNo" value="8">8</li>
+                                    <li class="dropDownItem secondNo" value="9">9</li>
+                                    <li class="dropDownItem secondNo" value="10">10</li>
+                                    <li class="dropDownItem secondNo" value="11">11</li>
+                                    <li class="dropDownItem secondNo" value="12">12</li>
+                                    <li class="dropDownItem secondNo" value="13">13</li>
+                                    <li class="dropDownItem secondNo" value="14">14</li>
+                                    <li class="dropDownItem secondNo" value="15">15</li>
+                                    <li class="dropDownItem secondNo" value="16">16</li>
+                                    <li class="dropDownItem secondNo" value="17">17</li>
+                                    <li class="dropDownItem secondNo" value="18">18</li>
+                                    <li class="dropDownItem secondNo" value="19">19</li>
+                                    <li class="dropDownItem secondNo" value="20">20</li>
+                                    <li class="dropDownItem secondNo" value="21">21</li>
+                                    <li class="dropDownItem secondNo" value="22">22</li>
+                                    <li class="dropDownItem secondNo" value="23">23</li>
+                                    <li class="dropDownItem secondNo" value="24">24</li>
+                                    <li class="dropDownItem secondNo" value="25">25</li>
+                                    <li class="dropDownItem secondNo" value="26">26</li>
+                                    <li class="dropDownItem secondNo" value="27">27</li>
+                                    <li class="dropDownItem secondNo" value="28">28</li>
+                                    <li class="dropDownItem secondNo" value="29">29</li>
+                                    <li class="dropDownItem secondNo" value="30">30</li>
+                                    <li class="dropDownItem secondNo" value="31">31</li>
+                                    <li class="dropDownItem secondNo" value="32">32</li>
+                                    <li class="dropDownItem secondNo" value="33">33</li>
+                                    <li class="dropDownItem secondNo" value="34">34</li>
+                                    <li class="dropDownItem secondNo" value="35">35</li>
+                                    <li class="dropDownItem secondNo" value="36">36</li>
+                                    <li class="dropDownItem secondNo" value="37">37</li>
+                                    <li class="dropDownItem secondNo" value="38">38</li>
+                                    <li class="dropDownItem secondNo" value="39">39</li>
+                                    <li class="dropDownItem secondNo" value="40">40</li>
+                                    <li class="dropDownItem secondNo" value="41">41</li>
+                                    <li class="dropDownItem secondNo" value="42">42</li>
+                                    <li class="dropDownItem secondNo" value="43">43</li>
+                                    <li class="dropDownItem secondNo" value="44">44</li>
+                                    <li class="dropDownItem secondNo" value="45">45</li>
+                                    <li class="dropDownItem secondNo" value="46">46</li>
+                                    <li class="dropDownItem secondNo" value="47">47</li>
+                                    <li class="dropDownItem secondNo" value="48">48</li>
+                                    <li class="dropDownItem secondNo" value="49">49</li>
+                                    <li class="dropDownItem secondNo" value="50">50</li>
+                                    <li class="dropDownItem secondNo" value="51">51</li>
+                                    <li class="dropDownItem secondNo" value="52">52</li>
+                                    <li class="dropDownItem secondNo" value="53">53</li>
+                                    <li class="dropDownItem secondNo" value="54">54</li>
+                                    <li class="dropDownItem secondNo" value="55">55</li>
+                                    <li class="dropDownItem secondNo" value="56">56</li>
+                                    <li class="dropDownItem secondNo" value="57">57</li>
+                                    <li class="dropDownItem secondNo" value="58">58</li>
+                                    <li class="dropDownItem secondNo" value="59">59</li>
+                                    <li class="dropDownItem secondNo" value="60">60</li>
+                                    <li class="dropDownItem secondNo" value="61">61</li>
+                                    <li class="dropDownItem secondNo" value="62">62</li>
+                                    <li class="dropDownItem secondNo" value="63">63</li>
+                                    <li class="dropDownItem secondNo" value="64">64</li>
+                                    <li class="dropDownItem secondNo" value="65">65</li>
+                                    <li class="dropDownItem secondNo" value="66">66</li>
+                                    <li class="dropDownItem secondNo" value="67">67</li>
+                                    <li class="dropDownItem secondNo" value="68">68</li>
+                                    <li class="dropDownItem secondNo" value="69">69</li>
+                                    <li class="dropDownItem secondNo" value="70">70</li>
+                                    <li class="dropDownItem secondNo" value="71">71</li>
+                                    <li class="dropDownItem secondNo" value="72">72</li>
+                                    <li class="dropDownItem secondNo" value="73">73</li>
+                                    <li class="dropDownItem secondNo" value="74">74</li>
+                                    <li class="dropDownItem secondNo" value="75">75</li>
+                                    <li class="dropDownItem secondNo" value="76">76</li>
+                                    <li class="dropDownItem secondNo" value="77">77</li>
+                                    <li class="dropDownItem secondNo" value="78">78</li>
+                                    <li class="dropDownItem secondNo" value="79">79</li>
+                                    <li class="dropDownItem secondNo" value="80">80</li>
+                                    <li class="dropDownItem secondNo" value="81">81</li>
+                                    <li class="dropDownItem secondNo" value="82">82</li>
+                                    <li class="dropDownItem secondNo" value="83">83</li>
+                                    <li class="dropDownItem secondNo" value="84">84</li>
+                                    <li class="dropDownItem secondNo" value="85">85</li>
+                                    <li class="dropDownItem secondNo" value="86">86</li>
+                                    <li class="dropDownItem secondNo" value="87">87</li>
+                                    <li class="dropDownItem secondNo" value="88">88</li>
+                                    <li class="dropDownItem secondNo" value="89">89</li>
+                                    <li class="dropDownItem secondNo" value="90">90</li>
+                                    <li class="dropDownItem secondNo" value="91">91</li>
+                                    <li class="dropDownItem secondNo" value="92">92</li>
+                                    <li class="dropDownItem secondNo" value="93">93</li>
+                                    <li class="dropDownItem secondNo" value="94">94</li>
+                                    <li class="dropDownItem secondNo" value="95">95</li>
+                                    <li class="dropDownItem secondNo" value="96">96</li>
+                                    <li class="dropDownItem secondNo" value="97">97</li>
+                                    <li class="dropDownItem secondNo" value="98">98</li>
+                                    <li class="dropDownItem secondNo" value="99">99</li>
+                                    <li class="dropDownItem secondNo" value="100">100</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 三级题号 -->
+                        <div class="dropDownBox">
+                            <div class="dropDownCont">三级题号</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem thirdNo" value="0">无</li>
+                                    <li class="dropDownItem thirdNo" value="1">(1)</li>
+                                    <li class="dropDownItem thirdNo" value="2">(2)</li>
+                                    <li class="dropDownItem thirdNo" value="3">(3)</li>
+                                    <li class="dropDownItem thirdNo" value="4">(4)</li>
+                                    <li class="dropDownItem thirdNo" value="5">(5)</li>
+                                    <li class="dropDownItem thirdNo" value="6">(6)</li>
+                                    <li class="dropDownItem thirdNo" value="7">(7)</li>
+                                    <li class="dropDownItem thirdNo" value="8">(8)</li>
+                                    <li class="dropDownItem thirdNo" value="9">(9)</li>
+                                    <li class="dropDownItem thirdNo" value="10">(10)</li>
+                                    <li class="dropDownItem thirdNo" value="11">(11)</li>
+                                    <li class="dropDownItem thirdNo" value="12">(12)</li>
+                                    <li class="dropDownItem thirdNo" value="13">(13)</li>
+                                    <li class="dropDownItem thirdNo" value="14">(14)</li>
+                                    <li class="dropDownItem thirdNo" value="15">(15)</li>
+                                    <li class="dropDownItem thirdNo" value="16">(16)</li>
+                                    <li class="dropDownItem thirdNo" value="17">(17)</li>
+                                    <li class="dropDownItem thirdNo" value="18">(18)</li>
+                                    <li class="dropDownItem thirdNo" value="19">(19)</li>
+                                    <li class="dropDownItem thirdNo" value="20">(20)</li>
+                                    <li class="dropDownItem thirdNo" value="21">(21)</li>
+                                    <li class="dropDownItem thirdNo" value="22">(22)</li>
+                                    <li class="dropDownItem thirdNo" value="23">(23)</li>
+                                    <li class="dropDownItem thirdNo" value="24">(24)</li>
+                                    <li class="dropDownItem thirdNo" value="25">(25)</li>
+                                    <li class="dropDownItem thirdNo" value="26">(26)</li>
+                                    <li class="dropDownItem thirdNo" value="27">(27)</li>
+                                    <li class="dropDownItem thirdNo" value="28">(28)</li>
+                                    <li class="dropDownItem thirdNo" value="29">(29)</li>
+                                    <li class="dropDownItem thirdNo" value="30">(30)</li>
+                                    <li class="dropDownItem thirdNo" value="31">(31)</li>
+                                    <li class="dropDownItem thirdNo" value="32">(32)</li>
+                                    <li class="dropDownItem thirdNo" value="33">(33)</li>
+                                    <li class="dropDownItem thirdNo" value="34">(34)</li>
+                                    <li class="dropDownItem thirdNo" value="35">(35)</li>
+                                    <li class="dropDownItem thirdNo" value="36">(36)</li>
+                                    <li class="dropDownItem thirdNo" value="37">(37)</li>
+                                    <li class="dropDownItem thirdNo" value="38">(38)</li>
+                                    <li class="dropDownItem thirdNo" value="39">(39)</li>
+                                    <li class="dropDownItem thirdNo" value="40">(40)</li>
+                                    <li class="dropDownItem thirdNo" value="41">(41)</li>
+                                    <li class="dropDownItem thirdNo" value="42">(42)</li>
+                                    <li class="dropDownItem thirdNo" value="43">(43)</li>
+                                    <li class="dropDownItem thirdNo" value="44">(44)</li>
+                                    <li class="dropDownItem thirdNo" value="45">(45)</li>
+                                    <li class="dropDownItem thirdNo" value="46">(46)</li>
+                                    <li class="dropDownItem thirdNo" value="47">(47)</li>
+                                    <li class="dropDownItem thirdNo" value="48">(48)</li>
+                                    <li class="dropDownItem thirdNo" value="49">(49)</li>
+                                    <li class="dropDownItem thirdNo" value="50">(50)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quesItem">
+                <div class="quesItemIn quesArea">
+                    <div class="quesTit">题目录入</div>
+                    <div class="quesCont">
+                        XXXXXXXXXXXXXXXXXXXXXXX
+                    </div>
+                </div>
+                <div class="quesItemIn quesType">
+                    <div class="quesTit">题型</div>
+                    <div class="quesCont">
+                        <label value="2">填空题</label>
+                        <div class="quesEditBtn" value="3">修改</div>
+                    </div>
+                </div>
+                <div class="quesItemIn quesOption">
+                    <div class="quesTit">分值和选项</div>
+                    <div class="quesCont">
+                        <span>本题共</span>
+                        <div class="dropDownBox fl">
+                            <div class="dropDownCont">4</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem score" value="1">1</li>
+                                    <li class="dropDownItem score" value="2">2</li>
+                                    <li class="dropDownItem score" value="3">3</li>
+                                    <li class="dropDownItem score" value="4">4</li>
+                                    <li class="dropDownItem score" value="5">5</li>
+                                    <li class="dropDownItem score" value="6">6</li>
+                                    <li class="dropDownItem score" value="7">7</li>
+                                    <li class="dropDownItem score" value="8">8</li>
+                                    <li class="dropDownItem score" value="9">9</li>
+                                    <li class="dropDownItem score" value="10">10</li>
+                                    <li class="dropDownItem score" value="11">11</li>
+                                    <li class="dropDownItem score" value="12">12</li>
+                                    <li class="dropDownItem score" value="13">13</li>
+                                    <li class="dropDownItem score" value="14">14</li>
+                                    <li class="dropDownItem score" value="15">15</li>
+                                    <li class="dropDownItem score" value="16">16</li>
+                                    <li class="dropDownItem score" value="17">17</li>
+                                    <li class="dropDownItem score" value="18">18</li>
+                                    <li class="dropDownItem score" value="19">19</li>
+                                    <li class="dropDownItem score" value="20">20</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span>小题</span>
+                        <div class="clearfix"></div>
+                        <ul class="quesNoOptions">
+                            <li class="quesNoOption">
+                                <span>第1小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                            <li class="quesNoOption">
+                                <span>第2小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                            <li class="quesNoOption">
+                                <span>第3小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                            <li class="quesNoOption">
+                                <span>第4小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="quesItemIn quesNo">
+                    <div class="quesTit">题号</div>
+                    <div class="quesCont">
+                        <!-- 一级题号 -->
+                        <div class="dropDownBox">
+                            <div class="dropDownCont">一</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem firstNo" value="1">一</li>
+                                    <li class="dropDownItem firstNo" value="2">二</li>
+                                    <li class="dropDownItem firstNo" value="3">三</li>
+                                    <li class="dropDownItem firstNo" value="4">四</li>
+                                    <li class="dropDownItem firstNo" value="5">五</li>
+                                    <li class="dropDownItem firstNo" value="6">六</li>
+                                    <li class="dropDownItem firstNo" value="7">七</li>
+                                    <li class="dropDownItem firstNo" value="8">八</li>
+                                    <li class="dropDownItem firstNo" value="9">九</li>
+                                    <li class="dropDownItem firstNo" value="10">十</li>
+                                    <li class="dropDownItem firstNo" value="11">十一</li>
+                                    <li class="dropDownItem firstNo" value="12">十二</li>
+                                    <li class="dropDownItem firstNo" value="13">十三</li>
+                                    <li class="dropDownItem firstNo" value="14">十四</li>
+                                    <li class="dropDownItem firstNo" value="15">十五</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 二级题号 -->
+                        <div class="dropDownBox">
+                            <div class="dropDownCont">二级题号</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem secondNo" value="0">无</li>
+                                    <li class="dropDownItem secondNo" value="1">1</li>
+                                    <li class="dropDownItem secondNo" value="2">2</li>
+                                    <li class="dropDownItem secondNo" value="3">3</li>
+                                    <li class="dropDownItem secondNo" value="4">4</li>
+                                    <li class="dropDownItem secondNo" value="5">5</li>
+                                    <li class="dropDownItem secondNo" value="6">6</li>
+                                    <li class="dropDownItem secondNo" value="7">7</li>
+                                    <li class="dropDownItem secondNo" value="8">8</li>
+                                    <li class="dropDownItem secondNo" value="9">9</li>
+                                    <li class="dropDownItem secondNo" value="10">10</li>
+                                    <li class="dropDownItem secondNo" value="11">11</li>
+                                    <li class="dropDownItem secondNo" value="12">12</li>
+                                    <li class="dropDownItem secondNo" value="13">13</li>
+                                    <li class="dropDownItem secondNo" value="14">14</li>
+                                    <li class="dropDownItem secondNo" value="15">15</li>
+                                    <li class="dropDownItem secondNo" value="16">16</li>
+                                    <li class="dropDownItem secondNo" value="17">17</li>
+                                    <li class="dropDownItem secondNo" value="18">18</li>
+                                    <li class="dropDownItem secondNo" value="19">19</li>
+                                    <li class="dropDownItem secondNo" value="20">20</li>
+                                    <li class="dropDownItem secondNo" value="21">21</li>
+                                    <li class="dropDownItem secondNo" value="22">22</li>
+                                    <li class="dropDownItem secondNo" value="23">23</li>
+                                    <li class="dropDownItem secondNo" value="24">24</li>
+                                    <li class="dropDownItem secondNo" value="25">25</li>
+                                    <li class="dropDownItem secondNo" value="26">26</li>
+                                    <li class="dropDownItem secondNo" value="27">27</li>
+                                    <li class="dropDownItem secondNo" value="28">28</li>
+                                    <li class="dropDownItem secondNo" value="29">29</li>
+                                    <li class="dropDownItem secondNo" value="30">30</li>
+                                    <li class="dropDownItem secondNo" value="31">31</li>
+                                    <li class="dropDownItem secondNo" value="32">32</li>
+                                    <li class="dropDownItem secondNo" value="33">33</li>
+                                    <li class="dropDownItem secondNo" value="34">34</li>
+                                    <li class="dropDownItem secondNo" value="35">35</li>
+                                    <li class="dropDownItem secondNo" value="36">36</li>
+                                    <li class="dropDownItem secondNo" value="37">37</li>
+                                    <li class="dropDownItem secondNo" value="38">38</li>
+                                    <li class="dropDownItem secondNo" value="39">39</li>
+                                    <li class="dropDownItem secondNo" value="40">40</li>
+                                    <li class="dropDownItem secondNo" value="41">41</li>
+                                    <li class="dropDownItem secondNo" value="42">42</li>
+                                    <li class="dropDownItem secondNo" value="43">43</li>
+                                    <li class="dropDownItem secondNo" value="44">44</li>
+                                    <li class="dropDownItem secondNo" value="45">45</li>
+                                    <li class="dropDownItem secondNo" value="46">46</li>
+                                    <li class="dropDownItem secondNo" value="47">47</li>
+                                    <li class="dropDownItem secondNo" value="48">48</li>
+                                    <li class="dropDownItem secondNo" value="49">49</li>
+                                    <li class="dropDownItem secondNo" value="50">50</li>
+                                    <li class="dropDownItem secondNo" value="51">51</li>
+                                    <li class="dropDownItem secondNo" value="52">52</li>
+                                    <li class="dropDownItem secondNo" value="53">53</li>
+                                    <li class="dropDownItem secondNo" value="54">54</li>
+                                    <li class="dropDownItem secondNo" value="55">55</li>
+                                    <li class="dropDownItem secondNo" value="56">56</li>
+                                    <li class="dropDownItem secondNo" value="57">57</li>
+                                    <li class="dropDownItem secondNo" value="58">58</li>
+                                    <li class="dropDownItem secondNo" value="59">59</li>
+                                    <li class="dropDownItem secondNo" value="60">60</li>
+                                    <li class="dropDownItem secondNo" value="61">61</li>
+                                    <li class="dropDownItem secondNo" value="62">62</li>
+                                    <li class="dropDownItem secondNo" value="63">63</li>
+                                    <li class="dropDownItem secondNo" value="64">64</li>
+                                    <li class="dropDownItem secondNo" value="65">65</li>
+                                    <li class="dropDownItem secondNo" value="66">66</li>
+                                    <li class="dropDownItem secondNo" value="67">67</li>
+                                    <li class="dropDownItem secondNo" value="68">68</li>
+                                    <li class="dropDownItem secondNo" value="69">69</li>
+                                    <li class="dropDownItem secondNo" value="70">70</li>
+                                    <li class="dropDownItem secondNo" value="71">71</li>
+                                    <li class="dropDownItem secondNo" value="72">72</li>
+                                    <li class="dropDownItem secondNo" value="73">73</li>
+                                    <li class="dropDownItem secondNo" value="74">74</li>
+                                    <li class="dropDownItem secondNo" value="75">75</li>
+                                    <li class="dropDownItem secondNo" value="76">76</li>
+                                    <li class="dropDownItem secondNo" value="77">77</li>
+                                    <li class="dropDownItem secondNo" value="78">78</li>
+                                    <li class="dropDownItem secondNo" value="79">79</li>
+                                    <li class="dropDownItem secondNo" value="80">80</li>
+                                    <li class="dropDownItem secondNo" value="81">81</li>
+                                    <li class="dropDownItem secondNo" value="82">82</li>
+                                    <li class="dropDownItem secondNo" value="83">83</li>
+                                    <li class="dropDownItem secondNo" value="84">84</li>
+                                    <li class="dropDownItem secondNo" value="85">85</li>
+                                    <li class="dropDownItem secondNo" value="86">86</li>
+                                    <li class="dropDownItem secondNo" value="87">87</li>
+                                    <li class="dropDownItem secondNo" value="88">88</li>
+                                    <li class="dropDownItem secondNo" value="89">89</li>
+                                    <li class="dropDownItem secondNo" value="90">90</li>
+                                    <li class="dropDownItem secondNo" value="91">91</li>
+                                    <li class="dropDownItem secondNo" value="92">92</li>
+                                    <li class="dropDownItem secondNo" value="93">93</li>
+                                    <li class="dropDownItem secondNo" value="94">94</li>
+                                    <li class="dropDownItem secondNo" value="95">95</li>
+                                    <li class="dropDownItem secondNo" value="96">96</li>
+                                    <li class="dropDownItem secondNo" value="97">97</li>
+                                    <li class="dropDownItem secondNo" value="98">98</li>
+                                    <li class="dropDownItem secondNo" value="99">99</li>
+                                    <li class="dropDownItem secondNo" value="100">100</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 三级题号 -->
+                        <div class="dropDownBox">
+                            <div class="dropDownCont">三级题号</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem thirdNo" value="0">无</li>
+                                    <li class="dropDownItem thirdNo" value="1">(1)</li>
+                                    <li class="dropDownItem thirdNo" value="2">(2)</li>
+                                    <li class="dropDownItem thirdNo" value="3">(3)</li>
+                                    <li class="dropDownItem thirdNo" value="4">(4)</li>
+                                    <li class="dropDownItem thirdNo" value="5">(5)</li>
+                                    <li class="dropDownItem thirdNo" value="6">(6)</li>
+                                    <li class="dropDownItem thirdNo" value="7">(7)</li>
+                                    <li class="dropDownItem thirdNo" value="8">(8)</li>
+                                    <li class="dropDownItem thirdNo" value="9">(9)</li>
+                                    <li class="dropDownItem thirdNo" value="10">(10)</li>
+                                    <li class="dropDownItem thirdNo" value="11">(11)</li>
+                                    <li class="dropDownItem thirdNo" value="12">(12)</li>
+                                    <li class="dropDownItem thirdNo" value="13">(13)</li>
+                                    <li class="dropDownItem thirdNo" value="14">(14)</li>
+                                    <li class="dropDownItem thirdNo" value="15">(15)</li>
+                                    <li class="dropDownItem thirdNo" value="16">(16)</li>
+                                    <li class="dropDownItem thirdNo" value="17">(17)</li>
+                                    <li class="dropDownItem thirdNo" value="18">(18)</li>
+                                    <li class="dropDownItem thirdNo" value="19">(19)</li>
+                                    <li class="dropDownItem thirdNo" value="20">(20)</li>
+                                    <li class="dropDownItem thirdNo" value="21">(21)</li>
+                                    <li class="dropDownItem thirdNo" value="22">(22)</li>
+                                    <li class="dropDownItem thirdNo" value="23">(23)</li>
+                                    <li class="dropDownItem thirdNo" value="24">(24)</li>
+                                    <li class="dropDownItem thirdNo" value="25">(25)</li>
+                                    <li class="dropDownItem thirdNo" value="26">(26)</li>
+                                    <li class="dropDownItem thirdNo" value="27">(27)</li>
+                                    <li class="dropDownItem thirdNo" value="28">(28)</li>
+                                    <li class="dropDownItem thirdNo" value="29">(29)</li>
+                                    <li class="dropDownItem thirdNo" value="30">(30)</li>
+                                    <li class="dropDownItem thirdNo" value="31">(31)</li>
+                                    <li class="dropDownItem thirdNo" value="32">(32)</li>
+                                    <li class="dropDownItem thirdNo" value="33">(33)</li>
+                                    <li class="dropDownItem thirdNo" value="34">(34)</li>
+                                    <li class="dropDownItem thirdNo" value="35">(35)</li>
+                                    <li class="dropDownItem thirdNo" value="36">(36)</li>
+                                    <li class="dropDownItem thirdNo" value="37">(37)</li>
+                                    <li class="dropDownItem thirdNo" value="38">(38)</li>
+                                    <li class="dropDownItem thirdNo" value="39">(39)</li>
+                                    <li class="dropDownItem thirdNo" value="40">(40)</li>
+                                    <li class="dropDownItem thirdNo" value="41">(41)</li>
+                                    <li class="dropDownItem thirdNo" value="42">(42)</li>
+                                    <li class="dropDownItem thirdNo" value="43">(43)</li>
+                                    <li class="dropDownItem thirdNo" value="44">(44)</li>
+                                    <li class="dropDownItem thirdNo" value="45">(45)</li>
+                                    <li class="dropDownItem thirdNo" value="46">(46)</li>
+                                    <li class="dropDownItem thirdNo" value="47">(47)</li>
+                                    <li class="dropDownItem thirdNo" value="48">(48)</li>
+                                    <li class="dropDownItem thirdNo" value="49">(49)</li>
+                                    <li class="dropDownItem thirdNo" value="50">(50)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quesItem">
+                <div class="quesItemIn quesArea">
+                    <div class="quesTit">题目录入</div>
+                    <div class="quesCont">
+                        XXXXXXXXXXXXXXXXXXXXXXX
+                    </div>
+                </div>
+                <div class="quesItemIn quesType">
+                    <div class="quesTit">题型</div>
+                    <div class="quesCont">
+                        <label value="2">填空题</label>
+                        <div class="quesEditBtn" value="3">修改</div>
+                    </div>
+                </div>
+                <div class="quesItemIn quesOption">
+                    <div class="quesTit">分值和选项</div>
+                    <div class="quesCont">
+                        <span>本题共</span>
+                        <div class="dropDownBox fl">
+                            <div class="dropDownCont">4</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem score" value="1">1</li>
+                                    <li class="dropDownItem score" value="2">2</li>
+                                    <li class="dropDownItem score" value="3">3</li>
+                                    <li class="dropDownItem score" value="4">4</li>
+                                    <li class="dropDownItem score" value="5">5</li>
+                                    <li class="dropDownItem score" value="6">6</li>
+                                    <li class="dropDownItem score" value="7">7</li>
+                                    <li class="dropDownItem score" value="8">8</li>
+                                    <li class="dropDownItem score" value="9">9</li>
+                                    <li class="dropDownItem score" value="10">10</li>
+                                    <li class="dropDownItem score" value="11">11</li>
+                                    <li class="dropDownItem score" value="12">12</li>
+                                    <li class="dropDownItem score" value="13">13</li>
+                                    <li class="dropDownItem score" value="14">14</li>
+                                    <li class="dropDownItem score" value="15">15</li>
+                                    <li class="dropDownItem score" value="16">16</li>
+                                    <li class="dropDownItem score" value="17">17</li>
+                                    <li class="dropDownItem score" value="18">18</li>
+                                    <li class="dropDownItem score" value="19">19</li>
+                                    <li class="dropDownItem score" value="20">20</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span>小题</span>
+                        <div class="clearfix"></div>
+                        <ul class="quesNoOptions">
+                            <li class="quesNoOption">
+                                <span>第1小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                            <li class="quesNoOption">
+                                <span>第2小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                            <li class="quesNoOption">
+                                <span>第3小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                            <li class="quesNoOption">
+                                <span>第4小题：</span>
+                                <input type="text">
+                                <span>分</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="quesItemIn quesNo">
+                    <div class="quesTit">题号</div>
+                    <div class="quesCont">
+                        <!-- 一级题号 -->
+                        <div class="dropDownBox">
+                            <div class="dropDownCont">一</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem firstNo" value="1">一</li>
+                                    <li class="dropDownItem firstNo" value="2">二</li>
+                                    <li class="dropDownItem firstNo" value="3">三</li>
+                                    <li class="dropDownItem firstNo" value="4">四</li>
+                                    <li class="dropDownItem firstNo" value="5">五</li>
+                                    <li class="dropDownItem firstNo" value="6">六</li>
+                                    <li class="dropDownItem firstNo" value="7">七</li>
+                                    <li class="dropDownItem firstNo" value="8">八</li>
+                                    <li class="dropDownItem firstNo" value="9">九</li>
+                                    <li class="dropDownItem firstNo" value="10">十</li>
+                                    <li class="dropDownItem firstNo" value="11">十一</li>
+                                    <li class="dropDownItem firstNo" value="12">十二</li>
+                                    <li class="dropDownItem firstNo" value="13">十三</li>
+                                    <li class="dropDownItem firstNo" value="14">十四</li>
+                                    <li class="dropDownItem firstNo" value="15">十五</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 二级题号 -->
+                        <div class="dropDownBox">
+                            <div class="dropDownCont">二级题号</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem secondNo" value="0">无</li>
+                                    <li class="dropDownItem secondNo" value="1">1</li>
+                                    <li class="dropDownItem secondNo" value="2">2</li>
+                                    <li class="dropDownItem secondNo" value="3">3</li>
+                                    <li class="dropDownItem secondNo" value="4">4</li>
+                                    <li class="dropDownItem secondNo" value="5">5</li>
+                                    <li class="dropDownItem secondNo" value="6">6</li>
+                                    <li class="dropDownItem secondNo" value="7">7</li>
+                                    <li class="dropDownItem secondNo" value="8">8</li>
+                                    <li class="dropDownItem secondNo" value="9">9</li>
+                                    <li class="dropDownItem secondNo" value="10">10</li>
+                                    <li class="dropDownItem secondNo" value="11">11</li>
+                                    <li class="dropDownItem secondNo" value="12">12</li>
+                                    <li class="dropDownItem secondNo" value="13">13</li>
+                                    <li class="dropDownItem secondNo" value="14">14</li>
+                                    <li class="dropDownItem secondNo" value="15">15</li>
+                                    <li class="dropDownItem secondNo" value="16">16</li>
+                                    <li class="dropDownItem secondNo" value="17">17</li>
+                                    <li class="dropDownItem secondNo" value="18">18</li>
+                                    <li class="dropDownItem secondNo" value="19">19</li>
+                                    <li class="dropDownItem secondNo" value="20">20</li>
+                                    <li class="dropDownItem secondNo" value="21">21</li>
+                                    <li class="dropDownItem secondNo" value="22">22</li>
+                                    <li class="dropDownItem secondNo" value="23">23</li>
+                                    <li class="dropDownItem secondNo" value="24">24</li>
+                                    <li class="dropDownItem secondNo" value="25">25</li>
+                                    <li class="dropDownItem secondNo" value="26">26</li>
+                                    <li class="dropDownItem secondNo" value="27">27</li>
+                                    <li class="dropDownItem secondNo" value="28">28</li>
+                                    <li class="dropDownItem secondNo" value="29">29</li>
+                                    <li class="dropDownItem secondNo" value="30">30</li>
+                                    <li class="dropDownItem secondNo" value="31">31</li>
+                                    <li class="dropDownItem secondNo" value="32">32</li>
+                                    <li class="dropDownItem secondNo" value="33">33</li>
+                                    <li class="dropDownItem secondNo" value="34">34</li>
+                                    <li class="dropDownItem secondNo" value="35">35</li>
+                                    <li class="dropDownItem secondNo" value="36">36</li>
+                                    <li class="dropDownItem secondNo" value="37">37</li>
+                                    <li class="dropDownItem secondNo" value="38">38</li>
+                                    <li class="dropDownItem secondNo" value="39">39</li>
+                                    <li class="dropDownItem secondNo" value="40">40</li>
+                                    <li class="dropDownItem secondNo" value="41">41</li>
+                                    <li class="dropDownItem secondNo" value="42">42</li>
+                                    <li class="dropDownItem secondNo" value="43">43</li>
+                                    <li class="dropDownItem secondNo" value="44">44</li>
+                                    <li class="dropDownItem secondNo" value="45">45</li>
+                                    <li class="dropDownItem secondNo" value="46">46</li>
+                                    <li class="dropDownItem secondNo" value="47">47</li>
+                                    <li class="dropDownItem secondNo" value="48">48</li>
+                                    <li class="dropDownItem secondNo" value="49">49</li>
+                                    <li class="dropDownItem secondNo" value="50">50</li>
+                                    <li class="dropDownItem secondNo" value="51">51</li>
+                                    <li class="dropDownItem secondNo" value="52">52</li>
+                                    <li class="dropDownItem secondNo" value="53">53</li>
+                                    <li class="dropDownItem secondNo" value="54">54</li>
+                                    <li class="dropDownItem secondNo" value="55">55</li>
+                                    <li class="dropDownItem secondNo" value="56">56</li>
+                                    <li class="dropDownItem secondNo" value="57">57</li>
+                                    <li class="dropDownItem secondNo" value="58">58</li>
+                                    <li class="dropDownItem secondNo" value="59">59</li>
+                                    <li class="dropDownItem secondNo" value="60">60</li>
+                                    <li class="dropDownItem secondNo" value="61">61</li>
+                                    <li class="dropDownItem secondNo" value="62">62</li>
+                                    <li class="dropDownItem secondNo" value="63">63</li>
+                                    <li class="dropDownItem secondNo" value="64">64</li>
+                                    <li class="dropDownItem secondNo" value="65">65</li>
+                                    <li class="dropDownItem secondNo" value="66">66</li>
+                                    <li class="dropDownItem secondNo" value="67">67</li>
+                                    <li class="dropDownItem secondNo" value="68">68</li>
+                                    <li class="dropDownItem secondNo" value="69">69</li>
+                                    <li class="dropDownItem secondNo" value="70">70</li>
+                                    <li class="dropDownItem secondNo" value="71">71</li>
+                                    <li class="dropDownItem secondNo" value="72">72</li>
+                                    <li class="dropDownItem secondNo" value="73">73</li>
+                                    <li class="dropDownItem secondNo" value="74">74</li>
+                                    <li class="dropDownItem secondNo" value="75">75</li>
+                                    <li class="dropDownItem secondNo" value="76">76</li>
+                                    <li class="dropDownItem secondNo" value="77">77</li>
+                                    <li class="dropDownItem secondNo" value="78">78</li>
+                                    <li class="dropDownItem secondNo" value="79">79</li>
+                                    <li class="dropDownItem secondNo" value="80">80</li>
+                                    <li class="dropDownItem secondNo" value="81">81</li>
+                                    <li class="dropDownItem secondNo" value="82">82</li>
+                                    <li class="dropDownItem secondNo" value="83">83</li>
+                                    <li class="dropDownItem secondNo" value="84">84</li>
+                                    <li class="dropDownItem secondNo" value="85">85</li>
+                                    <li class="dropDownItem secondNo" value="86">86</li>
+                                    <li class="dropDownItem secondNo" value="87">87</li>
+                                    <li class="dropDownItem secondNo" value="88">88</li>
+                                    <li class="dropDownItem secondNo" value="89">89</li>
+                                    <li class="dropDownItem secondNo" value="90">90</li>
+                                    <li class="dropDownItem secondNo" value="91">91</li>
+                                    <li class="dropDownItem secondNo" value="92">92</li>
+                                    <li class="dropDownItem secondNo" value="93">93</li>
+                                    <li class="dropDownItem secondNo" value="94">94</li>
+                                    <li class="dropDownItem secondNo" value="95">95</li>
+                                    <li class="dropDownItem secondNo" value="96">96</li>
+                                    <li class="dropDownItem secondNo" value="97">97</li>
+                                    <li class="dropDownItem secondNo" value="98">98</li>
+                                    <li class="dropDownItem secondNo" value="99">99</li>
+                                    <li class="dropDownItem secondNo" value="100">100</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 三级题号 -->
+                        <div class="dropDownBox">
+                            <div class="dropDownCont">三级题号</div>
+                            <div class="dropDownList scroll">
+                                <ul>
+                                    <li class="dropDownItem thirdNo" value="0">无</li>
+                                    <li class="dropDownItem thirdNo" value="1">(1)</li>
+                                    <li class="dropDownItem thirdNo" value="2">(2)</li>
+                                    <li class="dropDownItem thirdNo" value="3">(3)</li>
+                                    <li class="dropDownItem thirdNo" value="4">(4)</li>
+                                    <li class="dropDownItem thirdNo" value="5">(5)</li>
+                                    <li class="dropDownItem thirdNo" value="6">(6)</li>
+                                    <li class="dropDownItem thirdNo" value="7">(7)</li>
+                                    <li class="dropDownItem thirdNo" value="8">(8)</li>
+                                    <li class="dropDownItem thirdNo" value="9">(9)</li>
+                                    <li class="dropDownItem thirdNo" value="10">(10)</li>
+                                    <li class="dropDownItem thirdNo" value="11">(11)</li>
+                                    <li class="dropDownItem thirdNo" value="12">(12)</li>
+                                    <li class="dropDownItem thirdNo" value="13">(13)</li>
+                                    <li class="dropDownItem thirdNo" value="14">(14)</li>
+                                    <li class="dropDownItem thirdNo" value="15">(15)</li>
+                                    <li class="dropDownItem thirdNo" value="16">(16)</li>
+                                    <li class="dropDownItem thirdNo" value="17">(17)</li>
+                                    <li class="dropDownItem thirdNo" value="18">(18)</li>
+                                    <li class="dropDownItem thirdNo" value="19">(19)</li>
+                                    <li class="dropDownItem thirdNo" value="20">(20)</li>
+                                    <li class="dropDownItem thirdNo" value="21">(21)</li>
+                                    <li class="dropDownItem thirdNo" value="22">(22)</li>
+                                    <li class="dropDownItem thirdNo" value="23">(23)</li>
+                                    <li class="dropDownItem thirdNo" value="24">(24)</li>
+                                    <li class="dropDownItem thirdNo" value="25">(25)</li>
+                                    <li class="dropDownItem thirdNo" value="26">(26)</li>
+                                    <li class="dropDownItem thirdNo" value="27">(27)</li>
+                                    <li class="dropDownItem thirdNo" value="28">(28)</li>
+                                    <li class="dropDownItem thirdNo" value="29">(29)</li>
+                                    <li class="dropDownItem thirdNo" value="30">(30)</li>
+                                    <li class="dropDownItem thirdNo" value="31">(31)</li>
+                                    <li class="dropDownItem thirdNo" value="32">(32)</li>
+                                    <li class="dropDownItem thirdNo" value="33">(33)</li>
+                                    <li class="dropDownItem thirdNo" value="34">(34)</li>
+                                    <li class="dropDownItem thirdNo" value="35">(35)</li>
+                                    <li class="dropDownItem thirdNo" value="36">(36)</li>
+                                    <li class="dropDownItem thirdNo" value="37">(37)</li>
+                                    <li class="dropDownItem thirdNo" value="38">(38)</li>
+                                    <li class="dropDownItem thirdNo" value="39">(39)</li>
+                                    <li class="dropDownItem thirdNo" value="40">(40)</li>
+                                    <li class="dropDownItem thirdNo" value="41">(41)</li>
+                                    <li class="dropDownItem thirdNo" value="42">(42)</li>
+                                    <li class="dropDownItem thirdNo" value="43">(43)</li>
+                                    <li class="dropDownItem thirdNo" value="44">(44)</li>
+                                    <li class="dropDownItem thirdNo" value="45">(45)</li>
+                                    <li class="dropDownItem thirdNo" value="46">(46)</li>
+                                    <li class="dropDownItem thirdNo" value="47">(47)</li>
+                                    <li class="dropDownItem thirdNo" value="48">(48)</li>
+                                    <li class="dropDownItem thirdNo" value="49">(49)</li>
+                                    <li class="dropDownItem thirdNo" value="50">(50)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 上传区域 -->
+        <div class="uploadBox">
+            <!-- <form enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="file-loading">
+                        <input id="upload" type="file" class="file" data-upload-url="#">
+                    </div>
+                </div>
+            </form> -->
+            <input id="upload" name="testFile" type="file" multiple>
+            <div class="uploadClose">
+                <span>关闭弹框</span>
+            </div>
+        </div>
+        <!-- 题型弹框 -->
+        <div class="questionBox vhCenter">
+            <div class="questionTop">题型设置</div>
+            <div class="questionMid">
+                <ul>
+                    <li class="radioItem" value="1">单项选择题</li>
+                    <li class="radioItem" value="2">填空题</li>
+                    <li class="radioItem" value="3">判断题</li>
+                    <li class="radioItem" value="4">匹配题</li>
+                    <li class="radioItem" value="5">解答题</li>
+                    <li class="radioItem" value="6">作图操作题</li>
+                    <li class="radioItem" value="7">计算题</li>
+                    <li class="radioItem" value="8">证明题</li>
+                    <li class="radioItem" value="9">多选题</li>
+                </ul>
+            </div>
+            <div class="questionBot">
+                <span class="questionCancel">取&nbsp;&nbsp;消</span>
+                <span class="questionConfirm">确&nbsp;&nbsp;认</span>
+            </div>
+        </div>
+    </div>
+    <div class="mask"></div>
+
+    <!-- <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script> -->
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="js/fileinput.min.js"></script>
+    <script type="text/javascript" src="js/zh.js"></script>
+    <script type="text/javascript" src="js/theme.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
