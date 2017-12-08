@@ -19,6 +19,15 @@
 	test(...arr);
 }
 
+// 字符串分割
+{
+	// ES5
+	let str = 'hello';
+	console.log("字符串数组：" + str.split(''));
+
+	console.log("字符串数组：" + [...str]);
+}
+
 // 求最大值
 {
 	let arr = [1, 2, 3, 4, 5];

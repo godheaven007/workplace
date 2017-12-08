@@ -41,7 +41,7 @@
 	console.log(first, last);
 }
 
-// 结构方法
+// 解构方法
 {
 	let animal = {
 		say: function(){
