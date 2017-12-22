@@ -4,8 +4,8 @@
 	①、ES5是如何做的？ES6？
 	②、具体应用
 3、新增的数组方法
-	①、from()
-	②、of()
+	①、from()   将类数组对象以及具有iterable接口的数据
+	②、of()		将一组值，转换为数组
 	③、copyWithin()
 	④、find()
 	⑤、findindex()

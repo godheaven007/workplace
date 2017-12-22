@@ -1,24 +1,17 @@
-// ES5
+// 属性、方法简写
 {
-	var obj = {};
-	obj.name = "阿三";
-	obj['age'] = 22;
-
-	console.log(obj);
-}
-
-{
-	let name = 'name';
+	let name = 'myName';
+	let age = 22;
 	let obj = {
-		[name]: '阿三2',
+		[name]: '阿三',
+		age,
 		['say']() {
-			console.log(this.name);
+			console.log(this.myName, this.age);
 		}
 	};
 	obj.say();
-	// 注意，属性名表达式如果是一个对象，默认情况下会自动将对象转为字符串[object Object]。
 }
-
+// 注意，属性名表达式如果是一个对象，默认情况下会自动将对象转为字符串[object Object]。
 {
 	let objA = {name: "a"};
 	let objB = {name: "b"};
@@ -27,5 +20,15 @@
 		[objA]: "aaa",
 		[objB]: "bbb"
 	}
+	console.log(obj);
+}
+
+// 函数返回值
+{
+	function test(name, age){
+		return {name, age};
+	}
+
+	let obj = test("asan", 22);
 	console.log(obj);
 }

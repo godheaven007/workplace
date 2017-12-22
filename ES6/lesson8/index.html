@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="t"></div>
+	<script>
+		var node = document.getElementById("t");
+		var obj = {};
+		obj[node] = "data";
+		console.log(obj, obj['[object HTMLDivElement]']);
+	</script>
+</body>
+</html>
