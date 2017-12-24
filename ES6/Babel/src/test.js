@@ -1,1 +1,0 @@
-let fun = param => param * 2;
