@@ -39,20 +39,3 @@
 }
 
 // 例二 参见index.html
-
-{
-	/*let a = 1;
-	function test(a, b = a){
-		console.log(a,b);
-	}
-
-	test();*/
-	let x = 1;
-
-	function f(y = x) {
-	  let x = 2;
-	  console.log(y,x);
-	}
-
-	f() // 1
-}

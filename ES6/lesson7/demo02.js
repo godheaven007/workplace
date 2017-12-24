@@ -1,10 +1,10 @@
 {
 	let obj = {
-		name: "aa阿三"
+		name: "阿三"
 	}
 
 	Object.defineProperty(obj, "name", {
-		value: "bb阿四"
+		value: "阿四"
 	})
 
 	console.log(obj);
@@ -14,14 +14,16 @@
 {
 	let name = Symbol();
 	let obj = {
-		[name]: "aaa"
+		[name]: "阿三",
+		name: "阿四"
 	}
 
 	Object.defineProperty(obj, name, {
-		value: "bbb"
-	})
+		value: "阿三2"
+	});
+
 	// 特别注意！！！
 	// obj.name = obj['name'] ，这里的name是字符串
 	// obj[name]				这里的name是Symbol
-	console.log(obj.name);
+	console.log(obj[name], obj.name);
 }

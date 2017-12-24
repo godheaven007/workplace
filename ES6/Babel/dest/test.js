@@ -1,3 +1,5 @@
 "use strict";
 
-var i = 1;
+var fun = function fun(param) {
+  return param * 2;
+};

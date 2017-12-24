@@ -1,30 +1,70 @@
+// 数据属性
 {
-	// ES5
-	let obj = {
-		name: "阿三",
-		say: function(){
-			console.log(this.name);
-		}
-	}
-	obj.say();
+	// enumerable、configurable、writable、value
+	var obj = {};
+	Object.defineProperty(obj, "name", {
+		value: "aaa"
+	});
 
-	// ES6
-	let name = "阿四";
-	let obj2 = {
-		name,
-		say() {
-			console.log(this.name)
-		}
-	}
-	obj2.say();
+	console.log(obj);
 }
 
-// 函数返回值
+// 访问器属性
 {
-	function test(name, age){
-		return {name, age};
-	}
+	var obj = {
+	    name: "aaa",
+	    year: "",
+	    grade: ""
+	};
 
-	let obj = test("阿三", 22);
-	console.log(obj);
+	Object.defineProperty(obj, "year", {
+	    get: function(){
+
+	    },
+	    set: function(value){
+			this.grade = value - 2012;
+	    }
+	})
+	obj.year = 2020;
+	console.log(obj.grade);
+}
+
+// 多属性定义
+{
+	var obj = {};
+
+	Object.defineProperties(obj,{
+	   name: {value: "111"},
+	   grade: {value: "",writable: true},
+	   year: {
+			set: function(value){
+				this.grade = value - 2000
+	        }
+
+	   }
+	})
+	obj.year = 2018;
+	console.log(obj.grade);
+}
+
+// 获取属性修饰符
+{
+	let obj = {};
+
+	Object.defineProperties(obj, {
+		name: {
+			value: "安安"
+		},
+	    grade: {value: "",writable: true},
+	    year: {
+			set: function(value){
+				this.grade = value - 2000
+	        }
+
+	    }
+	});
+
+	let descriptor = Object.getOwnPropertyDescriptor(obj, "year");
+	console.log(descriptor.set);
+
 }
