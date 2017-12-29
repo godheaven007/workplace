@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/easydialog.css">
+</head>
+<body>
+    <div class="container" id="app">
+        <!-- 筛选 -->
+        <div class="dropDownBar">
+            <div class="dropDownBox subject">
+                <div class="dropDownCont">数学</div>
+                <ul class="dropDownList">
+                    <li value="02">数学</li>
+                    <li value="03">英语</li>
+                </ul>
+            </div>
+            <div class="resetBtn">重&nbsp;&nbsp;置</div>
+            <div class="dropDownConfirm">确&nbsp;&nbsp;定</div>
+        </div>
+        <div class="convert">
+            <textarea id="convertArea" cols="40" rows="6"></textarea>
+            <div class="convertBtn disNone" id="convertBtn">确定</div>
+        </div>
+        <ul class="list" id="list">
+            <li class="listItem">
+                <!-- 题目 -->
+                <div class="question">
+
+                </div>
+                <!-- 知识点 -->
+                <div class="knowledge disNone">
+                    <h4>知识点权重配比表</h4>
+                    <div class="zspoint">
+                        <ul id="knowNameListUl">
+                            <li>
+                                <h5>知识点</h5>
+                                <h6>得分点</h6>
+                            </li>
+                            <li>
+                                <span title="基础知识及语言表达">基础知识及语言表达</span>
+                                <span title="字音">字音</span>
+                                <span title=""></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dfpoint scroll">
+                        <ul id="showKnowPoints">
+                            <li><span>(1)①</span><span>1</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 解析 -->
+                <div class="analysis" v-bind:class="{ active: showFlag }">
+                    <div class="ana_con">
+                        <div class="weightcon wescroll">
+                            <div class="weighttb1">
+                                <div class="wetop clearfix">
+                                    <div class="weti">三维权重配比</div>
+                                    <div class="weding"><h5>得分点</h5><h5>分数占比</h5></div>
+                                    <div class="wezs">
+                                        <h4>知识</h4>
+                                        <span v-for="item in indicatorList.knowledge">
+                                            {{item}}
+                                        </span>
+                                    </div>
+                                    <div class="wejn">
+                                        <h4>技能</h4>
+                                        <span v-for="item in indicatorList.skill">
+                                            {{item}}
+                                        </span>
+                                    </div>
+                                    <div class="wenl">
+                                        <h4>能力</h4>
+                                        <span v-for="item in indicatorList.ability">
+                                            {{item}}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="webot clearfix">
+                                    <ul>
+                                        <li v-for="(item, index) in listData.length">
+                                            <span>{{listData[index].point}}</span><span>{{listData[index].score}}</span>
+                                            <b class="zs" v-for="(value,index) in listData[index].knowledge">
+                                                {{value}}
+                                            </b>
+                                            <b class="jn" v-for="(value,index) in listData[index].skill">
+                                                {{value}}
+                                            </b>
+                                            <b class="nl" v-for="(value,index) in listData[index].ability">
+                                                {{value}}
+                                            </b>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue-resource.js"></script>
+    <script type="text/javascript" src="js/easydialog.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+.easyDialog_wrapper{
+    width:580px;
+    color:#666;
+    border-radius:4px;
+    background: #fff;
+    display:none;
+    font-family:"Microsoft yahei", Arial;
+}
+
+.easyDialog_wrapper .easyDialog_content{
+    border-radius:2px;
+    background:#fff;
+    border:1px solid #e5e5e5;
+}
+
+.easyDialog_wrapper .easyDialog_title{
+    margin:0;
+    padding:0;
+    width: 100%;
+    height: 50px;
+    line-height: 48px;
+    font-size: 18px;
+    text-indent: 26px;
+    border-bottom: 1px solid #EBEBEB;
+    position: relative;
+    background: #fafafa;
+}
+
+.easyDialog_wrapper .close_btn{
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 11px;
+    top: 9px;
+    background: url(../images/close2.png) no-repeat center center;
+}
+
+.easyDialog_wrapper .easyDialog_text{
+    font-size: 16px;
+    padding: 15px 30px 15px 66px;
+    line-height: 30px;
+    background: url(../images/tan.png) no-repeat 26px 17px;
+    font-family: "微软雅黑";
+    letter-spacing: 0.1em;
+}
+
+.easyDialog_wrapper .easyDialog_footer{
+    overflow: hidden;
+    width:100%;
+    height: 60px;
+    padding-top:12px;
+    border-top:1px solid #EBEBEB;
+    background: #fafafa;
+}
+
+.easyDialog_wrapper .btn_highlight,
+.easyDialog_wrapper .btn_normal{
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    float: right;
+    margin-right: 25px;
+    background: #5399d3;
+}
+.easyDialog_wrapper .btn_normal{
+    /*background: #c1c1c1;*/
+}
+.easyDialog_wrapper .btn_highlight:hover,
+.easyDialog_wrapper .btn_normal:hover{
+    opacity:0.8;
+}
+
+#easyDialogNoBtn{
+    background-color: #c1c1c1;
+}
