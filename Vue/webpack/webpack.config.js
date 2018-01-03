@@ -4,7 +4,6 @@ module.exports = {
 	// 入口文件配置项
 	entry: {
 		entry: './src/entry.js',
-		entry2: './src/test.js'
 	},
 
 	// 出口文件配置项
@@ -24,12 +23,12 @@ module.exports = {
 		// 配置服务器基本运行路径，用于找到程序打包地址
 		contentBase: path.resolve(__dirname, 'dist'),
 		// 服务器的IP地址，可以使用IP也可以使用localhost
-		host: 'localhost',
+		host: '192.168.1.186',
 		// 服务端压缩是否开启
 		compress: true,
-		hot:true,
+		// hot:true,
 		// 配置服务端口号
-		port: 1212
+		port: 2230
 
 	}
 };
