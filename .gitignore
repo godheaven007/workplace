@@ -4,3 +4,4 @@
 node_modules/
 ES6/Babel/dest
 TEST/*.*
+webpackDemo/dist/
