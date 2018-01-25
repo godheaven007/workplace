@@ -1,1 +1,7 @@
-body{background-color:#ff0; font-size:20px; color:#fff;}
+body{background-color:#f0f; font-size:20px; color:#fff;}
+#avatar{
+	width: 120px;
+	height: 120px;
+	transform: scale(0.5);
+	background: red url(../images/2.png) no-repeat center center;
+}

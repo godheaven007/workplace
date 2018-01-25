@@ -27,6 +27,11 @@ var Main = {
         },
         showClose: false,                                   // 右侧关闭按钮
         uploadAsync: true,                                  // 是否异步上传
+        uploadExtraData: function(previewId, index) {   //额外参数的关键点
+            return {
+            	name: 'aaa'
+            };
+        }
         // showUpload: false,                               // 上传总按钮
         // showRemove: false,                               // 移除总按钮
         // showCaption:false,                               // 标题名称显示
@@ -127,13 +132,14 @@ var Main = {
             }
             
         });
-        $(document).on('click', 'html,body', function () {
-            $('.dropDownBox').removeClass('active');
-        });
 
+        $("#upload").on("filebatchselected", function(event, files) {
+        		alert(123456);
+        });
 
         // 上传$('.dropDownBox').removeClass('active');
         $(document).on('fileuploaded', '#upload', function (event, data, previewId, index) {
+        
             var result = data.response;         // 后台返回JSON
             alert(result.msg);
         });

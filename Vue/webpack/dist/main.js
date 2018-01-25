@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,6 +71,14 @@
 // import style from './css/style.css';
 
 document.getElementById('title').innerHTML='Hello Webpack';
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(0);
+(function webpackMissingModule() { throw new Error("Cannot find module \"dist/entry.js\""); }());
+
 
 /***/ })
 /******/ ]);
