@@ -10,11 +10,19 @@ const extractTextPlugin = require('extract-text-webpack-plugin');
 const extarctSCSS = new extractTextPlugin('css/scss.css');
 const extarctLESS = new extractTextPlugin('css/less.css');
 
+console.log( encodeURIComponent(process.env.type) );
 let website = {
-	publicPath: "http://localhost:2264/"
-};
+		publicPath: "http://localhost:2265/"
+	};
+if(process.env.type == 'build') {
+	// 生产环境
+} else {
+	// 开发环境
+	website.publicPath = "http://xusf.cn:2265/";
+}
 
 module.exports = {
+	devtool: 'source-map',
 	// 入口文件配置项
 	entry: {
 		entry: './src/entry.js',

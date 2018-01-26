@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "webpack-dev-server --open"
+    "server": "webpack-dev-server --open",
+    "build": "set type=build&webpack",
+    "dev": "set type=dev&webpack"
   },
   "keywords": [],
   "author": "",
@@ -29,5 +31,8 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }
