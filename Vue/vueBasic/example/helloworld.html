@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World实例</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-focus v-model="msg">
+        <button @click="add">Add</button>
+        <ul>
+            <li v-for="(value,key) in out">{{value}} {{key}}</li>
+        </ul>
+        <!--<div>{{out.count}}</div>-->
+    </div>
+    <button onclick="change()">change</button>
+    <script>
+//        Vue.directive('getColor',{
+//            bind: function (el, binding) {
+//                el.style.color = binding.value.color;
+//                el.style.fontSize = binding.value.fontSize + 'px';
+//            }
+//        });
+//        Vue.component('my-component',{
+//            template: '<h1><a href="www.baidu.com">百度</a></h1>',
+//        })
+        function change(){
+            outData.a = 5;
+//            outData.c = 3;
+//            Vue.set(outData, 'c', 3);
+        }
+        var outData = {
+            a: 1,
+            b: 2
+        };
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello',
+                num: 10,
+                href: 'www.baidu.com',
+                obj: {
+                    color: 'red',
+                    fontSize: 30
+                },
+                out: outData
+            },
+            methods: {
+                add: function () {
+                    this.num++;
+                }
+            },
+            computed: {
+            },
+            directives: {
+                focus: {
+                    inserted: function (el) {
+                        el.focus();
+                    }
+                }
+            },
+            components: {
+                'my-component': {
+                    template: '<div>112233</div>'
+                }
+            },
+            filters: {
+                filterNum: function (value) {
+                    return value + '$';
+                },
+                filterNum2: function (value) {
+                    var reg = /\$/g;
+                    return value.replace(reg, '元')
+                }
+            }
+        });
+    </script>
+    <script>
+//        var authorName = "xusf1";
+//        var authorExtend = Vue.extend({
+//            template: '<p><a :href="authorURL">{{authorName}}</a></p>',
+//            data: function () {
+//                return {
+//                    authorName: authorName,
+//                    authorURL: "www"
+//                }
+//            }
+//        });
+//
+//        new authorExtend().$mount('author');
+//        new authorExtend().$mount('#author');
+    </script>
+</body>
+</html>
