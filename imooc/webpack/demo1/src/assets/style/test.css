@@ -1,0 +1,7 @@
+body{
+    color:  #f00;
+    background: url(../images/bg.jpg) no-repeat;
+}
+#main{
+    background: url(../images/share-icons.png) no-repeat;
+}
