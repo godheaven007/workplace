@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+<body class="skinOld">
+    <!-- 头部 -->
+    <div class="header">
+        <div class="headerTit">试达研究院</div>
+        <div class="headerNav">
+            <!-- 学段学科筛选 -->
+            <div class="periodSubFilter">
+                <div class="curPeriodSub">当前：高中语文</div>
+                <div class="periodSub">
+                    <div class="periodSubItem">
+                        <div class="period">小学</div>
+                        <ul class="subjects">
+                            <li class="active">语文</li>
+                            <li>数学</li>
+                            <li>英语</li>
+                        </ul>
+                    </div>
+                    <div class="periodSubItem">
+                        <div class="period">初中</div>
+                        <ul class="subjects">
+                            <li>语文</li>
+                            <li>数学</li>
+                            <li>英语</li>
+                            <li>物理</li>
+                            <li>化学</li>
+                            <li>生物</li>
+                            <li>政治</li>
+                            <li>历史</li>
+                            <li>地理</li>
+                        </ul>
+                    </div>
+                    <div class="periodSubItem">
+                        <div class="period">高中</div>
+                        <ul class="subjects">
+                            <li>语文</li>
+                            <li>数学</li>
+                            <li>英语</li>
+                            <li>物理</li>
+                            <li>化学</li>
+                            <li>生物</li>
+                            <li>政治</li>
+                            <li>历史</li>
+                            <li>地理</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ul id="moduleNav">
+                <li class="active"><span>录入</span></li>
+                <li><span>解析</span></li>
+                <li><span>审核</span></li>
+                <li class="disNone"><span>管理</span></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <!-- 筛选栏 -->
+        <div class="filterBox">
+            <div class="filterItem">
+                <span>分类</span>
+                <ul>
+                    <li class="active">试卷</li>
+                    <li>试题</li>
+                </ul>
+            </div>
+            <div class="filterItem">
+                <span>年级</span>
+                <ul>
+                    <li>高一</li>
+                    <li class="active">高二</li>
+                    <li>高三</li>
+                </ul>
+            </div>
+            <div class="filterItem">
+                <span>来源</span>
+                <ul>
+                    <li class="active">研究院</li>
+                    <li>区域</li>
+                    <li>学校</li>
+                    <li>个人</li>
+                </ul>
+            </div>
+            <div class="filterItem">
+                <span>教材</span>
+                <ul>
+                    <li>苏教版</li>
+                    <li>鲁教版</li>
+                    <li>上海版</li>
+                    <li class="active">苏教版</li>
+                    <li>鲁教版</li>
+                    <li>上海版</li>
+                    <li>苏教版</li>
+                    <li>鲁教版</li>
+                    <li>上海版</li>
+                    <li>苏教版</li>
+                    <li>鲁教版</li>
+                    <li>上海版</li>
+                </ul>
+            </div>
+        </div>
+        <!-- 搜索、批量操作 -->
+        <div class="searchBar">
+            <div class="checkAll">批量操作</div>
+            <div class="search"><span>搜索</span></div>
+        </div>
+        <!-- 录入模块主体 -->
+        <div class="mainCont typein">
+            <!-- 自动录入、手动录入 -->
+            <div class="typeinBar">
+                <div class="typeinMode auto">
+                    <span>自动录入</span>
+                </div>
+                <div class="typeinMode manual">
+                    <span>手动录入</span>
+                </div>
+            </div>
+            <!-- 分页 -->
+            <div class="pageBar"></div>
+        </div>
+        <!-- 解析模块主体 -->
+        <div class="mainCont analyze"></div>
+        <!-- 审核模块主体 -->
+        <div class="mainCont verify"></div>
+        <!-- 管理模块主体 -->
+        <div class="mainCont manage disNone"></div>
+    </div>
+</body>
+</html>

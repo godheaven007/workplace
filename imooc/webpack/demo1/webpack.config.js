@@ -1,6 +1,11 @@
 const path = require('path');
+const webpack = require('webpack');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+// 获取NODE环境变量,区分开发、正式环境
+const isDev = process.env.NODE_ENV === 'development';
+
+const config = {
     target: "web",
     entry: path.join(__dirname, 'src/index.js'),
     output: {
@@ -17,6 +22,10 @@ module.exports = {
                         loader: "vue-loader"
                     }
                 ]
+            },
+            {
+                test: /\.jsx$/,
+                loader: "babel-loader"
             },
             {
                 test: /\.css$/,
@@ -43,8 +52,34 @@ module.exports = {
             }
         ]
     },
-    plugins: [],
-    devServer: {
-
-    }
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: isDev ? '"development"' : '"production"'
+            }
+        }),
+        new htmlWebpackPlugin()
+    ],
 };
+
+if(isDev) {
+    // config.devtool = '#cheap-module-eval-source-map';
+    // 开发环境
+    config.devServer = {
+        port: 8000,
+        // host: '192.168.1.125',
+        host: '0.0.0.0',
+        overlay: {
+            errors: true
+        },
+        hot: true
+    };
+    config.plugins.push(
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
+    )
+} else {
+    // 正式环境
+}
+
+module.exports = config;

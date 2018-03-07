@@ -1,12 +1,16 @@
 <template>
-  <div id="test">{{text}}</div>
+    <div id="test">
+      <p>{{text}}</p>
+      <input type="text" name="" id="">
+    </div>
+  
 </template>
 
 <script>
 export default {
   data() {
       return {
-          text: "abc"
+          text: "abc123"
       }
   }
 }
