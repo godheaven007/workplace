@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="test">
+        <p>{{ message }}</p>
+        <button @click="add('a-component', '我是A')">添加A组件</button>
+        <button @click="add('b-component', '我是B')">添加B组件</button>
+        <component :is="item.component" :text="item.text" v-for="item in items"></component>
+    </div>
+    <script type="text/x-template" id="componentA">
+        <li>A ComponentA: {{ text }}</li>
+    </script>
+    <script type="text/x-template" id="componentB">
+        <li>B ComponentB: {{ text }}</li>
+    </script>
+    <script>
+        const aComponent = Vue.extend({
+            props: ['text'],
+            template: '#componentA'
+        })
+
+        const bComponent = Vue.extend({
+            props: ['text'],
+            template: '#componentB'
+        })
+
+        var test = new Vue({
+            el: '#test',
+            data() {
+                return {
+                    message: 'Hello Vue.js!',
+                    items: []
+                }
+            },
+            methods: {
+                add(name, text) {
+                    this.items.push({
+                        component: name,
+                        text: text
+                    })
+                }
+            },
+            components: {
+                aComponent,
+                bComponent
+            }
+        })
+    </script>
+</body>
+</html>

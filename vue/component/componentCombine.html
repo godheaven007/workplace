@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件组合（父子组件）</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <parent-component></parent-component>
+    </div>
+    <script>
+        // 构造子组件
+        let childComponent = Vue.extend({
+            template:`<button @click=say>搜索</button>`,
+            methods: {
+                say: function() {
+                    alert("子组件");
+                }
+            }
+        });
+
+        // 构造父组件
+        let parentComponent = Vue.extend({
+            template: `
+                <div>
+                    <label for="search">{{msg}}</label>    
+                    <input type="search" id="search" name="search" placeholder="输入关键词"/>
+                    <child-component></child-component>
+                </div>`,
+            components: {
+                "child-component": childComponent
+            },
+            data: function () {
+                return {
+                    msg: "sou suo"
+                }
+            }
+        });
+        
+        // 注册全局组件父组件
+        Vue.component("parent-component", parentComponent);
+
+        var vm = new Vue({
+            el: "#app",
+            components: {
+               parentComponent 
+            }
+        })
+    </script>
+</body>
+</html>
