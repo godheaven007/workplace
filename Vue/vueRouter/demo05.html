@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <title>命名路由</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrap">
+            <!-- 路由导航 -->
+            <router-link :to="{name: 'router-news', query:{id: 100544}}">新闻</router-link>
+            <router-link :to="{name: 'router-music',params:{money: 500}}">音乐</router-link>
+            <router-link :to="{name: 'router-sports'}">体育</router-link>
+            <router-link :to="{name: 'router-society'}">社会</router-link>
+
+            <!-- 路由出口,渲染路由匹配到的组件内容 -->
+            <transition name="fade" mode="out-in">
+                <router-view></router-view>
+            </transition>
+        </div>
+        <div class="desc">
+            【命名路由】VS【基础路由】
+            <h3>命名路由:</h3>
+            <p>router-link中的‘to’属性前必须加上冒号，通过name属性找到对应路由，已对象的形式传参</p>
+            <h3>基础路由:</h3>
+            <p>router-link中的‘to’属性前无冒号，通过指定路径匹配到对应路由，路径后面直接传参</p>
+        </div>
+    </div>
+    <script>
+        let news = {
+            template: `<h1>新闻</h1>`
+        };
+        let music = {
+            template: `<h1>音乐</h1>`
+        };
+        let sports = {
+            template: `<h1>体育</h1>`
+        };
+        let society = {
+            template: `<h1>社会</h1>`
+        };
+
+        let router = new VueRouter({
+            routes: [
+                {
+                    name: 'router-news',
+                    path: '/news',
+                    component: news
+                },
+                {
+                    name: 'router-music',
+                    path: '/music/:money',
+                    component: music
+                },
+                {
+                    name: 'router-sports',
+                    path: '/sports',
+                    component: sports
+                },
+                {
+                    name: 'router-society',
+                    path: '/society',
+                    component: society
+                },
+            ]
+        });
+
+        var vm = new Vue({
+            router,
+        }).$mount('#app')
+    </script>
+</body>
+
+</html>

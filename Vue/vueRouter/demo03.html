@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <title>嵌套路由</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrap">
+           <router-link to="/user/xusf">play</router-link>
+           <router-link to="/user/xusf/work">work</router-link>
+           <router-link to="/user/xusf/study">study</router-link>
+           <router-view></router-view>
+        </div>
+    </div>
+    <script>
+        const user = {
+            template: `
+                <div class="userWrap">
+                    <h1>用户{{$route.params.id}}</h1>
+                    <transition name="fade" mode="out-in">
+                        <router-view></router-view>
+                    </transition>
+                </div>
+            `
+        };
+        
+        let play = {
+            template: `<h1>Play!</h1>`,
+            created: function () {
+                console.log(router === this.$router,333);
+                
+                
+            }
+        };
+
+        let work = {
+            template: `<h1>Work Hard!</h1>`
+        };
+        let study = {
+            template: `<h1>Study Hard!</h1>`
+        };
+
+        let router = new VueRouter({
+            routes: [
+                {
+                    path: '/user/:id',
+                    component: user,
+                    // 注意！！！嵌套的子路由不要加‘/’
+                    children: [
+                        {
+                            path: '',
+                            component: play
+                        },
+                        {
+                            path: 'work',
+                            component: work
+                        },
+                        {
+                            path: 'study',
+                            component: study
+                        }
+                    ]
+                }
+            ]
+        });
+        new Vue({
+            el: "#app",
+            router
+        })
+    </script>
+</body>
+
+</html>
