@@ -23,7 +23,7 @@
 - `git push origin master`
 
 3. 其他相关命令 
-- `git remote -v` 查看本地库记录的远程远程库地址; 
+- `git remote -v` 查看远程库信息; 
 - `git remote remove origin`删除与远程仓库的连接
 - `git push -f origin master`强制推送，会覆盖别人代码(绝大部分情况请不要这样做)
 - `git remote set-url origin git@server-name:path/repo-name.git`修改origin关联的远程仓库地址
@@ -32,7 +32,13 @@
 请确保别人给了你提交的权限
 
 ## 分支
-asdfasd
+- `git branch`查看本地分支
+- `git branch -a` 查看本地跟远程分支
+- `git branch [name]`创建新分支
+- `git checkout [name]`切换分支
+- `git checkout -b [name]`创建新分支并切换至该分支
+- `git branch -d [name]`删除分支
+- `git merge [name]`合并分支至当前分支
 
 
 ## 其他常用命令整理
@@ -43,6 +49,7 @@ asdfasd
 - `git reset HEAD index.html`将暂存区内容撤销至工作区  
 - `git checkout -- index.html`放弃工作区中对文件的修改 
 - `git status`命令提示操作
-- `git log --pretty=oneline`只显示**commit**的版本
+- `git log --pretty=oneline --graph --abbrev-commit`只显示**commit**的版本
 - `git reflog`显示**commit**、**reset**、**remove**版本
 - `git reset --hard commit_id`回退至某一个版本
+- `git diff`对比文件差异
