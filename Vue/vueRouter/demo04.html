@@ -14,62 +14,47 @@
 <body>
     <div id="app">
         <div class="wrap">
-            <router-link to="/user/xusf">user/xusf</router-link>
-            <router-link to="/user/xusf/work">user/xusf/work</router-link>
-            <router-link to="/user/xusf/study">user/xusf/work</router-link>
+            <button @click="handleHomeClick">Home</button>
+            <button @click="handleConcatClick">Concat</button>
             <router-view></router-view>
         </div>
     </div>
     <script>
-        const user = {
-            template: `
-                <div class="userWrap">
-                    <h1>用户{{$route.params.id}}</h1>
-                    <transition name="fade" mode="out-in">
-                        <router-view></router-view>
-                    </transition>
-                </div>
-            `
+        let home = {
+            template: `<h1>Home</h1>`
         };
 
-        let play = {
-            template: `<h1>Play!</h1>`
-        };
-
-        let work = {
-            template: `<h1>Work Hard!</h1>`
-        };
-        let study = {
-            template: `<h1>Study Hard!</h1>`
+        let concat = {
+            template: `<h1>Concat</h1>`
         };
 
         let router = new VueRouter({
             routes: [
                 {
-                    path: '/user/:id',
-                    component: user,
-                    // 注意！！！嵌套的子路由不要加‘/’
-                    children: [
-                        {
-                            path: '',
-                            component: play
-                        },
-                        {
-                            path: 'work',
-                            component: work
-                        },
-                        {
-                            path: 'study',
-                            component: study
-                        }
-                    ]
+                    path: "/home",
+                    component: home
+                },
+                {
+                    path: "/concat",
+                    component: concat
                 }
             ]
         });
-        new Vue({
+
+        let vm = new Vue({
             el: "#app",
-            router
-        })
+            router,
+            methods: {
+                handleHomeClick: function () {
+                    this.$router.push("/home");
+                    console.log(this.$router);
+                },
+                handleConcatClick: function () {
+                    this.$router.push("/concat");
+                    console.log(this.$router);
+                }
+            }
+        });
     </script>
 </body>
 
