@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>试达测评-报告分享</title>
+    <link rel="stylesheet" href="./css/share.css">
+    <script type="text/javascript" src="./js/mobile-util.js"></script>
+</head>
+<body>
+    <div class="container" id="app" v-cloak>
+        <!--头部-->
+        <div class="header">
+            <div class="title">学习报告</div>
+            <div class="downloadBar">
+                <div class="downloadAvatar"></div>
+                <div class="downloadText">
+                    <p>下载皮皮狐</p>
+                    <p>跟着皮皮一起寻找小学的秘密</p>
+                </div>
+                <div class="downloadBtn" @click="download">
+                </div>
+            </div>
+        </div>
+        <!--主体-->
+        <div class="middle">
+            <div class="personalInfo">
+                <div class="avatar"></div>
+                <p>{{personalInfo.name}}  {{personalInfo.sex}}  {{personalInfo.birthday}}</p>
+            </div>
+            <div v-if="dataState == 1">
+                <!--排名-->
+                <div class="ranking">
+                    <div class="rankTop">
+                        <p>今日完成 <strong>{{rankTopData.scene}}</strong> 个场景</p>
+                        <p>今日测试 <strong>{{rankTopData.target}}</strong> 个指标</p>
+                        <p>打败了全国 <strong>{{rankTopData.ranking}}</strong> 的宝贝</p>
+                    </div>
+                    <div class="rankMid">
+                        <div class="rankText" v-for="item in rankMidData">
+                            {{item.name}}
+                        </div>
+                        <div class="rankTip">* {{rankTopData.tip}}</div>
+                    </div>
+                </div>
+                <!--数据图表-->
+                <div class="graph">
+                    <!--雷达图-->
+                    <ul class="legend">
+                        <li class="personal">个人表现</li>
+                        <li class="group">群体表现</li>
+                    </ul>
+                    <div id="graph"></div>
+                    <div class="rope ropeL"></div>
+                    <div class="rope ropeR"></div>
+                </div>
+                <!--指标建议-->
+                <div class="suggest exceed">
+                    <h2>宝贝超越同龄人的指标有：</h2>
+                    <ul>
+                        <li class="tag" v-for="item in exceedData">{{item}}</li>
+                    </ul>
+                    <div class="detail">
+                        {{exceedText}}
+                        <!--<span></span>-->
+                    </div>
+                    <div class="rope ropeL"></div>
+                    <div class="rope ropeR"></div>
+                </div>
+                <div class="suggest behind">
+                    <h2>宝贝落后同龄人的指标有：</h2>
+                    <ul>
+                        <li class="tag" v-for="item in behindData">{{item}}</li>
+                    </ul>
+                    <div class="detail">
+                        {{behindText | filterSuggest(behindData)}}
+                        <!--<span></span>-->
+                    </div>
+                </div>
+            </div>
+            <!--无数据-->
+            <div class="noData" v-else>
+                <div class="noDataTip">* {{rankTopData.tip}}</div>
+            </div>
+            <div class="goTest">
+                <div class="goBtn" @click="download"></div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/echarts.min.js"></script>
+<script type="text/javascript" src="./js/vue.min.js"></script>
+<script type="text/javascript" src="./js/vue-resource.js"></script>
+ <script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/share.js"></script>
+</body>
+</html>
