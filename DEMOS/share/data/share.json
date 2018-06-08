@@ -1,0 +1,118 @@
+{
+  "status": 0,
+  "msg": "",
+  "time": "1528427770",
+  "data": {
+    "user": {
+      "name": "",
+      "sex": "保密",
+      "birthday": "生日未设置"
+    },
+    "now": {
+      "left": {
+        "leftData": {
+          "scene": 0,
+          "target": 0,
+          "ranking": "1%",
+          "tip": "宝宝今日还未测试,这是上一次数据哦!"
+        }
+      },
+      "right": {
+        "rightData": [{
+          "target_id": 41,
+          "ratio": 100,
+          "name": "量的比较"
+        }, {
+          "target_id": 58,
+          "ratio": 100,
+          "name": "数的概念"
+        }, {
+          "target_id": 45,
+          "ratio": 50,
+          "name": "空间图形"
+        }]
+      }
+    },
+    "radar": {
+      "contData": [{
+        "ratio": 100,
+        "name": "量的比较",
+        "colony": 26.29
+      }, {
+        "ratio": 50,
+        "name": "空间图形",
+        "colony": 30.43
+      }, {
+        "ratio": 100,
+        "name": "数的概念",
+        "colony": 33.88
+      }, {
+        "ratio": 100,
+        "name": "数的概念",
+        "colony": 33.88
+      }, {
+        "ratio": 100,
+        "name": "数的概念",
+        "colony": 33.88
+      }],
+      "targeName": {
+        "first": ["量的比较", "空间图形", "数的概念"],
+        "end": []
+      },
+      "text": {
+        "firstText": ["宝贝对事物量的关系掌握很棒，在未来小学数理化知识学习上会有不俗的表现！", "宝贝的空间知觉能力很棒，未来几何空间类知识学习会很有潜力！", "宝贝对数字的掌握很棒，在未来数理化知识学习上会有不俗的表现！"],
+        "endText": []
+      }
+    },
+    "bar": {
+      "level": [{
+        "begin": 0,
+        "end": 25,
+        "name": "豆丁宝宝"
+      }, {
+        "begin": 25.01,
+        "end": 60,
+        "name": "发展宝宝"
+      }, {
+        "begin": 60.01,
+        "end": 85,
+        "name": "潜力宝宝"
+      }, {
+        "begin": 85.01,
+        "end": 100,
+        "name": "英雄宝宝"
+      }],
+      "barData": [{
+        "sortName": "社会性发展",
+        "sortData": []
+      }, {
+        "sortName": "心智发展",
+        "sortData": [{
+          "target_name": "量的比较",
+          "new": 0,
+          "last": 100
+        }, {
+          "target_name": "空间图形",
+          "new": 0,
+          "last": 50
+        }, {
+          "target_name": "数的概念",
+          "new": 0,
+          "last": 100
+        }]
+      }, {
+        "sortName": "身体健康",
+        "sortData": []
+      }],
+      "rate": {
+        "shining": ["量的比较", "数的概念"],
+        "upgrade": []
+      },
+      "text": {
+        "shiningText": ["宝贝对事物量的关系掌握很棒，在未来小学数理化知识学习上会有不俗的表现！", "宝贝对数字的掌握很棒，在未来数理化知识学习上会有不俗的表现！"],
+        "upgradeText": []
+      }
+    },
+    "dataState": 1
+  }
+}
