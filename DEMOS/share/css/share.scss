@@ -1,0 +1,312 @@
+@charset "UTF-8";
+// CSS Reset
+*{box-sizing: border-box;-webkit-tap-highlight-color: transparent; -webkit-box-sizing: border-box;}
+html{height:100%;-webkit-text-size-adjust:none;}
+body {overflow-x: hidden;height:100%;-webkit-overflow-scrolling: touch;font-family: "Microsoft Yahei",Arial,sans-serif;}
+dl,ul,ol,li {list-style: none;}
+body,dd,dl,dt,h1,h2,h3,h4,h5,h6,p,ul {margin: 0;padding: 0}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+a{text-decoration:none;}
+em,i{font-style: normal;}
+img {border: 0;vertical-align: middle;}
+input{border:none;outline: none;vertical-align: middle;}
+[v-cloak]{display: none;}
+.disNone{display:none;}
+
+// 变量（以iPhone6尺寸为基准(pixel per rem)）
+$ppr: 750px/16/1rem;
+
+// 布局
+.container{width:100%; height: 100%;padding-top:200px/$ppr;background:#41c1de;}
+.header{position:fixed; top:0; z-index:9999; width:100%;height:200px/$ppr;}
+.middle{width:100%; padding: 0 36px/$ppr;}
+
+@mixin radiusBox{
+  border-radius: 20px/$ppr;
+  background: #fff;
+}
+@mixin ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rope{
+  position: absolute;
+  bottom: 0;
+  width: 24px/$ppr;
+  height: 104px/$ppr;
+  margin-bottom:-70px/$ppr;
+  background: url("../images/rope.png") no-repeat center center;
+  background-size: contain;
+  z-index: 999;
+  &.ropeL{
+    left: 28px/$ppr;
+  }
+  &.ropeR{
+    right:28px/$ppr;
+  }
+}
+.header{
+  .title{
+    width:100%;
+    height: 100px/$ppr;
+    line-height: 100px/$ppr;
+    text-align: center;
+    font-size: 36px/$ppr;
+    color: #fff;
+    background: #41c1de;
+  }
+  .downloadBar{
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    width:100%;
+    height:100px/$ppr;
+    padding: 0 36px/$ppr;
+    background-color: #23849b;
+    .downloadAvatar{
+      width: 72px/$ppr;
+      height: 72px/$ppr;
+      background: url("../images/downloadAvatar.png") no-repeat center center;
+      background-size: contain;
+    }
+    .downloadText{
+      font-size: 28px/$ppr;
+      text-align: center;
+      color: #fff;
+    }
+    .downloadBtn{
+      width: 134px/$ppr;
+      height: 62px/$ppr;
+      background: url("../images/downloadBtn.png") no-repeat center center;
+      background-size: contain;
+    }
+  }
+}
+.middle{
+  background: #41c1de;
+  .personalInfo{
+    width: 100%;
+    padding: 20px/$ppr 0;
+    text-align: center;
+    color: #fff;
+    .avatar{
+      display: inline-block;
+      width: 110px/$ppr;
+      height: 110px/$ppr;
+      background: url("../images/avatar.png") no-repeat center center;
+      background-size:contain;
+    }
+    p{
+      font-size: 28px/$ppr;
+    }
+  }
+  .noData{
+    @include radiusBox;
+    position: relative;
+    width: 100%;
+    height: 400px/$ppr;
+    padding-top:340px/$ppr;
+    padding-left:40px/$ppr;
+    background: #fff url("../images/cry.png") no-repeat center center;
+    background-size: 216px/$ppr 244px/$ppr;
+    margin-bottom:40px/$ppr;
+    .noDataTip{
+      width:100%;
+      font-size: 32px/$ppr;
+      line-height: 60px/$ppr;
+      color: #fbaa2e;
+    }
+  }
+  .ranking{
+    position: relative;
+    @include radiusBox;
+    width:100%;
+    padding: 0 48px/$ppr;
+    text-align: center;
+    margin-bottom:40px/$ppr;
+    .rankTop{
+      width:100%;
+      padding: 48px/$ppr 0;
+      font-size: 40px/$ppr;
+      color: #6d6d6d;
+      border-bottom:1px solid #e5e5e5;
+      p{
+        width:100%;
+        height:110px/$ppr;
+        line-height: 110px/$ppr;
+      }
+      strong{
+        color: #fbaa2e;
+        font-size: 60px/$ppr;
+      }
+    }
+    .rankMid{
+      position: relative;
+      width:100%;
+      height: 550px/$ppr;
+      background: url("../images/rank.png") no-repeat center 60px/$ppr;
+      background-size: 334px/$ppr 398px/$ppr;
+      .rankText{
+        position: absolute;
+        padding: 0 20px/$ppr;
+        height: 50px/$ppr;
+        line-height: 48px/$ppr;
+        border-radius: 12px/$ppr;
+        font-size: 28px/$ppr;
+        background-color: #fff;
+        white-space: nowrap;
+        &:nth-child(1){
+          left: 50%;
+          bottom: 324px/$ppr;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          color: #f5cf69;
+          border:3px solid #f5cf69;
+        }
+        &:nth-child(2){
+          bottom: 200px/$ppr;
+          right:370px/$ppr;
+          color: #c3dae9;
+          border:3px solid #c3dae9;
+        }
+        &:nth-child(3){
+          bottom: 200px/$ppr;
+          left: 370px/$ppr;
+          color: #d79a48;
+          border:3px solid #d79a48;
+        }
+      }
+      .rankTip{
+        position: absolute;
+        bottom:16px/$ppr;
+        left: 0;
+        font-size: 24px/$ppr;
+        color: #fbaa2e;
+      }
+    }
+  }
+  .graph{
+    position: relative;
+    @include radiusBox;
+    width: 100%;
+    height: 570px/$ppr;
+    margin-bottom:40px/$ppr;
+    .legend{
+      position: absolute;
+      right:20px/$ppr;
+      width: 320px/$ppr;
+      height: 60px/$ppr;
+      line-height: 60px/$ppr;
+      li{
+        position: relative;
+        float: left;
+        width:160px/$ppr;
+        height: 60px/$ppr;
+        line-height: 60px/$ppr;
+        padding-left:50px/$ppr;
+        font-size: 24px/$ppr;
+        color: #2f4464;
+        &:after{
+          content: '';
+          position: absolute;
+          left:10px/$ppr;
+          top:50%;
+          width: 30px/$ppr;
+          height: 12px/$ppr;
+          transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          border-radius: 6px/$ppr;
+        }
+        &.personal:after{background: #a8c4fc;}
+        &.group:after{background: #f984b3;}
+      }
+    }
+    #graph{
+      width:100%;
+      height: 100%;
+    }
+  }
+  .suggest{
+    @include radiusBox;
+    position: relative;
+    width:100%;
+    min-height: 200px/$ppr;
+    padding: 30px/$ppr 60px/$ppr 30px/$ppr 120px/$ppr;
+    margin-bottom:40px/$ppr;
+    font-size: 32px/$ppr;
+    &.exceed{
+      background: #fff url("../images/indicator1.png") no-repeat 10px/$ppr center;
+      background-size: 92px/$ppr 100px/$ppr;
+    }
+    &.behind{
+      background: #fff url("../images/indicator2.png") no-repeat 10px/$ppr center;
+      background-size: 92px/$ppr 100px/$ppr;
+    }
+    h2{
+      color: #2f4464;
+      font-size: 32px/$ppr;
+      margin-bottom:12px/$ppr;
+    }
+    ul{
+      overflow: hidden;
+      .tag{
+        @include ellipsis;
+        float: left;
+        width:130px/$ppr;
+        height: 44px/$ppr;
+        line-height: 44px/$ppr;
+        font-size: 24px/$ppr;
+        margin-bottom:12px/$ppr;
+        margin-right: 12px/$ppr;
+        text-align: center;
+        color: #fff;
+      }
+    }
+    &.exceed .tag{
+      background: url("../images/rect2.png") no-repeat center center;
+      background-size: contain;
+    }
+    &.behind .tag{
+      background: url("../images/rect1.png") no-repeat center center;
+      background-size: contain;
+    }
+    .detail{
+      position: relative;
+      color: #3da6bd;
+      font-size: 32px/$ppr;
+      line-height: 42px/$ppr;
+      //padding-right:24px/$ppr;
+      span{
+        position: absolute;
+        top:10px/$ppr;
+        right:0;
+        width: 20px/$ppr;
+        height: 26px/$ppr;
+        background: url("../images/down.png") no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+  .goTest{
+    width: 100%;
+    height: 200px/$ppr;
+    text-align: center;
+    .goBtn{
+      display: inline-block;
+      width:340px/$ppr;
+      height:114px/$ppr;
+      background: url("../images/goTest.png") no-repeat center center;
+      background-size: contain;
+    }
+  }
+}

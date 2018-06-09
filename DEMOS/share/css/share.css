@@ -1,0 +1,310 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-box-sizing: border-box; }
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: none; }
+
+body {
+  overflow-x: hidden;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  font-family: "Microsoft Yahei",Arial,sans-serif; }
+
+dl, ul, ol, li {
+  list-style: none; }
+
+body, dd, dl, dt, h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; }
+
+a {
+  text-decoration: none; }
+
+em, i {
+  font-style: normal; }
+
+img {
+  border: 0;
+  vertical-align: middle; }
+
+input {
+  border: none;
+  outline: none;
+  vertical-align: middle; }
+
+[v-cloak] {
+  display: none; }
+
+.disNone {
+  display: none; }
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding-top: 4.26667rem;
+  background: #41c1de; }
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 4.26667rem; }
+
+.middle {
+  width: 100%;
+  padding: 0 0.768rem; }
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.rope {
+  position: absolute;
+  bottom: 0;
+  width: 0.512rem;
+  height: 2.21867rem;
+  margin-bottom: -1.49333rem;
+  background: url("../images/rope.png") no-repeat center center;
+  background-size: contain;
+  z-index: 999; }
+  .rope.ropeL {
+    left: 0.59733rem; }
+  .rope.ropeR {
+    right: 0.59733rem; }
+
+.header .title {
+  width: 100%;
+  height: 2.13333rem;
+  line-height: 2.13333rem;
+  text-align: center;
+  font-size: 0.768rem;
+  color: #fff;
+  background: #41c1de; }
+.header .downloadBar {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  width: 100%;
+  height: 2.13333rem;
+  padding: 0 0.768rem;
+  background-color: #23849b; }
+  .header .downloadBar .downloadAvatar {
+    width: 1.536rem;
+    height: 1.536rem;
+    background: url("../images/downloadAvatar.png") no-repeat center center;
+    background-size: contain; }
+  .header .downloadBar .downloadText {
+    font-size: 0.59733rem;
+    text-align: center;
+    color: #fff; }
+  .header .downloadBar .downloadBtn {
+    width: 2.85867rem;
+    height: 1.32267rem;
+    background: url("../images/downloadBtn.png") no-repeat center center;
+    background-size: contain; }
+
+.middle {
+  background: #41c1de; }
+  .middle .personalInfo {
+    width: 100%;
+    padding: 0.42667rem 0;
+    text-align: center;
+    color: #fff; }
+    .middle .personalInfo .avatar {
+      display: inline-block;
+      width: 2.34667rem;
+      height: 2.34667rem;
+      background: url("../images/avatar.png") no-repeat center center;
+      background-size: contain; }
+    .middle .personalInfo p {
+      font-size: 0.59733rem; }
+  .middle .noData {
+    border-radius: 0.42667rem;
+    background: #fff;
+    position: relative;
+    width: 100%;
+    height: 8.53333rem;
+    padding-top: 7.25333rem;
+    padding-left: 0.85333rem;
+    background: #fff url("../images/cry.png") no-repeat center center;
+    background-size: 4.608rem 5.20533rem;
+    margin-bottom: 0.85333rem; }
+    .middle .noData .noDataTip {
+      width: 100%;
+      font-size: 0.68267rem;
+      line-height: 1.28rem;
+      color: #fbaa2e; }
+  .middle .ranking {
+    position: relative;
+    border-radius: 0.42667rem;
+    background: #fff;
+    width: 100%;
+    padding: 0 1.024rem;
+    text-align: center;
+    margin-bottom: 0.85333rem; }
+    .middle .ranking .rankTop {
+      width: 100%;
+      padding: 1.024rem 0;
+      font-size: 0.85333rem;
+      color: #6d6d6d;
+      border-bottom: 1px solid #e5e5e5; }
+      .middle .ranking .rankTop p {
+        width: 100%;
+        height: 2.34667rem;
+        line-height: 2.34667rem; }
+      .middle .ranking .rankTop strong {
+        color: #fbaa2e;
+        font-size: 1.28rem; }
+    .middle .ranking .rankMid {
+      position: relative;
+      width: 100%;
+      height: 11.73333rem;
+      background: url("../images/rank.png") no-repeat center 1.28rem;
+      background-size: 7.12533rem 8.49067rem; }
+      .middle .ranking .rankMid .rankText {
+        position: absolute;
+        padding: 0 0.42667rem;
+        height: 1.06667rem;
+        line-height: 1.024rem;
+        border-radius: 0.256rem;
+        font-size: 0.59733rem;
+        background-color: #fff;
+        white-space: nowrap; }
+        .middle .ranking .rankMid .rankText:nth-child(1) {
+          left: 50%;
+          bottom: 6.912rem;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          color: #f5cf69;
+          border: 3px solid #f5cf69; }
+        .middle .ranking .rankMid .rankText:nth-child(2) {
+          bottom: 4.26667rem;
+          right: 7.89333rem;
+          color: #c3dae9;
+          border: 3px solid #c3dae9; }
+        .middle .ranking .rankMid .rankText:nth-child(3) {
+          bottom: 4.26667rem;
+          left: 7.89333rem;
+          color: #d79a48;
+          border: 3px solid #d79a48; }
+      .middle .ranking .rankMid .rankTip {
+        position: absolute;
+        bottom: 0.34133rem;
+        left: 0;
+        font-size: 0.512rem;
+        color: #fbaa2e; }
+  .middle .graph {
+    position: relative;
+    border-radius: 0.42667rem;
+    background: #fff;
+    width: 100%;
+    height: 12.16rem;
+    margin-bottom: 0.85333rem; }
+    .middle .graph .legend {
+      position: absolute;
+      right: 0.42667rem;
+      width: 6.82667rem;
+      height: 1.28rem;
+      line-height: 1.28rem; }
+      .middle .graph .legend li {
+        position: relative;
+        float: left;
+        width: 3.41333rem;
+        height: 1.28rem;
+        line-height: 1.28rem;
+        padding-left: 1.06667rem;
+        font-size: 0.512rem;
+        color: #2f4464; }
+        .middle .graph .legend li:after {
+          content: '';
+          position: absolute;
+          left: 0.21333rem;
+          top: 50%;
+          width: 0.64rem;
+          height: 0.256rem;
+          transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          border-radius: 0.128rem; }
+        .middle .graph .legend li.personal:after {
+          background: #a8c4fc; }
+        .middle .graph .legend li.group:after {
+          background: #f984b3; }
+    .middle .graph #graph {
+      width: 100%;
+      height: 100%; }
+  .middle .suggest {
+    border-radius: 0.42667rem;
+    background: #fff;
+    position: relative;
+    width: 100%;
+    min-height: 4.26667rem;
+    padding: 0.64rem 1.28rem 0.64rem 2.56rem;
+    margin-bottom: 0.85333rem;
+    font-size: 0.68267rem; }
+    .middle .suggest.exceed {
+      background: #fff url("../images/indicator1.png") no-repeat 0.21333rem center;
+      background-size: 1.96267rem 2.13333rem; }
+    .middle .suggest.behind {
+      background: #fff url("../images/indicator2.png") no-repeat 0.21333rem center;
+      background-size: 1.96267rem 2.13333rem; }
+    .middle .suggest h2 {
+      color: #2f4464;
+      font-size: 0.68267rem;
+      margin-bottom: 0.256rem; }
+    .middle .suggest ul {
+      overflow: hidden; }
+      .middle .suggest ul .tag {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        float: left;
+        width: 2.77333rem;
+        height: 0.93867rem;
+        line-height: 0.93867rem;
+        font-size: 0.512rem;
+        margin-bottom: 0.256rem;
+        margin-right: 0.256rem;
+        text-align: center;
+        color: #fff; }
+    .middle .suggest.exceed .tag {
+      background: url("../images/rect2.png") no-repeat center center;
+      background-size: contain; }
+    .middle .suggest.behind .tag {
+      background: url("../images/rect1.png") no-repeat center center;
+      background-size: contain; }
+    .middle .suggest .detail {
+      position: relative;
+      color: #3da6bd;
+      font-size: 0.68267rem;
+      line-height: 0.896rem; }
+      .middle .suggest .detail span {
+        position: absolute;
+        top: 0.21333rem;
+        right: 0;
+        width: 0.42667rem;
+        height: 0.55467rem;
+        background: url("../images/down.png") no-repeat center center;
+        background-size: contain; }
+  .middle .goTest {
+    width: 100%;
+    height: 4.26667rem;
+    text-align: center; }
+    .middle .goTest .goBtn {
+      display: inline-block;
+      width: 7.25333rem;
+      height: 2.432rem;
+      background: url("../images/goTest.png") no-repeat center center;
+      background-size: contain; }
+
+/*# sourceMappingURL=share.css.map */
