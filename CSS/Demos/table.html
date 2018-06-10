@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by godheaven007 (http://jsbin.com/guyetel/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Table 练习</title>
+<style id="jsbin-css">
+body{background-color: #fff;}
+.table{
+  width: 600px;
+  text-align: left;
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+  /*等同于 <table cellspacing="0"></table>*/
+}
+
+.table th{
+  background-color: #4CAF50;
+  color: #fff;
+}
+.table th,
+.table td{
+  border-bottom:1px solid #ccc;
+  padding: 8px;
+  /*等同于<table cellpadding="8"></table>*/
+}
+.table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+.table2{border:none;}
+.table2 th{
+  background-color: 
+  #fff;color:#000;
+}
+
+</style>
+</head>
+<body>
+  <table class="table table1">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Points</th>
+      </tr>
+      </th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>Adam</td>
+        <td>Johnson</td>
+        <td>67</td>
+      </tr>
+      <tr>
+        <td>Bo</td>
+        <td>Nilsson</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Mike</td>
+        <td>Ross</td>
+        <td>35</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="table table2">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Points</th>
+      </tr>
+      </th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>Adam</td>
+        <td>Johnson</td>
+        <td>67</td>
+      </tr>
+      <tr>
+        <td>Bo</td>
+        <td>Nilsson</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Mike</td>
+        <td>Ross</td>
+        <td>35</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
