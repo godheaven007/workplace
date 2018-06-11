@@ -53,19 +53,17 @@ var vm = new Vue({
 
 
                     setTimeout(function() {
-                        if(_this.dataState == 1) {
+                        if(_this.dataState == 1 || _this.dataState == 0) {
                             var graphChart = echarts.init(document.getElementById('graph'));
-                            graphChart.setOption(Graph.getRadarOption(_this.radarData));
+                            if(_this.radarData.length < 3) {
+                                // 柱状图
+                                graphChart.setOption(Graph.getBarOption(_this.radarData));
+                            } else {
+                                // 雷达图
+                                graphChart.setOption(Graph.getRadarOption(_this.radarData));
+                            }
                         }
                     },10)
-
-                    // if(_this.radarData.length < 3) {
-                    //     // 柱状图
-                    //     graphChart.setOption(this.getZhuOption(_this.radarData));
-                    // } else {
-                    //     // 雷达图
-                    //     graphChart.setOption(Graph.getRadarOption(_this.radarData));
-                    // }
                 }
             },function(res){
                 // 请求失败
@@ -193,6 +191,107 @@ var Graph = {
                         }
 
                     ]
+                }
+            ]
+        }
+    },
+
+    // 获取柱状图配置参数
+    getBarOption: function(data) {
+        var indicator = [],             // x轴名称
+            personData = [],          // 个人表现数据
+            colonyData = [];             // 群体表现数据
+
+        for(var i = 0, length = data.length; i < length; i++) {
+            indicator[i] = data[i].name;
+            personData[i] = parseFloat(data[i]['ratio']);
+            colonyData[i] = parseFloat(data[i]['colony']);
+        }
+        var setting = {
+            fontSize: 20,
+            barWidth: 40
+        };
+        if(Common.checkPlatform() == "android") {
+            setting.fontSize = 12;
+            setting.barWidth = 24;
+        }
+
+        return {
+            grid: {
+                left: 20,
+                right: 40,
+                bottom: 20,
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data :indicator,
+                    axisLabel:{
+                        textStyle:{
+                            color: '#585858',
+                            fontSize: setting.fontSize
+                        }
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisTick:{
+                        show: false
+                    }
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    splitLine:{
+                        show:true
+                    },
+                    splitArea:{
+                        show:true,
+                        areaStyle:{
+                            color:['rgba(204,221,255,1)','rgba(204,221,255,0.8)','rgba(217,229,254,0.6)','rgba(229,237,255,0.4)','rgba(242,246,254,0.2)']
+                        }
+                    },
+                    axisLabel:{
+                        formatter: '{value}%',
+                        textStyle:{
+                            color: '#585858',
+                            fontSize: setting.fontSize
+                        },
+                    },
+                    interval:20,
+                    splitNumber:5,
+                    min:0,
+                    max:100,
+                }
+            ],
+            series : [
+                {
+                    name:'个人表现',
+                    type:'bar',
+                    z: 3,
+                    itemStyle:{
+                        normal:{
+                            barBorderRadius:[20, 20, 20, 20],
+                            color: '#a8c4fc'
+                        }
+                    },
+                    barWidth: setting.barWidth,
+                    data:personData,
+                },
+                {
+                    name:'群体表现',
+                    type:'bar',
+                    z: 3,
+                    itemStyle:{
+                        normal:{
+                            barBorderRadius:[20, 20, 20, 20],
+                            color: '#f984b3'
+                        }
+                    },
+                    barWidth: setting.barWidth,
+                    data:colonyData,
                 }
             ]
         }

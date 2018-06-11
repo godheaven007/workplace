@@ -1,67 +1,53 @@
 {
   "status": 0,
   "msg": "",
-  "time": "1528427770",
+  "time": "1528451826",
   "data": {
     "user": {
       "name": "",
-      "sex": "保密",
-      "birthday": "生日未设置"
+      "sex": "",
+      "avatar": "2",
+      "birthday": "",
+      "userTip": "快去完成宝贝基本信息吧!"
     },
     "now": {
       "left": {
         "leftData": {
-          "scene": 0,
-          "target": 0,
-          "ranking": "1%",
-          "tip": "宝宝今日还未测试,这是上一次数据哦!"
+          "scene": 1,
+          "target": 2,
+          "ranking": "12.5%",
+          "tip": ""
         }
       },
       "right": {
         "rightData": [{
-          "target_id": 41,
-          "ratio": 100,
-          "name": "量的比较"
+          "target_id": 25,
+          "ratio": 20,
+          "name": "个人安全"
         }, {
-          "target_id": 58,
-          "ratio": 100,
-          "name": "数的概念"
-        }, {
-          "target_id": 45,
-          "ratio": 50,
-          "name": "空间图形"
+          "target_id": 29,
+          "ratio": 0,
+          "name": "道德表现"
         }]
       }
     },
     "radar": {
       "contData": [{
-        "ratio": 100,
-        "name": "量的比较",
-        "colony": 26.29
+        "ratio": 20,
+        "name": "个人安全",
+        "colony": 87
       }, {
-        "ratio": 50,
-        "name": "空间图形",
-        "colony": 30.43
-      }, {
-        "ratio": 100,
-        "name": "数的概念",
-        "colony": 33.88
-      }, {
-        "ratio": 100,
-        "name": "数的概念",
-        "colony": 33.88
-      }, {
-        "ratio": 100,
-        "name": "数的概念",
-        "colony": 33.88
+        "ratio": 0,
+        "name": "道德表现",
+        "colony": 28.54
       }],
       "targeName": {
-        "first": ["量的比较", "空间图形", "数的概念"],
-        "end": []
+        "first": [],
+        "end": ["个人安全", "道德表现"]
       },
       "text": {
-        "firstText": ["宝贝对事物量的关系掌握很棒，在未来小学数理化知识学习上会有不俗的表现！", "宝贝的空间知觉能力很棒，未来几何空间类知识学习会很有潜力！", "宝贝对数字的掌握很棒，在未来数理化知识学习上会有不俗的表现！"],
-        "endText": []
+        "firstText": [],
+        "endText": ["宝贝的安全意识稍弱，对危险情境判断有待提升，家长需要更关注宝贝的自我保护", "宝贝的同情心品质发展稍弱，可能在未来融入班级，建立同伴关系时会遇到困难！"]
       }
     },
     "bar": {
@@ -84,35 +70,31 @@
       }],
       "barData": [{
         "sortName": "社会性发展",
-        "sortData": []
+        "sortData": [{
+          "target_name": "个人安全",
+          "new": 0,
+          "last": 20
+        }, {
+          "target_name": "道德表现",
+          "new": 0,
+          "last": 0
+        }]
       }, {
         "sortName": "心智发展",
-        "sortData": [{
-          "target_name": "量的比较",
-          "new": 0,
-          "last": 100
-        }, {
-          "target_name": "空间图形",
-          "new": 0,
-          "last": 50
-        }, {
-          "target_name": "数的概念",
-          "new": 0,
-          "last": 100
-        }]
+        "sortData": []
       }, {
         "sortName": "身体健康",
         "sortData": []
       }],
       "rate": {
-        "shining": ["量的比较", "数的概念"],
-        "upgrade": []
+        "shining": [],
+        "upgrade": ["个人安全", "道德表现"]
       },
       "text": {
-        "shiningText": ["宝贝对事物量的关系掌握很棒，在未来小学数理化知识学习上会有不俗的表现！", "宝贝对数字的掌握很棒，在未来数理化知识学习上会有不俗的表现！"],
-        "upgradeText": []
+        "shiningText": [],
+        "upgradeText": ["宝贝的安全意识稍弱，对危险情境判断有待提升，家长需要更关注宝贝的自我保护", "宝贝的同情心品质发展稍弱，可能在未来融入班级，建立同伴关系时会遇到困难！"]
       }
     },
-    "dataState": 1
+    "dataState": 0
   }
 }
