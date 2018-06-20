@@ -1,0 +1,90 @@
+*{margin:0; padding:0;box-sizing:border-box;}
+body{
+    font-size: 14px;
+    background-color: #DDF3F7;
+    color: #000;
+}
+strong{color:#f00;}
+.toolBar{
+    position: fixed;
+    top: 0;
+    left: 120px;
+    width: 240px;
+    height: 80px;
+    padding: 20px;
+    background-color: #fff;
+}
+.wrap{
+    width: 600px;
+    margin: 0 auto;
+}
+.box{
+    overflow: hidden;
+    width: 100%;
+    min-height: 160px;
+    min-width: 250px;
+    max-width: 900px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.resize{
+    resize: horizontal;
+    overflow: auto;
+}
+.box .avatar{
+    width: 56px;
+}
+.box .content p{
+    line-height: 24px;
+}
+.box .content h2{
+    margin-bottom: 12px;
+}
+
+/* float实现 */
+.layout1{
+
+}
+.layout1 .avatar{
+    float: left;
+}
+.layout1 .content{
+    /* padding-left: 76px; */
+    margin-left: 76px;
+}
+/* absolute实现 */
+.layout2{
+    position: relative;
+}
+.layout2 .avatar{
+    position: absolute;
+}
+.layout2 .content{
+    margin-left: 76px;
+}
+/* BFC自适应实现 */
+.layout3{
+
+}
+.layout3 .avatar{
+    float: left;
+    margin-right: 20px;
+}
+.layout3 .content{
+    overflow: hidden;
+}
+/* flex实现 */
+.layout4{
+    display: flex;
+    align-items: flex-start;
+}
+.layout4 .avatar{
+    width: 56px;
+    margin-right: 20px;
+}
+.layout4 .content{
+    /* width: 100%; */
+    flex: 1;
+}

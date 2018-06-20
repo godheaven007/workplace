@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>CSS布局</title>
+</head>
+<body>
+    <div class="wrap">
+        <!-- float实现 -->
+        <div class="box resize layout1">
+            <img class="avatar" src="./images/avatar.jpg" alt="头像">
+            <div class="content">
+                <h2>float实现</h2>
+                <p>左侧固定：固定侧float:left + 自适应侧(padding-left/margin-left/border-left)</p>
+                <p>右侧固定：固定侧float:right + 自适应侧(padding-right/mragin-right/border-right)</p>
+                <p><strong>缺点：</strong></p>
+                <p>当图片大小改变时，需要手动计算margin-left或者其他值</p>
+            </div>
+        </div>
+        <!-- absolute实现 -->
+        <div class="box resize layout2">
+            <img class="avatar" src="./images/avatar.jpg" alt="头像">
+            <div class="content">
+                <h2>absolute实现</h2>
+                <p>固定侧position:absolute，使其脱离文档流，再利用(top,left,right,bottom)或margin定位，
+                    自适应侧预留空间给固定侧(padding-left,margin-left,border-left)
+                </p>
+                <p>
+                    <strong>缺点：</strong>
+                </p>
+                <p>当图片大小改变时，需要手动计算margin-left或者其他值</p>
+            </div>
+        </div>
+        <!-- BFC自适应布局 -->
+        <div class="box resize layout3">
+            <img class="avatar" src="./images/avatar.jpg" alt="头像">
+            <div class="content">
+                <h2>BFC自适应实现</h2>
+                <p>
+                    <strong>原则：</strong>具有BFC特性的元素，无论内部元素怎么翻江倒海，都不会影响外部
+                    元素
+                </p>
+                <p>
+                    1. BFC元素不会发生margin重叠(倘若重叠，违反不影响外部
+                    元素这一原则)
+                </p>
+                <p>
+                    2. BFC元素可以清楚浮动(倘若不能清楚浮动，则会影响布局，
+                     违反不影响外部 元素这一原则)
+                </p>
+                <p>
+                    <strong>推荐使用</strong>
+                </p>
+                <p>当图片大小改变时，可以两侧都<strong>自适应</strong></p>
+            </div>
+        </div>
+        <!-- flex布局 -->
+        <div class="box resize layout4">
+            <img class="avatar" src="./images/avatar.jpg" alt="头像">
+            <div class="content">
+                <h2>flex实现</h2>
+                <p>
+                    <strong>缺点：</strong>
+                </p>
+                <p>IE死逼浏览器支持的不够好</p>
+            </div>
+        </div>
+    </div>
+    <div class="toolBar">
+        请选择头像大小：
+        <select id="avatarSelect">
+            <option value="16">16px</option>
+            <option value="36">36px</option>
+            <option value="56" selected>56px</option>
+            <option value="76">76px</option>
+            <option value="96">96px</option>
+            <option value="106">106px</option>
+        </select>
+    </div>
+    <script>
+        var avatar = document.querySelector("#avatarSelect"),
+            imgs = document.querySelectorAll(".avatar");
+            
+        if(avatar && imgs) {
+            avatar.addEventListener("change", function() {
+                for(var i = 0, length = imgs.length; i < length; i++) {
+                    imgs[i].style.width = this.value + 'px';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
