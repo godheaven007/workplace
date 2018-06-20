@@ -39,17 +39,20 @@
             <img class="avatar" src="./images/avatar.jpg" alt="头像">
             <div class="content">
                 <h2>BFC自适应实现</h2>
-                <p>
-                    <strong>原则：</strong>具有BFC特性的元素，无论内部元素怎么翻江倒海，都不会影响外部
-                    元素
+                <p><strong>实现方式：</strong>固定侧float + 自适应侧BFC
+                </p>
+                <p>方式一：固定侧float + 自适应侧overflow:hidden;
+                    (缺点：溢出元素会隐藏)
+                </p>
+                <p>方式二：固定侧float + 自适应侧display:table-cell;width:9999px;
+                    (针对英文换行需要额外处理)
                 </p>
                 <p>
+                    <strong>补充：</strong><br>
+                    具有BFC特性的元素，无论内部元素怎么翻江倒海，都不会影响外部元素<br>
                     1. BFC元素不会发生margin重叠(倘若重叠，违反不影响外部
-                    元素这一原则)
-                </p>
-                <p>
-                    2. BFC元素可以清楚浮动(倘若不能清楚浮动，则会影响布局，
-                     违反不影响外部 元素这一原则)
+                    元素这一原则)<br>
+                     2. BFC元素可以清楚浮动(倘若不能清楚浮动，则会影响布局， 违反不影响外部 元素这一原则)
                 </p>
                 <p>
                     <strong>推荐使用</strong>
