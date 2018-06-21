@@ -14,8 +14,13 @@
             <img class="avatar" src="./images/avatar.jpg" alt="头像">
             <div class="content">
                 <h2>float实现</h2>
-                <p>左侧固定：固定侧float:left + 自适应侧(padding-left/margin-left/border-left)</p>
-                <p>右侧固定：固定侧float:right + 自适应侧(padding-right/mragin-right/border-right)</p>
+                <p class="mb15">左侧固定：固定侧float:left + 自适应侧(padding-left/margin-left/border-left)</p>
+                <p class="mb15">右侧固定：固定侧float:right + 自适应侧(padding-right/mragin-right/border-right)</p>
+                <p class="mb15">
+                    右侧固定(<strong>DOM顺序与展现顺序一致</strong>):
+                    自适应侧：width:100% + float:left + margin-right/padding-right:给固定侧预留出空间
+                    固定侧：float:left + margin-left:自身宽度
+                </p>
                 <p><strong>缺点：</strong></p>
                 <p>当图片大小改变时，需要手动计算margin-left或者其他值</p>
             </div>
@@ -25,7 +30,7 @@
             <img class="avatar" src="./images/avatar.jpg" alt="头像">
             <div class="content">
                 <h2>absolute实现</h2>
-                <p>固定侧position:absolute，使其脱离文档流，再利用(top,left,right,bottom)或margin定位，
+                <p class="mb15">固定侧position:absolute，使其脱离文档流，再利用(top,left,right,bottom)或margin定位，
                     自适应侧预留空间给固定侧(padding-left,margin-left,border-left)
                 </p>
                 <p>
@@ -44,10 +49,10 @@
                 <p>方式一：固定侧float + 自适应侧overflow:hidden;
                     (缺点：溢出元素会隐藏)
                 </p>
-                <p>方式二：固定侧float + 自适应侧display:table-cell;width:9999px;
+                <p class="mb15">方式二：固定侧float + 自适应侧display:table-cell;width:9999px;
                     (针对英文换行需要额外处理)
                 </p>
-                <p>
+                <p class="mb15">
                     <strong>补充：</strong><br>
                     具有BFC特性的元素，无论内部元素怎么翻江倒海，都不会影响外部元素<br>
                     1. BFC元素不会发生margin重叠(倘若重叠，违反不影响外部

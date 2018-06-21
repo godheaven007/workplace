@@ -5,6 +5,7 @@ body{
     color: #000;
 }
 strong{color:#f00;}
+.mb15{margin-bottom: 15px;}
 .toolBar{
     position: fixed;
     top: 0;
