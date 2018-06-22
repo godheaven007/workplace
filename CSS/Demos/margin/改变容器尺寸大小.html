@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>改变容器尺寸大小</title>
+    <style type="text/css">
+        *{margin:0; padding:0;}
+        body{font: normal 14px/1.72 "微软雅黑";}
+        ul{list-style: none;}
+        strong{color:#f00;}
+        .wrap {
+            width: 800px;
+            min-height: 160px;
+            margin: 20px auto;
+        }
+        .box{
+            border: 1px solid #ccc;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .box .demoWrap{
+            padding: 5px;
+            border: 3px solid #000;
+        }
+        .box .demo{
+            background-color: pink;
+            text-align: left;
+            transition: all 1s;
+        }
+        .box .marginSet{
+            width: 60px;
+            padding: 4px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" >
+        <!-- 改变可视尺寸 -->
+        <div class="box">
+            <h2>改变可视尺寸</h2>
+            <img src="./images/img1.jpg" alt="可视尺寸">
+            <div class="demoWrap">
+                <div class="demo" id="demo1">
+                    <div class="content">
+                        <h3>试用范围：</h3>
+                        <ul>
+                            <li>
+                                1.
+                                <strong>没有</strong>设置width属性，并且是
+                                <strong>普通的</strong>
+                                block水平元素(float,absolute话的block元素除外)
+                            </li>
+                            <li>
+                                <p>2. 可以水平
+                                    <strong>增减</strong>元素宽度，垂直方向
+                                    <strong>无</strong>该表现</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        <h3>使用场景：</h3>
+                        <p>
+                            <strong>单侧固定的自适应两栏布局</strong>
+                        </p>
+                    </div>
+                    <div class="content">
+                        <h3>演示</h3>
+                        margin-left设置：
+                        <input type="number" class="marginSet" name="" id="mlSet" value="0" step="20"> margin-right设置:
+                        <input type="number" class="marginSet" name="" id="mrSet" value="0" step="20">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 改变占据尺寸 -->
+        <div class="box">
+            <h2>改变占据尺寸</h2>
+            <img src="./images/img2.jpg" alt="占据尺寸">
+
+            <div class="demoWrap">
+                <div class="demo" id="demo2">
+                    <div class="content">
+                        <h3>试用范围：</h3>
+                        <ul>
+                            <li>
+                                1.inline-block、block元素均适用
+                            </li>
+                            <li>
+                                2. 与有没有设置宽度
+                                <strong>无关</strong>
+                            </li>
+                            <li>
+                                3. 垂直方向增减margin-top/margin-right，会改变 外尺寸的大小,
+                                <strong>水平方向无该表现</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        <h3>使用场景：</h3>
+                        <p>
+                            <strong>滚动容器内上下留白</strong>
+                        </p>
+                    </div>
+                    <div class="content">
+                        <h3>演示</h3>
+                        margin-top设置：
+                        <input type="number" class="marginSet" name="" id="mtSet" value="0" step="20"> margin-bottom设置:
+                        <input type="number" class="marginSet" name="" id="mbSet" value="0" step="20">
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <script>
+        var mlSet = document.getElementById("mlSet"),
+            mrSet = document.getElementById("mrSet");
+        
+        var demo1 = document.getElementById("demo1");
+        
+        if(mlSet && mrSet) {
+            mlSet.addEventListener("change", function() {
+                demo1.style.marginLeft = this.value + "px";
+            });
+            mrSet.addEventListener("change", function () {
+                demo1.style.marginRight = this.value + "px";
+            });
+        }
+    </script>
+
+    <script>
+        var mtSet = document.getElementById("mtSet"),
+            mbSet = document.getElementById("mbSet");
+
+            var demo2 = document.getElementById("demo2");
+
+            if (mtSet && mbSet) {
+                mtSet.addEventListener("change", function () {
+                    demo2.style.marginTop = this.value + "px";
+                });
+                mbSet.addEventListener("change", function () {
+                    demo2.style.marginBottom = this.value + "px";
+                });
+            }
+    </script>
+</body>
+</html>
