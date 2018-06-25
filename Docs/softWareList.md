@@ -6,3 +6,4 @@
 ## chrome插件
 1. Page Ruler(尺寸选择) 
 2. ColorZilla(颜色选择)
+3. DownFaster（下载JS、Img、CSS等静态资源文件）
