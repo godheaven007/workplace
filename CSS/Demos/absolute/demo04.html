@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>去浮动</title>
+    <style>
+        .wrap{
+            width: 600px;
+            border: 4px solid #f00;
+            margin: 20px auto;
+        }
+        .box{
+            
+        }
+        .item{
+            display: inline-block;
+            
+        }
+        .itemBlock{
+            float: left;
+            height: 120px;
+        }
+        .item1{
+            width: 120px;
+            background-color: #ff0;
+        }
+        .item2{
+            width: 80px;
+            background-color: #f0f;
+        }
+        .item3{
+            width: 160px;
+            background-color: #00f;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h3>inline-block元素</h3>
+        <div class="box">
+            <div class="item item1">1</div>
+            <div class="item item2" id="item2">2</div>
+            <div class="item item3">3</div>
+        </div>
+        <input type="button" value="item2添加float:left属性" id="flBtn">
+        <input type="button" value="item2添加position:absolute属性" id="absBtn">
+        <input type="button" value="重置" id="resetBtn">
+        <p>无论是先添加float属性，还是后添加，得到的效果跟只用position：absolute一致</p>
+    </div>
+    <script>
+        var flBtn = document.getElementById("flBtn"),
+            absBtn = document.getElementById("absBtn"),
+            resetBtn = document.getElementById("resetBtn");
+        
+        var item2 = document.getElementById("item2");
+
+        if(flBtn && absBtn && resetBtn) {
+            flBtn.addEventListener("click", function() {
+                item2.style["cssFloat" in this.style ? "cssFloat" : "styleFloat"] = "left";
+            });
+
+            absBtn.addEventListener("click", function(){
+                item2.style.position = "absolute";
+            });
+
+            resetBtn.addEventListener("click", function () {
+                item2.style.position = "";
+                item2.style.cssFloat = "none";
+            });
+            
+        }
+    </script>
+
+    <div class="wrap">
+        <h3>block元素</h3>
+        <div class="box" style="overflow: hidden;">
+            <div class="itemBlock item1">1</div>
+            <div class="itemBlock item2" id="itemBlock2">2</div>
+            <div class="itemBlock item3">3</div>
+        </div>
+        <input type="button" value="itemBlock2添加float:left属性" id="flBlockBtn">
+        <input type="button" value="itemBlock2添加position:absolute属性" id="absBlockBtn">
+        <input type="button" value="重置" id="resetBlockBtn">
+        <p>Block元素，设置position:absolute属性之后，<strong>没有</strong>在当前位置向上脱离文档流</p>
+    </div>
+
+        <script>
+            var flBlockBtn = document.getElementById("flBlockBtn"),
+                absBlockBtn = document.getElementById("absBlockBtn"),
+                resetBlockBtn = document.getElementById("resetBlockBtn");
+
+            var itemBlock2 = document.getElementById("itemBlock2");
+
+            if (flBlockBtn && absBlockBtn && resetBlockBtn) {
+                flBlockBtn.addEventListener("click", function () {
+                    itemBlock2.style["cssFloat" in this.style ? "cssFloat" : "styleFloat"] = "left";
+                });
+
+                absBlockBtn.addEventListener("click", function () {
+                    itemBlock2.style.position = "absolute";
+                });
+
+                resetBlockBtn.addEventListener("click", function () {
+                    itemBlock2.style.cssFloat = "left";
+                    itemBlock2.style.position = "";
+                });
+
+            }
+        </script>
+</body>
+</html>
