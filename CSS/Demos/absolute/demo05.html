@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>底部固定按钮</title>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        ul{list-style: none;}
+        .container{
+            width: 60%;
+            height: 400px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            text-align: right;
+        }
+        .container>p{
+            text-align: left;
+        }
+        .container::before{
+            content: " ";
+        }
+        .sideBar{
+            position: fixed;
+            display: inline; 
+            bottom: 250px;
+            /* 或者inline-block */
+            width: 40px;
+        }
+        .sideBar>li,
+        .side>li{
+            font-size: 12px;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background-color:pink;
+        }
+        .side{
+            position: fixed;
+            left: 50%;
+            margin-left: 400px;
+            bottom: 50px;
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p>传统实现方式：left= 页面的50% - 容器的50%</p>
+        <p>局限性：自适应太差，需要用到JS计算</p>
+        <p>自适应实现：利用inline/inline-block元素具有跟随特性实现，推荐使用！</p>
+        <ul class="sideBar">
+            <li>自适应实现1</li>
+            <li>自适应实现2</li>
+            <li>自适应实现3</li>
+        </ul>
+    </div>
+    <ul class="side">
+        <li>传统实现1</li>
+        <li>传统实现2</li>
+        <li>传统实现3</li>
+    </ul>
+</body>
+</html>
