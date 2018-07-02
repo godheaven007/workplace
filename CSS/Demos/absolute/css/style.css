@@ -1,0 +1,14 @@
+*{margin:0; padding:0;}
+ul{list-style:none;}
+body{font: 14px/1.72 "微软雅黑";}
+em{color:#f00;}
+.inputBtn{padding: 8px;}
+.wrap{
+    width: 600px;
+    border: 4px solid #f00;
+    margin: 20px auto;
+}
+.box{
+    background-color: pink;
+    transition: all .5s;
+}

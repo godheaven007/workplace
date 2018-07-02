@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>位置跟随</title>
+    <style>
+        .wrap{
+            height: 80px;
+        }
+        .wrap .follow{
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #ff0;
+        }
+    </style>
+</head>
+<body>
+    <p>1. 若无依赖的absolute元素（不设置top等属性），在<em>inline元素或inline-block元素后</em>，表现为<strong>紧跟</strong>；</p>
+    <p>2. 若无依赖的absolute元素（不设置top等属性），在<em>block元素后</em>，
+        无<strong>位置跟随特性</strong>，可以通过转换成<em>inline或inline-block元素</em>达到同样的效果<br>
+    </p>
+    <div class="wrap">
+        <span>位置跟随位置跟随位置跟随</span>
+        <i class="follow"></i>
+    </div>
+    <div class="wrap">
+        <p>位置跟随位置跟随</p>
+        <i class="follow"></i>
+    </div>
+</body>
+</html>

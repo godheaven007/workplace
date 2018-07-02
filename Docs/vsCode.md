@@ -10,3 +10,4 @@
 1. Preview on Web Server
 2. Vetur
 3. Vue 2 Snippets
+4. Easy Sass

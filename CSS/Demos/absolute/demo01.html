@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>包裹性</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box" id="box">
+            <p>文字测试文字测试文字测试文字测试文字测试文字测试</p>
+            <p>文字测试文字测试文字测试文字测试文字测试文字测试</p>
+            <p>文字测试文字测试文字测试文字测试文字测试文字测试</p>
+            <p>文字测试文字测试文字测试文字测试文字测试文字测试</p>
+            <p>文字测试文字测试文字测试文字测试文字测试文字测试</p>
+            <p>文字测试文字测试文字测试文字测试文字测试文字测试</p>
+            <p>文字测试文字测试文字测试文字测试文字测试文字测试</p>
+        </div>
+    </div>
+    <input type="button" class="inputBtn" value="包裹/破坏" id="wrapBtn">
+    
+    <script>
+        var wrapBtn = document.getElementById("wrapBtn"),
+            box = document.getElementById("box");
+        
+        if(wrapBtn && box) {
+            wrapBtn.addEventListener("click", function() {
+                if(!this.absolute) {
+                    box.style.position = "absolute";
+                    this.value = "重置";
+                    this.absolute = true;
+                } else {
+                    box.style.position = "";
+                    this.value = "包裹/破坏";
+                    this.absolute = false;
+                }
+                
+            })
+        }
+    </script>
+</body>
+</html>
