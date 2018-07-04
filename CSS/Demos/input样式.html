@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>input之appearance</title>
+	<style>
+		input {
+			border: none;
+			outline: none;
+		}
+		input[type=checkbox] {
+			appearance: none;
+			-webkit-appearance: none;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: #ff0;
+		}
+		input[type=checkbox]:checked {
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	男生：<input type="checkbox" name="" id="">
+	女生：<input type="checkbox" name="" id="">
+	<p>IE系列不支持该属性，其他浏览器大部分支持该属性</p>
+</body>
+</html>
