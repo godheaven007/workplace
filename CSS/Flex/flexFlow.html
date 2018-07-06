@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flexFlow</title>
+	<style>
+		* {margin: 0; padding: 0; box-sizing: border-box;}
+		em{font-style: normal; color: #f00;}
+		.wrap {
+			width: 600px;
+			margin: 20px auto;
+		}
+		.container {
+			display: flex;
+			flex-flow: row wrap;
+			width: 400px;
+			height: 200px;
+			border: 1px solid;
+		}
+		.item {
+			width: 80px;
+			height: 40px;
+			background-color: #0ff;
+		}
+		.item:nth-child(even) {
+			background-color: pink;
+		}
+		.row-wrap {
+			flex-flow: row wrap;
+		}
+		.row-wrapReverse {
+			flex-flow: row wrap-reverse;
+		}
+		.rowReverse-wrap {
+			flex-flow: row-reverse wrap;
+		}
+		.rowReverse-wrapReverse {
+			flex-flow: row-reverse wrap-reverse;
+		}
+		.column-wrap {
+			flex-flow: column wrap;
+		}
+		.column-wrapReverse {
+			flex-flow: column wrap-reverse;
+		}
+		.columnReverse-wrap {
+			flex-flow: column-reverse wrap;
+		}
+		.cllumnReverse-wrapReverse {
+			flex-flow: column-reverse wrap-reverse;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<h2>flex-flow = flex-direction flex-wrap</h2>
+		<p>flex-direction: <em>主轴</em> flex-wrap:<em>侧轴</em></p>
+
+		<select id="flexFlow" style="margin-bottom: 20px;">
+			<option value="row wrap" selected>row wrap</option>
+			<option value="row wrap-reverse">row wrap-reverse</option>
+			<option value="row-reverse wrap">row-reverse wrap</option>
+			<option value="row-reverse wrap-reverse">row-reverse wrap-reverse</option>
+			<option value="column wrap">column wrap</option>
+			<option value="column wrap-reverse">column wrap-reverse</option>
+			<option value="column-reverse wrap">column-reverse wrap</option>
+			<option value="column-reverse wrap-reverse">column-reverse wrap-reverse</option>
+		</select>
+		
+		<div class="container" id="flex">
+			<div class="item">1</div>
+			<div class="item">2</div>
+			<div class="item">3</div>
+			<div class="item">4</div>
+			<div class="item">5</div>
+			<div class="item">6</div>
+			<div class="item">7</div>
+			<div class="item">8</div>
+			<div class="item">9</div>
+			<div class="item">10</div>
+		</div>
+	</div>
+	<script>
+		var container = document.querySelector("#flex"),
+			flexFlow = document.querySelector("#flexFlow");
+
+		if(container && flexFlow) {
+			flexFlow.addEventListener("change", function() {
+				container.style.flexFlow = this.value;
+			})
+		}
+	</script>
+</body>
+</html>

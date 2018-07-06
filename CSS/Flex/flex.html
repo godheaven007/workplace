@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex</title>
+	<style>
+		.box {
+			width: 600px;
+			margin: 20px auto;
+		}
+		.container {
+			display: flex;
+			width: 100%;
+			height: 200px;
+			border: 1px solid;
+			resize: horizontal;
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		.container > p {
+			height: 100px;
+			background-color: #0ff;
+		}
+		.container > p:nth-child(even) {
+			background-color: #0f0;
+		}
+		.flex-relative > p{
+			flex: auto;
+		}
+		.flex-absolute > p{
+			flex: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p>相对项目，宽度由其自身内容决定</p>
+		<div class="container flex-relative">
+			<p>asideasideasideaside</p>
+			<p>main</p>
+		</div>
+		<p>绝对项目，宽度由其flex属性值决定</p>
+		<div class="container flex-absolute">
+			<p>asideasideasideaside</p>
+			<p>main</p>
+		</div>
+	</div>
+</body>
+</html>
