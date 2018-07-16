@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按钮连续点击(防抖处理之立即执行)</title>
+</head>
+<body>
+	<button id="submit">提交</button>
+	<script>
+		function doAjax() {
+			console.log("Todo ajax...");
+		}
+
+		function debounce(fn, delay, isImmediate) {
+			var timer = null;
+			return function() {
+				timer && clearTimeout(timer);
+				var context = this,			// 将执行环境指向当前dom
+					arg = arguments;		// 事件e
+
+				if(isImmediate) {
+					!timer && fn.call(context, arg);	// timer为null（即没有被执行过，或被重置）
+					// 立即执行，后续连续点击不起作用
+					timer = setTimeout(function() {
+						timer = null;
+					}, delay);
+					
+				} else {
+					timer = setTimeout(function() {
+						fn.call(context, arg);
+					},delay);
+				}
+			}
+		}
+
+		var btn = document.querySelector("#submit");
+		btn.addEventListener("click", debounce(doAjax, 1000, true));
+	</script>
+</body>
+</html>

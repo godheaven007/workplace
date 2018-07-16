@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按钮连续点击(防抖处理)</title>
+</head>
+<body>
+	<button id="submit">提交</button>
+	<script>
+		function doAjax() {
+			console.log("Todo ajax...");
+		}
+
+		function debounce(fn, delay) {
+			var timer = null;
+			return function() {
+				timer && clearTimeout(timer);
+				var context = this,			// 将执行环境指向当前dom
+					arg = arguments;		// 事件e
+				timer = setTimeout(function() {
+					fn.call(context, arg);
+				},delay);
+			}
+		}
+
+		var btn = document.querySelector("#submit");
+		btn.addEventListener("click", debounce(doAjax, 1000));
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mouseMove Demo</title>
+	<style>
+		#box {
+			width: 400px;
+			height: 80px;
+			background-color: #0ff;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+		var box = document.getElementById("box");
+		var count = 1;
+		function doAction() {
+			box.innerText = count++;
+		}
+		box.addEventListener("mousemove", doAction);
+	</script>
+</body>
+</html>

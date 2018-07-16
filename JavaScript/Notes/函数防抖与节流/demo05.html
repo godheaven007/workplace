@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节流之时间戳实现</title>
+	<style>
+		#box {
+			width: 400px;
+			height: 80px;
+			background-color: #0ff;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+		var box = document.getElementById("box");
+		var count = 1;
+		function doAction() {
+			box.innerText = count++;
+		}
+		function throttle(fn, delay) {
+			console.log("throttle");
+			var start = new Date();
+			return function() {
+				var context = this,			// 将执行环境指向当前dom
+					arg = arguments;		// 事件e
+				var current = new Date();
+				if(current - start >= delay) {
+					fn.call(context, arg);
+					start = current;
+				}
+			}
+		}
+		box.addEventListener("mousemove", throttle(doAction, 3000));
+	</script>
+</body>
+</html>

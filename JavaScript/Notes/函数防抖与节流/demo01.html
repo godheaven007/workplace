@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按钮连续点击Demo</title>
+</head>
+<body>
+	<button id="submit">提交</button>
+	<script>
+		function doAjax() {
+			console.log("Todo ajax...");
+		}
+		var btn = document.querySelector("#submit");
+		btn.addEventListener("click", doAjax);
+	</script>
+</body>
+</html>
