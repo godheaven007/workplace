@@ -1,0 +1,15 @@
+// 样式重置
+*{box-sizing: border-box;-webkit-tap-highlight-color: transparent; -webkit-box-sizing: border-box; margin:0; padding: 0;}
+html{height:100%;-webkit-text-size-adjust:none;}
+body {overflow-x: hidden;height:100%;-webkit-overflow-scrolling: touch;font-family: "Microsoft Yahei",Arial,sans-serif;}
+dl,ul,ol,li {list-style: none;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+a{text-decoration:none;}
+em,i{font-style: normal;}
+img {border: 0;vertical-align: middle;}
+input{border:none;outline: none;vertical-align: middle;}
+
+// 变量
+$ppr: 720px/16/1rem;
+
+// 混合

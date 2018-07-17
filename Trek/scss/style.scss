@@ -1,0 +1,123 @@
+@charset "UTF-8";
+// // 公共
+// @import "common";
+// // 主页
+// @import "homePage";
+
+// 样式重置
+*{box-sizing: border-box;-webkit-tap-highlight-color: transparent; -webkit-box-sizing: border-box; margin:0; padding: 0;}
+html{
+    // height:100%;
+    -webkit-text-size-adjust:none;
+}
+body {overflow-x: hidden; 
+    // height:100%; 
+    background: #fff; -webkit-overflow-scrolling: touch;font-family: "Microsoft Yahei",Arial,sans-serif;}
+dl,ul,ol,li {list-style: none;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+a{text-decoration:none;}
+em,i{font-style: normal;}
+img {border: 0;vertical-align: middle; width: 100%; height: 100%;}
+input{border:none;outline: none;vertical-align: middle;}
+
+// 变量
+$ppr: 720px/16/1rem;
+
+// 混合
+
+
+
+// 主页
+.home-page {
+    display: flex;
+    flex-direction: column;
+    .swiper-container {
+        width: 100%;
+        height: 440px/$ppr;
+        .swiper-slide {
+
+        }
+    }
+    .home-page-wrapper{
+        flex: 1;
+    }
+}
+
+.home-page-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px/$ppr;
+    .function {
+        display: flex;
+        height: 220px/$ppr;
+        justify-content: space-between;
+        align-items: center;
+        li {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 120px/$ppr;
+            height: 220px/$ppr;
+            text-align: center;
+            a{
+                display: inline-block;
+                width: 120px/$ppr;
+                height: 120px/$ppr;
+            }
+            p{
+                text-align: center;
+                font-size: 24px;
+                margin-top: 10px/$ppr;
+            }
+        }
+    }
+    .module {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        li{
+            width: 300px/$ppr;
+            height: 300px/$ppr;
+            margin-bottom: 20px/$ppr;
+            a{
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+// 骑行活动页
+// 面包屑导航
+.breadCrumb{
+    display: flex;
+    width: 100%;
+    height: 90px/$ppr;
+    padding: 0 50px/$ppr;
+    font-size: 32px/$ppr;
+    text-align: center;
+    .back{
+        width: 40px/$ppr;
+        height: 90px/$ppr;
+        background: url(../imgs/back.png) no-repeat left center;
+        // background-size: 
+    }
+    p{
+        margin: 0 auto;
+        line-height: 90px/$ppr;
+    }
+}
+.event-list{
+    padding: 0 50px/$ppr;
+    .event-item {
+        font-size: 24px/$ppr;
+        margin-bottom: 10px/$ppr;
+        a{
+            display: block;
+            width: 100%;
+            height: 300px/$ppr;
+        }
+       
+    }
+}
