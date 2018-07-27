@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>node 静态服务器</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <h1>node 静态服务器</h1>
+    <img src="./imgs/header.png" alt="">
+    <ul id="content">
+
+    </ul>
+    <script src="./js/index.js"></script>
+
+    <button id="btn">POST测试</button>
+    <script>
+        var btn = document.querySelector("#btn"),
+            content = document.querySelector("#content");
+
+        var testData = { name: "小红", age: 22 };
+        btn.addEventListener("click", function () {
+            ajax({
+                url: "/course",
+                requestType: "POST",
+                data: testData,
+                onsuccess: function (json) {
+                    var html = `
+                            <li>
+                                <p><span>姓名:</span>${json.name}</p>
+                                <p><span>年龄:</span>${json.age}</p>
+                            </li>
+                        `
+                    content.innerHTML = html;
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

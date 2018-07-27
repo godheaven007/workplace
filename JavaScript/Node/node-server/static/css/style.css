@@ -1,0 +1,17 @@
+*{margin: 0; padding:0;}
+ul{list-style: none;}
+body{
+	text-align: center;
+}
+h1{
+	color: red;
+	background-color: #ff0;
+}
+
+button{
+	width: 200px;
+	height: 40px;
+	text-align: center;
+	outline: none;
+	cursor: pointer;
+}
