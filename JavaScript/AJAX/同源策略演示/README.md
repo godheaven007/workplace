@@ -2,7 +2,7 @@
 1. 修改`host`文件，增加1条记录
 	127.0.0.1  a.com
 2. 在终端下输入`node server.js`
-3. 打开浏览器，输入`localhost:8080/getWeather`
+3. 打开浏览器，输入`localhost:8080/index.html`(不要直接访问服务器获取数据，localhost:8080/getWeather)
 4. 将`localhost`改成`a.com`，控制台报跨域请求错误
 
 ## 原理
