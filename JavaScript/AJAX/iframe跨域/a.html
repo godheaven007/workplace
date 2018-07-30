@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iframe 跨域</title>
+    <!-- <style>
+        .wrap{
+            width: 400px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+        }
+    </style> -->
+</head>
+
+<body>
+    <div class="wrap">
+        <p>请输入您想要参加的课程：</p>
+        <input type="text" id="course">
+    </div>
+    <div class="wrap">
+        <h2>这里是一个iframe</h2>
+        <iframe src="http://math.course.com:8081/b.html" frameborder="0"></iframe>
+    </div>
+
+    <script>
+        var course = document.querySelector("#course");
+        course.addEventListener("input", function () {
+            var frame_document = window.frames[0].document; // 获取iframe的document对象
+            frame_document.querySelector("#myCourse").innerText = this.value;
+        });
+
+        document.domain = "course.com";
+    </script>
+</body>
+
+</html>
