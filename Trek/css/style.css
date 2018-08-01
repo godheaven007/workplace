@@ -53,6 +53,11 @@ select {
   vertical-align: middle;
 }
 
+textarea, button {
+  outline: none;
+  border: none;
+}
+
 /********** 公共部分 **********/
 .banner {
   width: 100%;
@@ -63,6 +68,14 @@ select {
 
 .banner.offline {
   background: url(../imgs/banner-offline.jpg) no-repeat center center;
+}
+
+.banner.orderKeep {
+  background: url(../imgs/banner-orderKeep.jpg) no-repeat center center;
+}
+
+.banner.orderBike {
+  background: url(../imgs/banner-orderBike.jpg) no-repeat center center;
 }
 
 .filter {
@@ -242,8 +255,9 @@ main {
   border-right: 2px solid #fff;
 }
 
-.store-list .store-item-bot > div i, .store-list .store-item-bot > div span {
+.store-list .store-item-bot > div i, .store-list .store-item-bot > div a {
   display: inline-block;
+  color: #3c3c3c;
 }
 
 .store-list .store-item-bot > div i {
@@ -269,4 +283,109 @@ main {
 
 .store-list .store-item-bot > div:last-child {
   border-right: none;
+}
+
+.keepWrap p {
+  font-size: 0.53333rem;
+  margin-bottom: 0.26667rem;
+}
+
+.keepWrap select {
+  width: 100%;
+  height: 1.33333rem;
+  padding: 0 0.88889rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 0.13333rem;
+  color: #999;
+  font-size: 0.53333rem;
+}
+
+.keepWrap input {
+  height: 1.33333rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 0.13333rem;
+  color: #999;
+  font-size: 0.53333rem;
+}
+
+.keepWrap textarea {
+  width: 100%;
+  height: 2.66667rem;
+  padding: 0.22222rem 0.44444rem;
+  font-size: 0.53333rem;
+  text-align: left;
+  resize: none;
+  color: #999;
+  border: 1px solid #d0d0d0;
+}
+
+.keepWrap .keepItem {
+  margin-bottom: 0.66667rem;
+}
+
+.keepWrap .keepItem.keepFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.keepWrap .keepItem.keepFlex .left, .keepWrap .keepItem.keepFlex .right {
+  flex: none;
+}
+
+.keepWrap .keepItem.keepFlex .keepTimeWrap {
+  display: flex;
+  justify-content: space-around;
+}
+
+.keepWrap .keepItem.keepFlex .keepTimeWrap input {
+  flex: none;
+  margin-right: 0.44444rem;
+}
+
+.keepWrap .keepItem.keepFlex .keepTimeWrap input:last-child {
+  margin-right: 0;
+}
+
+.keepWrap .concatWrap {
+  display: flex;
+  width: 100%;
+}
+
+.keepWrap .concatWrap input {
+  flex: 1;
+  padding: 0 0.44444rem;
+}
+
+.keepWrap .concatWrap input:first-child {
+  margin-right: 0.44444rem;
+}
+
+.keepWrap .keep-operate {
+  display: flex;
+  margin-bottom: 0.66667rem;
+}
+
+.keepWrap .keep-operate .keep-btn {
+  flex: 1;
+  height: 1.77778rem;
+  line-height: 1.77778rem;
+  color: #fff;
+  font-size: 0.71111rem;
+}
+
+.keepWrap .keep-operate .keep-btn.credit {
+  background-color: #ee891f;
+}
+
+.keepWrap .keep-operate .keep-btn.direct {
+  background-color: #e31c23;
+}
+
+.keepWrap .keep-operate .keep-btn:first-child {
+  margin-right: 0.88889rem;
+}
+
+.keepWrap .keep-extra p {
+  font-size: 0.44444rem;
+  margin-bottom: 0;
 }

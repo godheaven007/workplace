@@ -18,8 +18,9 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 a{text-decoration:none;}
 em,i{font-style: normal;}
 img {border: 0;vertical-align: middle; width: 100%; height: 100%;}
-input{border:none;outline: none;vertical-align: middle;}
+input{ border:none;outline: none;vertical-align: middle;}
 select{outline: none; background: #fff; vertical-align: middle;}
+textarea,button{outline: none; border: none;}
 
 
 // 变量
@@ -35,6 +36,12 @@ $ppr: 720px/16/1rem;
 }
 .banner.offline{
     background: url(../imgs/banner-offline.jpg) no-repeat center center;
+}
+.banner.orderKeep{
+    background: url(../imgs/banner-orderKeep.jpg) no-repeat center center;
+}
+.banner.orderBike{
+    background: url(../imgs/banner-orderBike.jpg) no-repeat center center;
 }
 // 筛选
 .filter{
@@ -164,7 +171,6 @@ main{
 
 
 // 线下门店
-
 .store-list{
     border-radius: 6px/$ppr;
     .store-item{
@@ -205,8 +211,9 @@ main{
             align-items: center;
             width: 33.3%;
             border-right: 2px solid #fff;
-            i,span{
+            i,a{
                 display: inline-block;
+                color: #3c3c3c;
             }
             i{
                 width: 24px/$ppr;
@@ -228,6 +235,103 @@ main{
         }
         & > div:last-child{
             border-right: none;
+        }
+    }
+}
+
+// 预约保养
+.keepWrap{
+    p{
+        font-size: 24px/$ppr;
+        margin-bottom: 12px/$ppr;
+    }
+    select{
+        width: 100%;
+        height: 60px/$ppr;
+        padding: 0 40px/$ppr;
+        border: 1px solid #d0d0d0;
+        border-radius: 6px/$ppr;
+        color: #999;
+        font-size: 24px/$ppr;
+    }
+    input{
+        height: 60px/$ppr;
+        border: 1px solid #d0d0d0;
+        border-radius: 6px/$ppr;
+        color: #999;
+        font-size: 24px/$ppr;
+    }
+    textarea {
+        width: 100%;
+        height: 120px/$ppr;
+        padding: 10px/$ppr 20px/$ppr;
+        font-size: 24px/$ppr;
+        text-align: left;
+        resize: none;
+        color: #999;
+        border: 1px solid #d0d0d0;
+    }
+    
+    .keepItem{
+        margin-bottom: 30px/$ppr;
+    }
+    // 保养车型与保养时间
+    .keepItem.keepFlex{
+        display: flex;
+        justify-content: space-between;
+        .left,.right{
+            flex: none;
+        }
+        .keepTimeWrap{
+            display: flex;
+            justify-content: space-around;
+            input{
+                flex: none;
+                margin-right: 20px/$ppr;
+            }
+            input:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+    // 联系方式
+    .concatWrap{
+        display: flex;
+        width: 100%;
+        input{
+            flex: 1;
+            padding: 0 20px/$ppr;
+        }
+        input:first-child{
+            margin-right: 20px/$ppr;
+        }
+    }
+    // 按钮
+    .keep-operate{
+        display: flex;
+        margin-bottom: 30px/$ppr;
+        .keep-btn{
+            flex: 1;
+            height: 80px/$ppr;
+            line-height: 80px/$ppr;
+            color: #fff;
+            font-size: 32px/$ppr;
+            &.credit{
+                background-color: #ee891f;
+            }
+            &.direct{
+                background-color: #e31c23;
+            }
+            &:first-child{
+                margin-right: 40px/$ppr;
+            }
+        }
+    }
+    // 其他信息
+    .keep-extra{
+        p {
+            font-size: 20px/$ppr;
+            margin-bottom: 0;
         }
     }
 }
