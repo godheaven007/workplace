@@ -99,7 +99,7 @@ textarea, button {
 }
 
 main {
-  padding: 0 50px;
+  padding: 0 1.11111rem;
 }
 
 /********** 主页 **********/
@@ -182,6 +182,7 @@ main {
   width: 0.88889rem;
   height: 2rem;
   background: url(../imgs/icon-back.png) no-repeat left center;
+  background-size: 0.53333rem 0.8rem;
 }
 
 .breadCrumb p {
@@ -332,6 +333,14 @@ main {
   flex: none;
 }
 
+.keepWrap .keepItem.keepFlex .left {
+  width: 5.77778rem;
+}
+
+.keepWrap .keepItem.keepFlex .right {
+  width: 7.55556rem;
+}
+
 .keepWrap .keepItem.keepFlex .keepTimeWrap {
   display: flex;
   justify-content: space-around;
@@ -342,7 +351,12 @@ main {
   margin-right: 0.44444rem;
 }
 
+.keepWrap .keepItem.keepFlex .keepTimeWrap input:first-child {
+  width: 4.44444rem;
+}
+
 .keepWrap .keepItem.keepFlex .keepTimeWrap input:last-child {
+  width: 3.11111rem;
   margin-right: 0;
 }
 

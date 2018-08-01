@@ -70,7 +70,7 @@ header{
 
 }
 main{
-    padding: 0 50px;
+    padding: 0 50px/$ppr;
 }
 
 /********** 主页 **********/
@@ -147,7 +147,7 @@ main{
         width: 40px/$ppr;
         height: 90px/$ppr;
         background: url(../imgs/icon-back.png) no-repeat left center;
-        // background-size: 
+        background-size: 24px/$ppr 36px/$ppr;
     }
     p{
         margin: 0 auto;
@@ -282,6 +282,12 @@ main{
         .left,.right{
             flex: none;
         }
+        .left{
+            width: 260px/$ppr;
+        }
+        .right{
+            width: 340px/$ppr;
+        }
         .keepTimeWrap{
             display: flex;
             justify-content: space-around;
@@ -289,7 +295,9 @@ main{
                 flex: none;
                 margin-right: 20px/$ppr;
             }
+            input:first-child{width: 200px/$ppr;}
             input:last-child{
+                width: 140px/$ppr;
                 margin-right: 0;
             }
         }
