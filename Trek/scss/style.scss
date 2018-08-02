@@ -12,21 +12,33 @@ html{
 }
 body {overflow-x: hidden; 
     // height:100%; 
-    background: #fff; -webkit-overflow-scrolling: touch;font-family: "Microsoft Yahei",Arial,sans-serif;}
+    background: #fff; 
+    -webkit-overflow-scrolling: touch;
+    // font-family: "Microsoft Yahei",Arial,sans-serif;
+    font-family:Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self;
+    -webkit-font-smoothing:antialiased;
+    -webkit-user-select:none;
+
+    -webkit-overflow-scrolling:touch;
+}
 dl,ul,ol,li {list-style: none;}
 h1,h2,h3,h4,h5,h6{font-weight: normal;}
 a{text-decoration:none;}
 em,i{font-style: normal;}
 img {border: 0;vertical-align: middle; width: 100%; height: 100%;}
-input{ border:none;outline: none;vertical-align: middle;}
-select{outline: none; background: #fff; vertical-align: middle;}
-textarea,button{outline: none; border: none;}
+input{ border:none;outline: none;vertical-align: middle; -webkit-appearance: none;background-color: transparent;}
+// ::-webkit-input-placeholder {color: #ccc;}
+select{outline: none; background: #fff; vertical-align: middle;-webkit-appearance: none;}
+textarea,button{outline: none; border: none;-webkit-appearance: none;}
 
 
 // 变量
 $ppr: 720px/16/1rem;
 
 /********** 公共部分 **********/
+// 按钮颜色
+.btnOrange{background-color: #ee891f;}
+.btnRed{background-color: #e31c23;}
 // banner
 .banner{
     width: 100%;
@@ -49,18 +61,18 @@ $ppr: 720px/16/1rem;
     justify-content: space-between;
     margin-bottom: 30px/$ppr;
     .filter-select{
-        height: 60px/$ppr;
-        border: 1px solid #d0d0d0;
-        padding: 0 60px/$ppr;
+        width: 300px/$ppr;
+        height: 70px/$ppr;
+        border: 1px solid #a3a3a3;
+        padding: 0 20px/$ppr;
         border-radius: 6px/$ppr;
-        text-align: center;
         color: #999;
         font-size: 24px/$ppr;
-    }
-    &.filter-column2 .filter-select{
-        width: 300px/$ppr;
+        background: url(../imgs/icon-select.png) no-repeat 98% center;
+        background-size: 18px/$ppr 48px/$ppr;
     }
 }
+
 // 混合
 @mixin radius {
     
@@ -239,63 +251,68 @@ main{
     }
 }
 
-// 预约保养
-.keepWrap{
+// 预约保养/预约试骑
+.orderWrap{
     p{
         font-size: 24px/$ppr;
+        color: #444;
         margin-bottom: 12px/$ppr;
     }
     select{
         width: 100%;
-        height: 60px/$ppr;
-        padding: 0 40px/$ppr;
-        border: 1px solid #d0d0d0;
+        height: 70px/$ppr;
+        padding: 0 20px/$ppr;
+        border: 1px solid #a3a3a3;
         border-radius: 6px/$ppr;
+        text-align: center;
         color: #999;
         font-size: 24px/$ppr;
+        background: url(../imgs/icon-select.png) no-repeat 98% center;
+        background-size: 18px/$ppr 48px/$ppr;
     }
     input{
-        height: 60px/$ppr;
-        border: 1px solid #d0d0d0;
+        height: 70px/$ppr;
+        line-height: 70px/$ppr;
+        border: 1px solid #a3a3a3;
         border-radius: 6px/$ppr;
         color: #999;
         font-size: 24px/$ppr;
     }
     textarea {
         width: 100%;
-        height: 120px/$ppr;
+        height: 180px/$ppr;
         padding: 10px/$ppr 20px/$ppr;
         font-size: 24px/$ppr;
         text-align: left;
         resize: none;
         color: #999;
-        border: 1px solid #d0d0d0;
+        border: 1px solid #a3a3a3;
     }
     
-    .keepItem{
+    .orderItem{
         margin-bottom: 30px/$ppr;
     }
     // 保养车型与保养时间
-    .keepItem.keepFlex{
+    .orderItem.orderFlex{
         display: flex;
         justify-content: space-between;
-        .left,.right{
-            flex: none;
+        .bicycleCate{
+            width: 230px/$ppr;
         }
-        .left{
-            width: 260px/$ppr;
+        .orderTime{
+            width: 360px/$ppr;
         }
-        .right{
-            width: 340px/$ppr;
-        }
-        .keepTimeWrap{
+        .orderTimeWrap{
             display: flex;
             justify-content: space-around;
             input{
                 flex: none;
+                padding: 0 10px/$ppr;
                 margin-right: 20px/$ppr;
+                background: url(../imgs/icon-select.png) no-repeat 98% center;
+                background-size: 18px/$ppr 48px/$ppr;
             }
-            input:first-child{width: 200px/$ppr;}
+            input:first-child{width: 220px/$ppr;}
             input:last-child{
                 width: 140px/$ppr;
                 margin-right: 0;
@@ -303,43 +320,93 @@ main{
         }
     }
     // 联系方式
-    .concatWrap{
+    .orderItemWrap{
         display: flex;
+        justify-content: space-between;
         width: 100%;
-        input{
+        select, input{
             flex: 1;
             padding: 0 20px/$ppr;
         }
-        input:first-child{
+        input, select{
             margin-right: 20px/$ppr;
+        }
+        input:last-child,select:last-child{margin-right: 0;}
+        &.iconSelect input{
+            background: url(../imgs/icon-select.png) no-repeat 98% center;
+            background-size: 18px/$ppr 48px/$ppr;
+        }
+        // 车型信息查看
+        &.view {
+            display: flex;
+            justify-content: space-between;
+            button {
+                width: 240px/$ppr;
+                height: 70px/$ppr;
+                line-height: 70px/$ppr;
+                text-align: center;
+                color: #fff;
+                font-size: 24px/$ppr;
+                border-radius: 6px/$ppr;
+                background-color: #a9a9a9;
+            }
         }
     }
     // 按钮
-    .keep-operate{
-        display: flex;
+    .orderOperate{
+        text-align: center;
         margin-bottom: 30px/$ppr;
-        .keep-btn{
-            flex: 1;
+        .orderBtn{
+            display: inline-block;
+            width: 300px/$ppr;
             height: 80px/$ppr;
             line-height: 80px/$ppr;
             color: #fff;
             font-size: 32px/$ppr;
-            &.credit{
-                background-color: #ee891f;
-            }
-            &.direct{
-                background-color: #e31c23;
-            }
-            &:first-child{
-                margin-right: 40px/$ppr;
+            border-radius: 6px/$ppr;
+            &#order{
+                padding: 10px/$ppr 0;
+                p{
+                    color: #fff;
+                    height: 40px/$ppr;
+                    line-height: 40px/$ppr;
+                    margin-bottom: 0;
+                }
+                p:last-child{
+                    line-height: 20px;
+                    font-size: 16px/$ppr;
+                }
             }
         }
     }
     // 其他信息
-    .keep-extra{
+    .orderExtra{
         p {
             font-size: 20px/$ppr;
             margin-bottom: 0;
         }
+    }
+}
+// 预约首页
+.navigation {
+    width: 620px/$ppr;
+    height: 620px/$ppr;
+    border: 1px solid #ccc;
+    margin-bottom: 30px/$ppr;
+}
+.doMore{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a {
+        width: 440px/$ppr;
+        height: 80px/$ppr;
+        line-height: 80px/$ppr;
+        background-color: #e2e2e2;
+        text-align: center;
+        color:#0f0f0f;
+        font-size: 32px/$ppr;
+        border-radius: 6px/$ppr;
+        margin-bottom: 30px/$ppr;
     }
 }

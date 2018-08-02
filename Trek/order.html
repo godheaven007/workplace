@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/mobile-util.js"></script>
+    <title>预约保养</title>
+</head>
+
+<body>
+    <header>
+        <div class="breadCrumb">
+            <a href="javascript:history.go(-1)" class="back"></a>
+            <p>XXX概念店</p>
+        </div>
+
+    </header>
+    <main>
+        <!-- 地图导航 -->
+        <div class="navigation" id="map_canvas">
+
+        </div>
+        <!-- 预约方式 -->
+        <div class="doMore">
+            <a href="" class="opereateBtn">导航至门店</a>
+            <a href="tel:010-587655887" class="opereateBtn">电话咨询</a>
+            <a href="./orderKeep.html" class="opereateBtn">预约保养</a>
+            <a href="./orderBike.html" class="opereateBtn">预约试骑</a>
+        </div>
+    </main>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=41QZWb8WZVb6OGs1BfSPxh6pObtxMhx6"></script>
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script> -->
+    <script type="text/javascript">
+        var map = new BMap.Map("map_canvas");          // 创建地图实例
+        var initLat = 39.916527;
+        var initLng = 116.397128;
+        var point = new BMap.Point(initLng, initLat);  // 创建点坐标  
+        map.centerAndZoom(point, 13);                 // 初始化地图，设置中心点坐标和地图级别  
+
+
+
+        //var marker = new BMap.Marker(point);        // 创建标注    
+        //map.addOverlay(marker);                     // 将标注添加到地图中
+
+        // map.enableScrollWheelZoom();                            // 启用滚轮放大缩小 
+        // map.addControl(new BMap.NavigationControl());           // 启用放大缩小 尺
+
+        //获取当前位置
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function (r) {
+            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                mk = new BMap.Marker(r.point);
+                mk.addEventListener("dragend", showInfo);
+                mk.enableDragging();    //可拖拽
+
+                getAddress(r.point);
+
+                map.addOverlay(mk);//把点添加到地图上  
+                map.panTo(r.point);
+
+            } else {
+                alert('failed' + this.getStatus());
+            }
+        });
+
+        //绑定Marker的拖拽事件
+        function showInfo(e) {
+            var gc = new BMap.Geocoder();
+            gc.getLocation(e.point, function (rs) {
+                var addComp = rs.addressComponents;
+                var address = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;//获取地址
+
+                //画图 ---》显示地址信息
+                var label = new BMap.Label(address, { offset: new BMap.Size(20, -10) });
+                map.removeOverlay(mk.getLabel());//删除之前的label 
+
+                mk.setLabel(label);
+                //alert(e.point.lng + ", " + e.point.lat + ", "+address);
+            });
+        }
+
+        //获取地址信息，设置地址label
+        function getAddress(point) {
+            var gc = new BMap.Geocoder();
+
+            gc.getLocation(point, function (rs) {
+                var addComp = rs.addressComponents;
+                var address = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;//获取地址
+
+                //画图 ---》显示地址信息
+                var label = new BMap.Label(address, { offset: new BMap.Size(20, -10) });
+                map.removeOverlay(mk.getLabel());//删除之前的label 
+
+                mk.setLabel(label);
+
+            });
+
+        }
+
+
+
+    </script>
+</body>

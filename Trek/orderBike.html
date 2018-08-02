@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/mobile-util.js"></script>
+    <title>预约试骑</title>
+</head>
+
+<body>
+    <header>
+        <div class="breadCrumb">
+            <a href="javascript:history.go(-1)" class="back"></a>
+            <p>预约试骑</p>
+        </div>
+        <div class="banner orderBike"></div>
+    </header>
+    <main>
+        <div class="orderWrap">
+            <form action="xxx" method="xxx">
+                <!-- 用户输入 -->
+                <div class="orderInput">
+                    <div class="orderItem">
+                        <p>请选择门店</p>
+                        <select name="address" id="address">
+                            <option value="0">请选择门店</option>
+                            <option value="1">门店1</option>
+                            <option value="2">门店2</option>
+                        </select>
+                    </div>
+                    <div class="orderItem">
+                        <p>请选择试骑时间</p>
+                        <div class="orderItemWrap iconSelect">
+                            <input type="date" name="date" id="date" value="2017-09-01">
+                            <input type="time" name="time" id="time" value="08:00">
+                        </div>
+                    </div>
+                    <div class="orderItem">
+                        <p>请填写身份信息</p>
+                        <div class="orderItemWrap">
+                            <select class="" name="creditType" id="creditType">
+                                <option value="0">请选择证件类型</option>
+                                <option value="1">身份证</option>
+                                <option value="2">学生证</option>
+                            </select>
+                            <input type="number" name="creditID" id="creditID" placeholder="证件号码">
+                        </div>
+                    </div>
+                    <div class="orderItem">
+                        <p>请填写身份信息</p>
+                        <div class="orderItemWrap">
+                            <input type="text" name="username" id="username" placeholder="姓名">
+                            <input type="tel" maxlength="11" name="telephone" id="telephone" placeholder="手机号码">
+                        </div>
+                    </div>
+                    <div class="orderItem">
+                        <p>请选择试骑车型</p>
+                        <div class="orderItemWrap">
+                            <select name="bicycleCate" id="bicycleCate">
+                                <option value="0">请选择车型</option>
+                                <option value="1">公路车</option>
+                                <option value="2">山地车</option>
+                            </select>
+                            <select name="bicycleType" id="bicycleType">
+                                <option value="0">请选择型号</option>
+                                <option value="1">型号1</option>
+                                <option value="2">型号2</option>
+                            </select>
+                            <select name="bicycleSize" id="bicycleSize">
+                                <option value="0">请选择尺码</option>
+                                <option value="1">尺码1</option>
+                                <option value="2">尺码2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="orderItem">
+                        <div class="orderItemWrap view">
+                            <button id="introduce">查看车型介绍</button>
+                            <button id="size">查看身高尺码表</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 用户提交 -->
+                <div class="orderOperate">
+                    <button type="submit" class="orderBtn btnRed" id="order">
+                        <p>提交预约</p>
+                        <p>消费50积分</p>
+                    </button>
+                </div>
+            </form>
+            <div class="orderExtra">
+                <p>试骑需知：</p>
+                <p>A.请按约定时间前往预约车店</p>
+                <p>A.请按约定时间前往预约车店</p>
+                <p>A.请按约定时间前往预约车店</p>
+            </div>
+        </div>
+    </main>
+</body>

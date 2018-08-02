@@ -15,7 +15,10 @@ body {
   overflow-x: hidden;
   background: #fff;
   -webkit-overflow-scrolling: touch;
-  font-family: "Microsoft Yahei",Arial,sans-serif;
+  font-family: Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self;
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 dl, ul, ol, li {
@@ -45,20 +48,32 @@ input {
   border: none;
   outline: none;
   vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: transparent;
 }
 
 select {
   outline: none;
   background: #fff;
   vertical-align: middle;
+  -webkit-appearance: none;
 }
 
 textarea, button {
   outline: none;
   border: none;
+  -webkit-appearance: none;
 }
 
 /********** 公共部分 **********/
+.btnOrange {
+  background-color: #ee891f;
+}
+
+.btnRed {
+  background-color: #e31c23;
+}
+
 .banner {
   width: 100%;
   height: 9.55556rem;
@@ -85,17 +100,15 @@ textarea, button {
 }
 
 .filter .filter-select {
-  height: 1.33333rem;
-  border: 1px solid #d0d0d0;
-  padding: 0 1.33333rem;
+  width: 6.66667rem;
+  height: 1.55556rem;
+  border: 1px solid #a3a3a3;
+  padding: 0 0.44444rem;
   border-radius: 0.13333rem;
-  text-align: center;
   color: #999;
   font-size: 0.53333rem;
-}
-
-.filter.filter-column2 .filter-select {
-  width: 6.66667rem;
+  background: url(../imgs/icon-select.png) no-repeat 98% center;
+  background-size: 0.4rem 1.06667rem;
 }
 
 main {
@@ -286,120 +299,181 @@ main {
   border-right: none;
 }
 
-.keepWrap p {
+.orderWrap p {
   font-size: 0.53333rem;
+  color: #444;
   margin-bottom: 0.26667rem;
 }
 
-.keepWrap select {
+.orderWrap select {
   width: 100%;
-  height: 1.33333rem;
-  padding: 0 0.88889rem;
-  border: 1px solid #d0d0d0;
+  height: 1.55556rem;
+  padding: 0 0.44444rem;
+  border: 1px solid #a3a3a3;
+  border-radius: 0.13333rem;
+  text-align: center;
+  color: #999;
+  font-size: 0.53333rem;
+  background: url(../imgs/icon-select.png) no-repeat 98% center;
+  background-size: 0.4rem 1.06667rem;
+}
+
+.orderWrap input {
+  height: 1.55556rem;
+  line-height: 1.55556rem;
+  border: 1px solid #a3a3a3;
   border-radius: 0.13333rem;
   color: #999;
   font-size: 0.53333rem;
 }
 
-.keepWrap input {
-  height: 1.33333rem;
-  border: 1px solid #d0d0d0;
-  border-radius: 0.13333rem;
-  color: #999;
-  font-size: 0.53333rem;
-}
-
-.keepWrap textarea {
+.orderWrap textarea {
   width: 100%;
-  height: 2.66667rem;
+  height: 4rem;
   padding: 0.22222rem 0.44444rem;
   font-size: 0.53333rem;
   text-align: left;
   resize: none;
   color: #999;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #a3a3a3;
 }
 
-.keepWrap .keepItem {
+.orderWrap .orderItem {
   margin-bottom: 0.66667rem;
 }
 
-.keepWrap .keepItem.keepFlex {
+.orderWrap .orderItem.orderFlex {
   display: flex;
   justify-content: space-between;
 }
 
-.keepWrap .keepItem.keepFlex .left, .keepWrap .keepItem.keepFlex .right {
-  flex: none;
+.orderWrap .orderItem.orderFlex .bicycleCate {
+  width: 5.11111rem;
 }
 
-.keepWrap .keepItem.keepFlex .left {
-  width: 5.77778rem;
+.orderWrap .orderItem.orderFlex .orderTime {
+  width: 8rem;
 }
 
-.keepWrap .keepItem.keepFlex .right {
-  width: 7.55556rem;
-}
-
-.keepWrap .keepItem.keepFlex .keepTimeWrap {
+.orderWrap .orderItem.orderFlex .orderTimeWrap {
   display: flex;
   justify-content: space-around;
 }
 
-.keepWrap .keepItem.keepFlex .keepTimeWrap input {
+.orderWrap .orderItem.orderFlex .orderTimeWrap input {
   flex: none;
+  padding: 0 0.22222rem;
   margin-right: 0.44444rem;
+  background: url(../imgs/icon-select.png) no-repeat 98% center;
+  background-size: 0.4rem 1.06667rem;
 }
 
-.keepWrap .keepItem.keepFlex .keepTimeWrap input:first-child {
-  width: 4.44444rem;
+.orderWrap .orderItem.orderFlex .orderTimeWrap input:first-child {
+  width: 4.88889rem;
 }
 
-.keepWrap .keepItem.keepFlex .keepTimeWrap input:last-child {
+.orderWrap .orderItem.orderFlex .orderTimeWrap input:last-child {
   width: 3.11111rem;
   margin-right: 0;
 }
 
-.keepWrap .concatWrap {
+.orderWrap .orderItemWrap {
   display: flex;
+  justify-content: space-between;
   width: 100%;
 }
 
-.keepWrap .concatWrap input {
+.orderWrap .orderItemWrap select, .orderWrap .orderItemWrap input {
   flex: 1;
   padding: 0 0.44444rem;
 }
 
-.keepWrap .concatWrap input:first-child {
+.orderWrap .orderItemWrap input, .orderWrap .orderItemWrap select {
   margin-right: 0.44444rem;
 }
 
-.keepWrap .keep-operate {
+.orderWrap .orderItemWrap input:last-child, .orderWrap .orderItemWrap select:last-child {
+  margin-right: 0;
+}
+
+.orderWrap .orderItemWrap.iconSelect input {
+  background: url(../imgs/icon-select.png) no-repeat 98% center;
+  background-size: 0.4rem 1.06667rem;
+}
+
+.orderWrap .orderItemWrap.view {
   display: flex;
+  justify-content: space-between;
+}
+
+.orderWrap .orderItemWrap.view button {
+  width: 5.33333rem;
+  height: 1.55556rem;
+  line-height: 1.55556rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.53333rem;
+  border-radius: 0.13333rem;
+  background-color: #a9a9a9;
+}
+
+.orderWrap .orderOperate {
+  text-align: center;
   margin-bottom: 0.66667rem;
 }
 
-.keepWrap .keep-operate .keep-btn {
-  flex: 1;
+.orderWrap .orderOperate .orderBtn {
+  display: inline-block;
+  width: 6.66667rem;
   height: 1.77778rem;
   line-height: 1.77778rem;
   color: #fff;
   font-size: 0.71111rem;
+  border-radius: 0.13333rem;
 }
 
-.keepWrap .keep-operate .keep-btn.credit {
-  background-color: #ee891f;
+.orderWrap .orderOperate .orderBtn#order {
+  padding: 0.22222rem 0;
 }
 
-.keepWrap .keep-operate .keep-btn.direct {
-  background-color: #e31c23;
+.orderWrap .orderOperate .orderBtn#order p {
+  color: #fff;
+  height: 0.88889rem;
+  line-height: 0.88889rem;
+  margin-bottom: 0;
 }
 
-.keepWrap .keep-operate .keep-btn:first-child {
-  margin-right: 0.88889rem;
+.orderWrap .orderOperate .orderBtn#order p:last-child {
+  line-height: 20px;
+  font-size: 0.35556rem;
 }
 
-.keepWrap .keep-extra p {
+.orderWrap .orderExtra p {
   font-size: 0.44444rem;
   margin-bottom: 0;
+}
+
+.navigation {
+  width: 13.77778rem;
+  height: 13.77778rem;
+  border: 1px solid #ccc;
+  margin-bottom: 0.66667rem;
+}
+
+.doMore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.doMore a {
+  width: 9.77778rem;
+  height: 1.77778rem;
+  line-height: 1.77778rem;
+  background-color: #e2e2e2;
+  text-align: center;
+  color: #0f0f0f;
+  font-size: 0.71111rem;
+  border-radius: 0.13333rem;
+  margin-bottom: 0.66667rem;
 }

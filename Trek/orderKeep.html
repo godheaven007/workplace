@@ -12,66 +12,70 @@
 <body>
     <header>
         <div class="breadCrumb">
-            <a href="#" class="back"></a>
+            <a href="javascript:history.go(-1)" class="back"></a>
             <p>预约保养</p>
         </div>
         <div class="banner orderKeep"></div>
     </header>
     <main>
-        <div class="keepWrap">
-            <div class="keep-input">
-                <div class="keepItem address">
-                    <p>请选择门店</p>
-                    <select class="" name="address" id="address">
-                        <option value="0">请选择门店</option>
-                        <option value="1">门店1</option>
-                        <option value="2">门店2</option>
-                    </select>
-                </div>
-                <div class="keepItem keepFlex">
-                    <div class="bicycleType left">
-                        <p>请选择保养车型</p>
-                        <select class="" name="bicycleType" id="bicycleType">
-                            <option value="0">请选择保养车型</option>
-                            <option value="1">公路车</option>
-                            <option value="2">山地车</option>
+        <div class="orderWrap">
+            <form action="xxx" method="xxx">
+                <!-- 用户输入 -->
+                <div class="orderInput">
+                    <div class="orderItem">
+                        <p>请选择门店</p>
+                        <select name="address" id="address">
+                            <option value="0">请选择门店</option>
+                            <option value="1">门店1</option>
+                            <option value="2">门店2</option>
                         </select>
                     </div>
-                    <div class="keepTime right">
-                        <p>请选择保养时间</p>
-                        <div class="keepTimeWrap">
-                            <input type="date" name="" id="" value="2017-09-01">
-                            <input type="time" name="" id="" value="08:00">
+                    <div class="orderItem orderFlex">
+                        <div class="bicycleCate">
+                            <p>请选择保养车型</p>
+                            <select name="bicycleCate" id="bicycleCate">
+                                <option value="0">请选择保养车型</option>
+                                <option value="1">公路车</option>
+                                <option value="2">山地车</option>
+                            </select>
+                        </div>
+                        <div class="orderTime">
+                            <p>请选择保养时间</p>
+                            <div class="orderTimeWrap">
+                                <input type="date" name="date" id="date" value="2017-12-31">
+                                <input type="time" name="time" id="time" value="08:00">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="keepItem type">
-                    <p>请选择保养类型</p>
-                    <select class="" name="address" id="type">
-                        <option value="0">请选择保养类型</option>
-                        <option value="1">高级保养</option>
-                        <option value="2">中级保养</option>
-                        <option value="3">低级保养</option>
-                    </select>
-                </div>
-                <div class="keepItem concat">
-                    <p>请填写联系方式</p>
-                    <div class="concatWrap">
-                        <input type="text" name="" id="" placeholder="姓名">
-                        <input type="tel" maxlength="11" name="" id="" placeholder="手机号码">
+                    <div class="orderItem">
+                        <p>请选择保养类型</p>
+                        <select name="type" id="type">
+                            <option value="1">请选择保养类型</option>
+                            <option value="1">高级保养</option>
+                            <option value="2">中级保养</option>
+                            <option value="3">低级保养</option>
+                        </select>
+                    </div>
+                    <div class="orderItem">
+                        <p>请填写联系方式</p>
+                        <div class="orderItemWrap">
+                            <input type="text" name="username" id="username" placeholder="姓名">
+                            <input type="tel" maxlength="11" name="telephone" id="telephone" placeholder="手机号码">
+                        </div>
+                    </div>
+                    <div class="orderItem">
+                        <p>备注</p>
+                        <textarea name="remark" id="remark">需要更换两条轮胎
+                    </textarea>
                     </div>
                 </div>
-                <div class="keepItem remark">
-                    <p>备注</p>
-                    <textarea name="" id="">需要更换两条轮胎
-                    </textarea>
+                <!-- 用户提交 -->
+                <div class="orderOperate">
+                    <input type="submit" class="orderBtn btnOrange" id=“credit” value="积分支付">
+                    <input type="submit" class="orderBtn btnRed" id="direct" value="到店支付">
                 </div>
-            </div>
-            <div class="keep-operate">
-                <button class="keep-btn credit">积分支付</button>
-                <button class="keep-btn direct">到店支付</button>
-            </div>
-            <div class="keep-extra">
+            </form>
+            <div class="orderExtra">
                 <p>保养需知：</p>
                 <p>初级保养：XXXXXXXX</p>
                 <p>中级保养：XXXXXXXX</p>
