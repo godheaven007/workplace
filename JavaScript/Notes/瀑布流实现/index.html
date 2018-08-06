@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>瀑布流布局</title>
+    <style>
+        img {
+            position: absolute;
+            width: 120px;
+            transition: left 1s, top 1s;
+        }
+
+        .container {
+            position: relative;
+            /* width: 640px; */
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="http://via.placeholder.com/120x300" alt="">
+        <img src="http://via.placeholder.com/120x100" alt="">
+        <img src="http://via.placeholder.com/120x280" alt="">
+        <img src="http://via.placeholder.com/120x220" alt="">
+        <img src="http://via.placeholder.com/120x80" alt="">
+        <img src="http://via.placeholder.com/120x300" alt="">
+        <img src="http://via.placeholder.com/120x260" alt="">
+        <img src="http://via.placeholder.com/120x90" alt="">
+        <img src="http://via.placeholder.com/120x150" alt="">
+        <img src="http://via.placeholder.com/120x180" alt="">
+        <img src="http://via.placeholder.com/120x40" alt="">
+        <img src="http://via.placeholder.com/120x150" alt="">
+    </div>
+    <script>
+        var water = {
+            column: '',
+            columnArr: [],
+            imgNodes: [],
+
+            init: function () {
+                this.column = Math.floor(document.querySelector('.container').clientWidth / 140);
+                this.imgNodes = document.querySelectorAll('img');
+                // 初始化
+                for (var i = 0; i < this.column; i++) {
+                    this.columnArr[i] = 0;
+                }
+
+                this.eventHandle();
+            },
+            eventHandle: function () {
+                var _this = this;
+                this.imgNodes.forEach(function (img, index, array) {
+
+                    img.addEventListener('load', function () {
+                        _this.layout(this);
+                    });
+                });
+                window.addEventListener('resize', function () {
+                    _this.column = Math.floor(document.querySelector('.container').clientWidth / 140);
+                    for (var i = 0; i < _this.column; i++) {
+                        _this.columnArr[i] = 0;
+                    }
+                    _this.imgNodes.forEach(function (node) {
+                        _this.layout(node);
+                    });
+                });
+            },
+            layout: function (imgNode) {
+                var minHeight = Math.min.apply(null, this.columnArr);
+                var minIndex = this.columnArr.indexOf(minHeight);
+
+                imgNode.style.left = 140 * minIndex + 'px';
+                imgNode.style.top = minHeight + 'px';
+                this.columnArr[minIndex] += imgNode.clientHeight + 20;
+            }
+
+        };
+
+        water.init();
+    </script>
+</body>
+
+</html>
