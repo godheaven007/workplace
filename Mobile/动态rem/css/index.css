@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+}
+
+body {
+  overflow-x: hidden;
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+  font-family: Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self;
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+dl, ul, ol, li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+em, i {
+  font-style: normal;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  border: none;
+  outline: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: transparent;
+}
+
+select {
+  outline: none;
+  background: #fff;
+  vertical-align: middle;
+  -webkit-appearance: none;
+}
+
+textarea, button {
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+}
+
+main {
+  padding: 0 0.69444rem;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page .home-page-wrapper {
+  flex: 1;
+}
+
+.home-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.69444rem;
+}
+
+.home-page-wrapper .function {
+  display: flex;
+  height: 3.05556rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-page-wrapper .function li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1.66667rem;
+  height: 3.05556rem;
+  text-align: center;
+}
+
+.home-page-wrapper .function li a {
+  display: inline-block;
+  width: 1.66667rem;
+  height: 1.66667rem;
+}
+
+.home-page-wrapper .function li p {
+  text-align: center;
+  font-size: 0.33333rem;
+  margin-top: 0.13889rem;
+}
+
+.home-page-wrapper .module {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+.home-page-wrapper .module li {
+  width: 4.16667rem;
+  height: 4.16667rem;
+  margin-bottom: 0.27778rem;
+}
+
+.home-page-wrapper .module li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

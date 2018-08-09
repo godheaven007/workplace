@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        .wrap{
+            overflow: hidden;
+        }
+        .left{
+            /* float: left; */
+            width: 200px;
+            height: 200px;
+            /* background: red; */
+            border: 0.5px solid #000;
+            margin-bottom: 5px;
+        }
+        .right{
+            /* float: left; */
+            width: 175px;
+            height: 200px;
+            /* background: #00f; */
+            border: 1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <script>
+//         alert(window.innerWidth);
+        var left = document.querySelector('.left');
+//         alert(window.getComputedStyle(left).width)
+    </script>
+</body>
+</html>
