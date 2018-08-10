@@ -1,0 +1,145 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+ul{list-style: none;}
+html,body{height: 100%; -webkit-text-size-adjust: none;}
+a{text-decoration: none; color: #333;}
+em{font-style: normal; color: #f3418f;}
+input,button{outline: none; border: none; -webkit-appearance: none;}
+input:focus{border: 1px solid #ccc;}
+// px转换为rem(以iPhone6为参考)
+@function px2rem($size) {
+    $standard: 37.5px;
+    @return $size / $standard + rem;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font: 14px/1.72 "微软雅黑";
+    color: #333;
+    -webkit-tap-highlight-color: transparent;
+}
+.main{
+    flex: 1;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+.footer{
+    flex-basis: px2rem(50px);
+    padding: px2rem(2px) 0;
+    border-top: 1px solid #ccc;
+    display: flex;
+    font-size: 14px;
+    .category{
+        flex: 1;
+        text-align: center;
+        &.active{
+            .iconfont,p{
+                color:#f3418f;
+            }
+        }
+    }
+}
+// 模块
+.module{
+    display: none;
+    height: 100%;
+    &.active {
+        display: block;
+    }
+}
+
+.wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.film-item{
+    padding: px2rem(12px);
+    border-bottom: 1px solid #ccc;
+    a {
+        display: flex;
+        font-size: 12px;
+        img{
+            width: px2rem(80px);
+            height: px2rem(100px);
+            margin-right: px2rem(10px);
+        }
+        .content{
+            flex: 1;
+        }
+    }
+}
+// loading
+.loading{
+    visibility: hidden;
+    width: 100%;
+    height: px2rem(40px);
+    text-align: center;
+    span{
+        font-size: px2rem(14px);
+        display: inline-block;
+        animation: loading 2s linear infinite;
+    }
+    p{
+        font-size: 12px;
+        height: px2rem(20px);
+        line-height: px2rem(20px);
+    }
+    &.active{
+        visibility: visible;
+    }
+}
+.search-loading{
+    display: none;
+    width: 100%;
+    height: px2rem(40px);
+    text-align: center;
+    span{
+        font-size: px2rem(14px);
+        display: inline-block;
+        animation: loading 2s linear infinite;
+    }
+    p{
+        font-size: 12px;
+        height: px2rem(20px);
+        line-height: px2rem(20px);
+    }
+    &.active{
+        display: block;
+    }
+}
+@keyframes loading {
+    from { transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+.module3{
+    position: relative;
+    padding-top: px2rem(60px);
+}
+// 搜索
+.searchBar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: px2rem(60px);
+    padding: px2rem(10px);
+    input{
+        flex: 1;
+        border: 1px solid #ccc;
+        padding: 0 px2rem(5px);
+        margin-right: px2rem(10px);
+    }
+    button {
+        width: 60px;
+        height: px2rem(40px);
+        line-height: px2rem(40px);
+        text-align: center;
+        color: #fff;
+        background-color: orange;
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,189 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+html, body {
+  height: 100%;
+  -webkit-text-size-adjust: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+em {
+  font-style: normal;
+  color: #f3418f;
+}
+
+input, button {
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+}
+
+input:focus {
+  border: 1px solid #ccc;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font: 14px/1.72 "微软雅黑";
+  color: #333;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.main {
+  flex: 1;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.footer {
+  flex-basis: 1.33333rem;
+  padding: 0.05333rem 0;
+  border-top: 1px solid #ccc;
+  display: flex;
+  font-size: 14px;
+}
+
+.footer .category {
+  flex: 1;
+  text-align: center;
+}
+
+.footer .category.active .iconfont, .footer .category.active p {
+  color: #f3418f;
+}
+
+.module {
+  display: none;
+  height: 100%;
+}
+
+.module.active {
+  display: block;
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.film-item {
+  padding: 0.32rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.film-item a {
+  display: flex;
+  font-size: 12px;
+}
+
+.film-item a img {
+  width: 2.13333rem;
+  height: 2.66667rem;
+  margin-right: 0.26667rem;
+}
+
+.film-item a .content {
+  flex: 1;
+}
+
+.loading {
+  visibility: hidden;
+  width: 100%;
+  height: 1.06667rem;
+  text-align: center;
+}
+
+.loading span {
+  font-size: 0.37333rem;
+  display: inline-block;
+  animation: loading 2s linear infinite;
+}
+
+.loading p {
+  font-size: 12px;
+  height: 0.53333rem;
+  line-height: 0.53333rem;
+}
+
+.loading.active {
+  visibility: visible;
+}
+
+.search-loading {
+  display: none;
+  width: 100%;
+  height: 1.06667rem;
+  text-align: center;
+}
+
+.search-loading span {
+  font-size: 0.37333rem;
+  display: inline-block;
+  animation: loading 2s linear infinite;
+}
+
+.search-loading p {
+  font-size: 12px;
+  height: 0.53333rem;
+  line-height: 0.53333rem;
+}
+
+.search-loading.active {
+  display: block;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.module3 {
+  position: relative;
+  padding-top: 1.6rem;
+}
+
+.searchBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 1.6rem;
+  padding: 0.26667rem;
+}
+
+.searchBar input {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 0 0.13333rem;
+  margin-right: 0.26667rem;
+}
+
+.searchBar button {
+  width: 60px;
+  height: 1.06667rem;
+  line-height: 1.06667rem;
+  text-align: center;
+  color: #fff;
+  background-color: orange;
+  font-size: 16px;
+}
