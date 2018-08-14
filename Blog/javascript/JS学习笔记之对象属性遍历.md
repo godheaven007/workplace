@@ -24,8 +24,6 @@ Object.defineProperty(obj3, 'name', {
 - `Object.keys()`
 - `Object.getOwnPropertyNames()`
 - `for ... in`
-- `for ... of`
-- `Object.hasOwnProperty()`
 
 本文讨论的就是基于上述几种对象属性遍历的区别。
 
