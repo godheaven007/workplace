@@ -52,4 +52,7 @@ j() {
 
 6. 执行**source**命令，让**.zshrc**配置文件立即生效
 
+## Adobe PhotoShop 2018 CC 破解
+[参考文章](http://www.bigzhong.com/wenzhang/20161121/14.html)
+
 
