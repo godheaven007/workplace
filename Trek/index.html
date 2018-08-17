@@ -46,8 +46,8 @@
                 </a>
                 <p>新手任务</p>
             </li>
-            <li id="personal-center">
-                <a href="#">
+            <li>
+                <a href="./个人中心.html">
                     <img src="./imgs/personal.png" alt="个人中心">
                 </a>
                 <p>个人中心</p>
@@ -77,90 +77,6 @@
             </li>
         </ul>
     </main>
-    <div class="mask"></div>
-    <!-- 注册 -->
-    <div class="login-wrap">
-        <h2>注册TREK会员</h2>
-        <div class="login">
-            <div class="login-item">
-                <label for="">手机</label>
-                <input type="number" placeholder="请输入手机号码">
-            </div>
-            <div class="login-item">
-                <label for="">验证码</label>
-                <input type="text" placeholder="请输入验证码">
-                <button id="seccode">
-                    <span>获取验证码</span>
-                </button>
-            </div>
-        </div>
-        <p class="login-polict">
-            注册TREK会员即代表您同意
-            <a href="javascript:void(0);">服务条款</a>。查看我的
-            <a href="javascript:void(0);">隐私政策</a>。
-        </p>
-        <div class="login-btns">
-            <div class="login-btn submit" id="submit">提交</div>
-            <div class="login-btn close" id="close">关闭</div>
-        </div>
-    </div>
-    <script>
-        (function (window, document) {
-            function $(selector) {
-                return document.querySelector(selector);
-            }
-            // 获取验证码
-            var seccode = $('#seccode'),        // 验证码
-                login = $('.login-wrap'),       // 登录框
-                mask = $('.mask'),              // 遮罩
-                submit = $('#submit'),          // 提交
-                close = $('#close');            // 取消
-            var personalCenter = $('#personal-center'); // 个人中心
-            // 个人中心
-            personalCenter.addEventListener('click', function () {
-                mask.classList.add('active');
-                login.classList.add('active');
-            });
-
-            // 验证码
-            seccode.addEventListener('click', function (e) {
-                if (this.classList.contains('active')) return;
-                e.stopPropagation();
-
-                var spanNode = $('#seccode span');
-                var time = 60, timer = null;
-                // 定时器
-                var fn = function () {
-                    if (time == 60) {
-                        seccode.classList.add('active');
-                        spanNode.innerText = 60 + 's';
-                    }
-                    timer = setTimeout(function () {
-                        if (time == 0) {
-                            spanNode.innerText = '获取验证码';
-                            seccode.classList.remove('active');
-                            clearTimeout(timer);
-                        } else {
-                            time -= 1;
-                            spanNode.innerText = time + 's';
-                            fn();
-                        }
-                    }, 1000);
-                }
-                fn();
-            });
-            // 提交
-            submit.addEventListener('click', function () {
-                location.href = '个人中心.html';
-            });
-            // 关闭
-            close.addEventListener('click', function () {
-                mask.classList.remove('active');
-                login.classList.remove('active');
-            })
-
-        })(window, document);
-    </script>
     <!-- TODO...swiper太重，有空自己写一个 -->
     <script src="./js/swiper.min.js"></script>
 

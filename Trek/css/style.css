@@ -151,7 +151,6 @@ main {
   top: 50%;
   left: 50%;
   width: 13.33333rem;
-  height: 10rem;
   padding: 0.66667rem;
   transform: translate(-50%, -50%);
   border-radius: 0.26667rem;
@@ -621,7 +620,23 @@ main {
   color: #555;
 }
 
-.personal .personal-info > p {
+.personal .personal-info .login-no {
+  display: flex;
+  margin-bottom: 0.44444rem;
+}
+
+.personal .personal-info .login-no .btn {
+  flex: 1;
+  width: 40%;
+  text-align: center;
+  margin-right: 0.44444rem;
+}
+
+.personal .personal-info .login-no .btn:last-child {
+  margin-right: 0;
+}
+
+.personal .personal-info .login-yes p {
   height: 1.11111rem;
   line-height: 1.11111rem;
   border: 1px solid #cecece;

@@ -22,8 +22,16 @@
                 <img class="avatar" src="./imgs/avatar.png" alt="头像">
                 <p>昵称(未填写显示手机号)</p>
             </div>
-            <p>我的积分：99999999</p>
-            <p>我的自行车：XXXXXX SLR 8888</p>
+            <!-- 未登录 -->
+            <div class="login-no">
+                <div class="btn" id="login">登录</div>
+                <div class="btn" id="register">注册</div>
+            </div>
+            <!-- 已登录 -->
+            <div class="login-yes">
+                <p>我的积分：99999999</p>
+                <p>我的自行车：XXXXXX SLR 8888</p>
+            </div>
         </div>
         <ul class="person-list">
             <li>
@@ -40,4 +48,102 @@
             </li>
         </ul>
     </main>
+    <div class="mask"></div>
+    <!-- 注册、登录 -->
+    <div class="login-wrap">
+        <h2></h2>
+        <div class="login">
+            <div class="login-item">
+                <label for="">手机</label>
+                <input type="number" placeholder="请输入手机号码">
+            </div>
+            <div class="login-item">
+                <label for="">验证码</label>
+                <input type="text" placeholder="请输入验证码">
+                <button id="seccode">
+                    <span>获取验证码</span>
+                </button>
+            </div>
+        </div>
+        <p class="login-polict">
+            注册TREK会员即代表您同意
+            <a href="javascript:void(0);">服务条款</a>。查看我的
+            <a href="javascript:void(0);">隐私政策</a>。
+        </p>
+        <div class="login-btns">
+            <div class="login-btn submit" id="submit">提交</div>
+            <div class="login-btn close" id="close">关闭</div>
+        </div>
+    </div>
+    <script>
+        (function (window, document) {
+            function $(selector) {
+                return document.querySelector(selector);
+            }
+            function common() {
+                loginWrap.classList.add('active');
+                mask.classList.add('active');
+            }
+            // 获取验证码
+            var seccode = $('#seccode'),        // 验证码
+                mask = $('.mask'),              // 遮罩
+                submit = $('#submit'),          // 提交
+                loginWrap = $('.login-wrap'),   // 注册/登录
+                close = $('#close');            // 取消
+            var loginBtn = $('#login'),
+                registerBtn = $('#register'),
+                spanNode = $('#seccode span');
+            var timer = null;
+            // 验证码
+            seccode.addEventListener('click', function (e) {
+                if (this.classList.contains('active')) return;
+                e.stopPropagation();
+                var time = 60;
+                // 定时器
+                var fn = function () {
+                    if (time == 60) {
+                        seccode.classList.add('active');
+                        spanNode.innerText = 60 + 's';
+                    }
+                    timer = setTimeout(function () {
+                        if (time == 0) {
+                            spanNode.innerText = '获取验证码';
+                            seccode.classList.remove('active');
+                            clearTimeout(timer);
+                        } else {
+                            time -= 1;
+                            spanNode.innerText = time + 's';
+                            fn();
+                        }
+                    }, 1000);
+                }
+                fn();
+            });
+            // 提交
+            submit.addEventListener('click', function () {
+                // 
+            });
+            // 登录按钮
+            loginBtn.addEventListener('click', function () {
+                common();
+                $('.login-wrap h2').innerText = '手机号登录';
+                $('.login-wrap .login-polict').style.display = 'none';
+            });
+            // 注册按钮
+            registerBtn.addEventListener('click', function () {
+                common();
+                $('.login-wrap h2').innerText = '注册TREK会员';
+                $('.login-wrap .login-polict').style.display = 'block';
+            });
+            // 关闭
+            close.addEventListener('click', function () {
+                mask.classList.remove('active');
+                loginWrap.classList.remove('active');
+                spanNode.innerText = '获取验证码';
+                seccode.classList.remove('active');
+                clearTimeout(timer);
+            })
+
+        })(window, document);
+    </script>
 </body>
