@@ -31,6 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
+  color: #3c3c3c;
 }
 
 em, i {
@@ -65,13 +66,41 @@ textarea, button {
   -webkit-appearance: none;
 }
 
+.mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.mask.active {
+  display: block;
+}
+
 /********** 公共部分 **********/
+.btn {
+  background-color: #e31c23;
+  height: 1.77778rem;
+  line-height: 1.77778rem;
+  color: #fff;
+  font-size: 0.71111rem;
+  border-radius: 0.13333rem;
+}
+
 .btnOrange {
   background-color: #ee891f;
 }
 
 .btnRed {
   background-color: #e31c23;
+}
+
+.btnGrey {
+  background-color: #a6a6a6;
 }
 
 .banner {
@@ -116,6 +145,98 @@ main {
 }
 
 /********** 主页 **********/
+.login-wrap {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 13.33333rem;
+  height: 10rem;
+  padding: 0.66667rem;
+  transform: translate(-50%, -50%);
+  border-radius: 0.26667rem;
+  background-color: #fff;
+  color: #444;
+  font-size: 0.53333rem;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.login-wrap.active {
+  display: block;
+}
+
+.login-wrap h2 {
+  font-size: 0.75556rem;
+  text-align: center;
+  margin-bottom: 0.44444rem;
+}
+
+.login-wrap .login-item {
+  display: flex;
+  width: 100%;
+  height: 1.33333rem;
+  line-height: 1.33333rem;
+  margin-bottom: 0.44444rem;
+}
+
+.login-wrap .login-item label {
+  width: 1.77778rem;
+  margin-right: 0.44444rem;
+  text-align: right;
+}
+
+.login-wrap .login-item input {
+  width: 5.77778rem;
+  height: 1.33333rem;
+  padding: 0 0.22222rem;
+  font-size: 0.44444rem;
+  margin-right: 0.44444rem;
+  border: 1px solid #ccc;
+}
+
+.login-wrap .login-item button {
+  width: 3.55556rem;
+  height: 1.33333rem;
+  font-size: 0.53333rem;
+  color: #fff;
+  text-align: center;
+  background-color: #e11c24;
+}
+
+.login-wrap .login-item button.active {
+  background-color: #a6a6a6;
+}
+
+.login-wrap .login-polict {
+  padding-left: 0.13333rem;
+  margin-bottom: 0.44444rem;
+}
+
+.login-wrap .login-polict a {
+  text-decoration: underline;
+}
+
+.login-wrap .login-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-wrap .login-btns .login-btn {
+  width: 5.33333rem;
+  height: 1.77778rem;
+  line-height: 1.77778rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.53333rem;
+  border-radius: 0.13333rem;
+  background-color: #a6a6a6;
+}
+
+.login-wrap .login-btns .login-btn.submit {
+  background-color: #e11c24;
+}
+
 .home-page {
   display: flex;
   flex-direction: column;
@@ -476,4 +597,125 @@ main {
   font-size: 0.71111rem;
   border-radius: 0.13333rem;
   margin-bottom: 0.66667rem;
+}
+
+.avatar {
+  text-align: center;
+  margin-bottom: 0.44444rem;
+}
+
+.avatar img {
+  width: 5.55556rem;
+  height: 5.55556rem;
+  border: 1px solid #7f7f7f;
+  border-radius: 50%;
+}
+
+.avatar p {
+  font-size: 0.53333rem;
+}
+
+.personal {
+  padding: 0 2.66667rem;
+  font-size: 0.53333rem;
+  color: #555;
+}
+
+.personal .personal-info > p {
+  height: 1.11111rem;
+  line-height: 1.11111rem;
+  border: 1px solid #cecece;
+  text-align: center;
+  margin-bottom: 0.66667rem;
+  border-radius: 0.13333rem;
+}
+
+.personal .person-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.personal .person-list li {
+  margin-bottom: 0.44444rem;
+}
+
+.personal .person-list li a {
+  display: block;
+  width: 5.11111rem;
+  height: 5.11111rem;
+  line-height: 4.88889rem;
+  border-radius: 0.44444rem;
+  text-align: center;
+  border: 1px solid #7f7f7f;
+}
+
+.information-list {
+  font-size: 0.53333rem;
+  color: #444;
+}
+
+.information-list select {
+  flex: 1;
+  height: 1.55556rem;
+  padding: 0 0.44444rem;
+  border: 1px solid #a3a3a3;
+  border-radius: 0.13333rem;
+  text-align: center;
+  color: #999;
+  font-size: 0.53333rem;
+  background: url(../imgs/icon-select.png) no-repeat 98% center;
+  background-size: 0.4rem 1.06667rem;
+}
+
+.information-list input {
+  flex: 1;
+  height: 1.55556rem;
+  padding: 0 0.44444rem;
+  border: 1px solid #a3a3a3;
+  border-radius: 0.13333rem;
+  color: #999;
+  font-size: 0.53333rem;
+}
+
+.information-list input.birthday {
+  background: url(../imgs/icon-select.png) no-repeat 98% center;
+}
+
+.information-list .information-item {
+  display: flex;
+  margin-bottom: 0.66667rem;
+}
+
+.information-list .information-item span {
+  width: 1.77778rem;
+  line-height: 1.55556rem;
+}
+
+.information-list .information-item span.special {
+  line-height: 0.77778rem;
+}
+
+.information-list .information-item button {
+  flex: 1;
+  background-color: #e31c23;
+  height: 1.77778rem;
+  line-height: 1.77778rem;
+  color: #fff;
+  font-size: 0.71111rem;
+  border-radius: 0.13333rem;
+}
+
+.operateBtns {
+  display: flex;
+  width: 100%;
+}
+
+.operateBtns button {
+  flex: 1;
+  margin-right: 0.66667rem;
+}
+
+.operateBtns button:last-child {
+  margin-right: 0;
 }

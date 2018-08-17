@@ -23,22 +23,32 @@ body {overflow-x: hidden;
 }
 dl,ul,ol,li {list-style: none;}
 h1,h2,h3,h4,h5,h6{font-weight: normal;}
-a{text-decoration:none;}
+a{text-decoration:none; color: #3c3c3c;}
 em,i{font-style: normal;}
 img {border: 0;vertical-align: middle; width: 100%; height: 100%;}
 input{ border:none;outline: none;vertical-align: middle; -webkit-appearance: none;background-color: transparent;}
 // ::-webkit-input-placeholder {color: #ccc;}
 select{outline: none; background: #fff; vertical-align: middle;-webkit-appearance: none;}
 textarea,button{outline: none; border: none;-webkit-appearance: none;}
-
+.mask{display: none;position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0,0,0,0.5); z-index: 10;}
+.mask.active{display: block;}
 
 // 变量
 $ppr: 720px/16/1rem;
 
 /********** 公共部分 **********/
 // 按钮颜色
+.btn{
+    background-color: #e31c23;
+    height: 80px/$ppr;
+    line-height: 80px/$ppr;
+    color: #fff;
+    font-size: 32px/$ppr;
+    border-radius: 6px/$ppr;
+}
 .btnOrange{background-color: #ee891f;}
 .btnRed{background-color: #e31c23;}
+.btnGrey{background-color: #a6a6a6;}
 // banner
 .banner{
     width: 100%;
@@ -86,6 +96,85 @@ main{
 }
 
 /********** 主页 **********/
+// 登录框
+.login-wrap{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px/$ppr;
+    height: 450px/$ppr;
+    padding: 30px/$ppr;
+    transform: translate(-50%, -50%);
+    border-radius: 12px/$ppr;
+    background-color: #fff;
+    color: #444;
+    font-size: 24px/$ppr;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    z-index: 20;
+    &.active{display: block;}
+    h2{
+        font-size: 34px/$ppr;
+        text-align: center;
+        margin-bottom: 20px/$ppr;
+    }
+    .login-item{
+        display: flex;
+        width: 100%;
+        height: 60px/$ppr;
+        line-height: 60px/$ppr;
+        margin-bottom: 20px/$ppr;
+        label{
+            width: 80px/$ppr;
+            margin-right: 20px/$ppr;
+            text-align: right;
+        }
+        input{
+            width: 260px/$ppr;
+            height: 60px/$ppr;
+            padding: 0 10px/$ppr;
+            font-size: 20px/$ppr;
+            margin-right: 20px/$ppr;
+            border: 1px solid #ccc;
+        }
+        button{
+            width: 160px/$ppr;
+            height: 60px/$ppr;
+            font-size: 24px/$ppr;
+            color: #fff;
+            text-align: center;
+            background-color: #e11c24;
+            &.active{
+                background-color: #a6a6a6;
+            }
+        }
+    }
+    .login-polict{
+        padding-left: 6px/$ppr;
+        margin-bottom: 20px/$ppr;
+        a{
+            text-decoration: underline;
+        }
+    }
+    .login-btns{
+        display: flex;
+        justify-content: space-between;
+        .login-btn{
+            width: 240px/$ppr;
+            height: 80px/$ppr;
+            line-height: 80px/$ppr;
+            text-align: center;
+            color: #fff;
+            font-size: 24px/$ppr;
+            border-radius: 6px/$ppr;
+            background-color: #a6a6a6;
+            &.submit{
+                background-color: #e11c24;
+            }
+        }
+    }
+}
+
 .home-page {
     display: flex;
     flex-direction: column;
@@ -408,5 +497,113 @@ main{
         font-size: 32px/$ppr;
         border-radius: 6px/$ppr;
         margin-bottom: 30px/$ppr;
+    }
+}
+
+// 个人中心、个人资料
+.avatar{
+    text-align: center;
+    margin-bottom: 20px/$ppr;
+    img{
+        width: 250px/$ppr;
+        height: 250px/$ppr;
+        border: 1px solid #7f7f7f;
+        border-radius: 50%;
+    }
+    p{
+        font-size: 24px/$ppr;
+    }
+}
+.personal {
+    padding: 0 120px/$ppr;
+    font-size: 24px/$ppr;
+    color: #555;
+    .personal-info{
+        > p{
+            height: 50px/$ppr;
+            line-height: 50px/$ppr;
+            border: 1px solid #cecece;
+            text-align: center;
+            margin-bottom: 30px/$ppr;
+            border-radius: 6px/$ppr;
+        }
+    }
+    .person-list{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        li{
+            margin-bottom: 20px/$ppr;
+            a{
+                display: block;
+                width: 230px/$ppr;
+                height: 230px/$ppr;
+                line-height: 220px/$ppr;
+                border-radius: 20px/$ppr;
+                text-align: center;
+                border: 1px solid #7f7f7f;
+            }
+        }
+    }
+}
+.information-list{
+    // padding: 0 120px/$ppr;
+    font-size: 24px/$ppr;
+    color: #444;
+    select{
+        flex: 1;
+        height: 70px/$ppr;
+        padding: 0 20px/$ppr;
+        border: 1px solid #a3a3a3;
+        border-radius: 6px/$ppr;
+        text-align: center;
+        color: #999;
+        font-size: 24px/$ppr;
+        background: url(../imgs/icon-select.png) no-repeat 98% center;
+        background-size: 18px/$ppr 48px/$ppr;
+    }
+    input{
+        flex: 1;
+        height: 70px/$ppr;
+        // line-height: 30px/$ppr;
+        padding: 0 20px/$ppr;
+        border: 1px solid #a3a3a3;
+        border-radius: 6px/$ppr;
+        color: #999;
+        font-size: 24px/$ppr;
+        &.birthday{
+            background: url(../imgs/icon-select.png) no-repeat 98% center;
+        }
+    }
+    .information-item{
+        display: flex;
+        margin-bottom: 30px/$ppr;
+        span{
+            width: 80px/$ppr;
+            line-height: 70px/$ppr;
+            &.special{
+                line-height: 35px/$ppr;
+            }
+        }
+        button{
+            flex: 1;
+            background-color: #e31c23;
+            height: 80px/$ppr;
+            line-height: 80px/$ppr;
+            color: #fff;
+            font-size: 32px/$ppr;
+            border-radius: 6px/$ppr;
+        }
+    }
+}
+.operateBtns{
+    display: flex;
+    width: 100%;
+    button{
+        flex: 1;
+        margin-right: 30px/$ppr;
+        &:last-child{
+            margin-right: 0;;
+        }
     }
 }

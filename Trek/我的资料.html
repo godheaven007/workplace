@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/mobile-util.js"></script>
+    <title>我的资料</title>
+</head>
+
+<body>
+    <header>
+        <div class="breadCrumb">
+            <a href="javascript:history.go(-1)" class="back"></a>
+            <p>我的资料</p>
+        </div>
+    </header>
+    <main class="personal">
+        <div class="personal-info">
+            <div class="avatar">
+                <img class="avatar" src="./imgs/avatar.png" alt="头像">
+                <p>更换头像</p>
+            </div>
+        </div>
+        <form action="xxx" method="xxx">
+            <ul class="information-list">
+                <li class="information-item">
+                    <span>昵称</span>
+                    <input type="text" name="nickname" id="nickname">
+                </li>
+                <li class="information-item">
+                    <span>性别</span>
+                    <select name="sex" id="sex">
+                        <option value="0">男</option>
+                        <option value="1">女</option>
+                    </select>
+                </li>
+                <li class="information-item">
+                    <span>城市</span>
+                    <input type="text" name="city" id="city">
+                </li>
+                <li class="information-item">
+                    <span>生日</span>
+                    <input type="date" class="birthday" name="birthday" id="birthday" value="2017-12-31">
+                </li>
+                <li class="information-item">
+                    <span>邮箱</span>
+                    <input type="email" name="email" id="email">
+                </li>
+                <li class="information-item">
+                    <span></span>
+                    <button type="submit" id="">确认修改</button>
+                </li>
+            </ul>
+        </form>
+    </main>
+</body>
