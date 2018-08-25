@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/mobile-util.js"></script>
+    <title>弹框</title>
+</head>
+
+<body>
+    <h1>弹框测试</h1>
+    <!-- 这里直接将遮罩与弹框写在一起 -->
+    <!-- <div class="ui-dialog-mask">
+        <div class="ui-dialog-wrapper">
+            <div class="ui-dialog-header">
+                <p>预约成功，请等待店面联系确认预约成功，请等待店面联系确认</p>
+            </div>
+            <div class="ui-dialog-content">
+                <p>查询预约保养状态及积分变更，请前往个人中心查询预约保养状态及积分变更，请前往个人中心</p>
+            </div>
+            <div class="ui-dialog-bottom">
+                <div class="ui-dialog-btn ui-dialog-btn-red">首页</div>
+                <div class="ui-dialog-btn ui-dialog-btn-red">个人中心</div>
+            </div>
+        </div>
+    </div> -->
+    <ul class="dialog-test">
+        <li id="t1">注册自行车成功</li>
+        <li id="t2">积分不足</li>
+        <li id="t3">预约试骑成功</li>
+    </ul>
+</body>
+    <script src="./js/dialog.js"></script>
+    <script>
+        function $(selector) {
+            return document.querySelector(selector);
+        }
+        // 如何使用
+        // Dialog.open({
+        //     title: "",          // 弹框标题
+        //     content: "",        // 弹框内容
+        //     buttons: [          // 自定义按钮
+        //         {
+        //             text: '确认',            // 默认【确认】
+        //             color: 'red | grey',    // 目前提供2种，红色和灰色，默认【红色】
+        //             callback: function() {  // 回调函数，默认【关闭弹框】
+
+        //             }
+        //         }
+        //     ]
+        // })
+        $('#t1').addEventListener('click', function() {
+            Dialog.open({
+                title: '注册成功',
+                content: '您的TREK自行车是XXXX',
+                buttons: [
+                    {
+                        text: '关闭',
+                        color: 'grey'
+                    }
+                ]
+            })
+        });
+
+        $('#t2').addEventListener('click', function() {
+            Dialog.open({
+                title: '预约成功',
+                content: '积分不足',
+                buttons: [
+                    {
+                        text: '确认',
+                        color: 'red'
+                    }
+                ]
+            })
+        });
+
+        $('#t3').addEventListener('click', function() {
+            Dialog.open({
+                title: '预约成功，请等待店面联系确认预约成功，请等待店面联系确认',
+                content: '查询预约保养状态及积分变更，请前往个人中心查询预约保养状态及积分变更，请前往个人中心',
+                buttons: [
+                    {
+                        text: '首页',
+                        callback: function() {
+                            alert('首页')
+                        }
+                    },
+                    {
+                        text: '个人中心',
+                        callback: function() {
+                            alert('个人中心')
+                        }
+                    }
+                ]
+            })
+        });
+
+    </script>
+</html>
