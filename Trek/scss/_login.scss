@@ -1,0 +1,78 @@
+// 登录框
+.login-wrap{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px/$ppr;
+    // height: 450px/$ppr;
+    padding: 30px/$ppr;
+    transform: translate(-50%, -50%);
+    border-radius: 12px/$ppr;
+    background-color: #fff;
+    color: #444;
+    font-size: 24px/$ppr;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    z-index: 20;
+    &.active{display: block;}
+    h2{
+        font-size: 34px/$ppr;
+        text-align: center;
+        margin-bottom: 20px/$ppr;
+    }
+    .login-item{
+        display: flex;
+        width: 100%;
+        height: 60px/$ppr;
+        line-height: 60px/$ppr;
+        margin-bottom: 20px/$ppr;
+        label{
+            width: 80px/$ppr;
+            margin-right: 20px/$ppr;
+            text-align: right;
+        }
+        input{
+            width: 260px/$ppr;
+            height: 60px/$ppr;
+            padding: 0 10px/$ppr;
+            font-size: 20px/$ppr;
+            margin-right: 20px/$ppr;
+            border: 1px solid #ccc;
+        }
+        button{
+            width: 160px/$ppr;
+            height: 60px/$ppr;
+            font-size: 24px/$ppr;
+            color: #fff;
+            text-align: center;
+            background-color: #e11c24;
+            &.active{
+                background-color: #a6a6a6;
+            }
+        }
+    }
+    .login-polict{
+        padding-left: 6px/$ppr;
+        margin-bottom: 20px/$ppr;
+        a{
+            text-decoration: underline;
+        }
+    }
+    .login-btns{
+        display: flex;
+        justify-content: space-between;
+        .login-btn{
+            width: 240px/$ppr;
+            height: 80px/$ppr;
+            line-height: 80px/$ppr;
+            text-align: center;
+            color: #fff;
+            font-size: 24px/$ppr;
+            border-radius: 6px/$ppr;
+            background-color: #a6a6a6;
+            &.submit{
+                background-color: #e11c24;
+            }
+        }
+    }
+}

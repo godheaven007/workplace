@@ -1,15 +1,87 @@
 // 样式重置
 *{box-sizing: border-box;-webkit-tap-highlight-color: transparent; -webkit-box-sizing: border-box; margin:0; padding: 0;}
-html{height:100%;-webkit-text-size-adjust:none;}
-body {overflow-x: hidden;height:100%;-webkit-overflow-scrolling: touch;font-family: "Microsoft Yahei",Arial,sans-serif;}
+html{
+    height:100%;
+    -webkit-text-size-adjust:none;
+}
+body {overflow-x: hidden; 
+    height:100%; 
+    background: #fff; 
+    -webkit-overflow-scrolling: touch;
+    // font-family: "Microsoft Yahei",Arial,sans-serif;
+    font-family:Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self;
+    -webkit-font-smoothing:antialiased;
+    -webkit-user-select:none;
+
+    -webkit-overflow-scrolling:touch;
+}
 dl,ul,ol,li {list-style: none;}
 h1,h2,h3,h4,h5,h6{font-weight: normal;}
-a{text-decoration:none;}
+a{text-decoration:none; color: #3c3c3c;}
 em,i{font-style: normal;}
-img {border: 0;vertical-align: middle;}
-input{border:none;outline: none;vertical-align: middle;}
+img {border: 0;vertical-align: middle; width: 100%; height: 100%;}
+input{ border:none;outline: none;vertical-align: middle; -webkit-appearance: none;background-color: transparent;}
+// ::-webkit-input-placeholder {color: #ccc;}
+select{outline: none; background: #fff; vertical-align: middle;-webkit-appearance: none;}
+textarea,button{outline: none; border: none;-webkit-appearance: none;}
+.mask{display: none;position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0,0,0,0.5); z-index: 10;}
+.mask.active{display: block;}
 
 // 变量
 $ppr: 720px/16/1rem;
+$x: 2*750px/16/1rem;
 
-// 混合
+// 布局
+main{
+    padding: 0 50px/$ppr;
+}
+
+// 按钮颜色
+.btn{
+    background-color: #e31c23;
+    height: 80px/$ppr;
+    line-height: 80px/$ppr;
+    color: #fff;
+    font-size: 32px/$ppr;
+    border-radius: 6px/$ppr;
+}
+.btnOrange{background-color: #ee891f;}
+.btnRed{background-color: #e31c23;}
+.btnGrey{background-color: #a6a6a6;}
+
+// 面包屑导航
+.breadCrumb{
+    display: flex;
+    width: 100%;
+    height: 90px/$ppr;
+    padding: 0 50px/$ppr;
+    font-size: 32px/$ppr;
+    text-align: center;
+    .back{
+        width: 40px/$ppr;
+        height: 90px/$ppr;
+        background: url(../imgs/icon-back.png) no-repeat left center;
+        background-size: 24px/$ppr 36px/$ppr;
+    }
+    p{
+        margin: 0 auto;
+        line-height: 90px/$ppr;
+    }
+}
+
+// banner
+.banner{
+    width: 100%;
+    height: 900px/$x;
+    margin-bottom: 40px/$x;
+    background-size: contain;
+}
+.banner.offline{
+    background: url(../imgs/banner-offline.jpg) no-repeat center center;
+}
+.banner.orderKeep{
+    background: url(../imgs/banner-orderKeep.jpg) no-repeat center center;
+}
+.banner.orderBike{
+    background: url(../imgs/banner-orderBike.jpg) no-repeat center center;
+}

@@ -1,0 +1,62 @@
+.bike-register {
+    padding-top: 40px/$x;
+    .img {
+        width: 100%;
+        height: 1360px/$x;
+        background: url('../imgs/bike-register.png') no-repeat center center;
+    }
+    .desc {
+        padding: 0 180px/$x;
+        margin-top: 50px/$x;
+        margin-bottom: 100px/$x;
+        font-size: 40px/$x;
+        line-height: 1.5;
+        p {
+            &.suggest {
+                color: #e11c24;
+            }
+        }
+    }
+    .scan-bar {
+        padding: 0 240px/$x;
+        margin-bottom: 150px/$x;
+        p{
+            padding: 0 240px/$x;
+            font-size: 60px/$x;
+            text-align: center;
+            margin-bottom: 20px/$x;
+        }
+        .scan {
+            display: flex;
+            input {
+                flex: 1;
+                height: 120px/$x;
+                padding: 0 20px/$x;
+                font-size: 40px/$x;
+                border: 1px solid #b6b6b6;
+                border-radius: 20px/$x;
+                margin-right: 80px/$x;
+            }
+            span {
+                width: 88px/$x;
+                height: 120px/$x;
+                background: url(../imgs/scan.png) no-repeat center center;
+                background-size: cover;
+            }
+        }
+    }
+    .bike-register-btns {
+        padding: 0 180px/$x;
+        display: flex;
+        justify-content: space-around;
+        button {
+            width: 45%;
+            height: 160px/$x;
+            line-height: 160px/$x;
+            color: #fff;
+            font-size: 60px/$x;
+            text-align: center;
+            border-radius: 12px/$x;
+        }
+    }
+}

@@ -1,0 +1,85 @@
+// 线下门店
+.store-list{
+    .store-item{
+        padding: 10px/$ppr 20px/$ppr;
+        margin-bottom: 30px/$ppr;
+        background-color: #e2e2e2;
+        border-radius: 6px/$ppr;
+    }
+    .store-item-head{
+        position: relative;
+        color: #6c6c6c;
+        font-size: 24px/$ppr;
+        padding: 6px/$ppr 0;
+        span{
+            position: absolute;
+            right: 0;
+            top: 4px;
+        }
+        h2{
+            font-size: 32px/$ppr;
+            line-height: 50px/$ppr;
+            color: #3c3c3c;
+        }
+        p{
+            line-height: 40px/$ppr;
+        }
+    }
+    .store-item-bot{
+        display: flex;
+        height: 50px/$ppr;
+        padding: 6px/$ppr 0;
+        border-top: 2px solid #fff;
+        font-size: 26px/$ppr;
+        color: #3c3c3c;
+        & > div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 33.3%;
+            border-right: 2px solid #fff;
+            i,a{
+                display: inline-block;
+                color: #3c3c3c;
+            }
+            i{
+                width: 24px/$ppr;
+                height: 44px/$ppr;
+                margin-right: 16px/$ppr;
+            }
+            &.map i{
+                background: url(../imgs/icon-map.png) no-repeat center center;
+                background-size: contain;
+            }
+            &.call i{
+                background: url(../imgs/icon-call.png) no-repeat center center;
+                background-size: contain;
+            }
+            &.order i{
+                background: url(../imgs/icon-order.png) no-repeat center center;
+                background-size: contain;
+            }
+        }
+        & > div:last-child{
+            border-right: none;
+        }
+    }
+}
+
+// 筛选
+.filter{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px/$ppr;
+    .filter-select{
+        width: 300px/$ppr;
+        height: 70px/$ppr;
+        border: 1px solid #a3a3a3;
+        padding: 0 20px/$ppr;
+        border-radius: 6px/$ppr;
+        color: #999;
+        font-size: 24px/$ppr;
+        background: url(../imgs/icon-select.png) no-repeat 98% center;
+        background-size: 18px/$ppr 48px/$ppr;
+    }
+}

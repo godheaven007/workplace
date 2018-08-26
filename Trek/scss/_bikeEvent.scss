@@ -1,0 +1,20 @@
+// 骑行活动
+.event-list{
+    padding: 0 12px/$x;
+    .event-item {
+        margin-bottom: 20px/$x;
+        a{
+            display: block;
+            width: 100%;
+            height: 626px/$x;
+        }
+        p,span {
+            font-size: 48px/$x;
+            line-height: 70px/$x;
+        }
+       
+    }
+}
+.events .breadCrumb{
+    padding: 0  20px/$x;
+}
