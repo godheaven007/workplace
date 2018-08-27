@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script type="text/javascript" src="./js/mobile-util.js"></script>
     <title>Home page</title>
 </head>
@@ -41,7 +41,7 @@
                 <p>骑行活动</p>
             </li>
             <li>
-                <a href="#">
+                <a href="./骑行课堂.html">
                     <img src="./imgs/mission.png" alt="骑行课堂">
                 </a>
                 <p>骑行课堂</p>
@@ -56,7 +56,7 @@
         <!-- 模块 -->
         <ul class="module">
             <li>
-                <a href="#">
+                <a href="./我的签到.html">
                     <img src="./imgs/module-sign.png" alt="每日签到">
                 </a>
             </li>
@@ -77,18 +77,24 @@
             </li>
         </ul>
     </main>
-    <!-- TODO...swiper太重，有空自己写一个 -->
+
     <script src="./js/swiper.min.js"></script>
 
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            centeredSlides: false,
-            // pagination: {
-            //     el: '.swiper-pagination',
-            //     clickable: true,
+            // watchSlidesProgress: true,
+            // onProgress: function (a) {
+            //     var b, c, d;
+            //     for (b = 0; b < a.slides.length; b++)
+            //         c = a.slides[b],
+            //             d = c.progress,
+            //             scale = 1 - Math.min(Math.abs(.2 * d), 1),
+            //             es = c.style,
+            //             es.opacity = 1 - Math.min(Math.abs(d / 2), 1),
+            //             es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = "translate3d(0px,0," + -Math.abs(150 * d) + "px)"
             // },
+            // onSetTransition: function (a, b) {
+            // }
         });
     </script>
 </body>

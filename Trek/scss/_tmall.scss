@@ -1,0 +1,109 @@
+.tmall-wrap {
+    width: 100%;
+    padding: 0 40px/$ppr;
+    .product-show {
+        padding: 0 20px/$ppr;
+        margin-bottom: 10px/$ppr;
+        img {
+            width: 600px/$ppr;
+            height: 600px/$ppr;
+        }
+    }
+    .product-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px/$ppr;
+        height: 45px/$ppr;
+        line-height: 45px/$ppr;
+        font-size: 24px/$ppr;
+        .product-item-add {
+            display: flex;
+            i {
+                width: 40px/$ppr;
+                height: 40px/$ppr;
+                background: url(../imgs/score-store-minus.png) no-repeat center center;
+                &.add {
+                    background: url(../imgs/score-store-add.png) no-repeat center center;
+                }
+            }
+            input {
+                width: 60px/$ppr;
+                height: 40px/$ppr;
+                padding: 0 10px/$ppr;
+                line-height: 40px/$ppr;
+                margin: 0 10px/$ppr;
+                text-align: center;
+                border-radius: 4px/$ppr;
+                font-size: 24px/$ppr;
+                background-color: #efefef;
+            }
+        }
+        a {
+            color: #a8a8a8;
+            text-decoration: underline;
+        }
+        em {
+            color: #de1c24;
+            text-decoration: underline;
+        }
+    }
+    .product-btns {
+        display: flex;
+        justify-content: space-between;
+        margin: 40px/$ppr 0;
+        .btn {
+            flex: 1;
+            margin-right: 40px/$ppr;
+            text-align: center;
+            &:last-child{margin-right: 0;}
+        }
+    }
+    .product-desc {
+        font-size: 24px/$ppr;
+        line-height: 1.5;
+    }
+}
+.mask{}
+.tmall-box {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px/$ppr;
+    transform: translate(-50%, -50%);
+    padding: 24px/$ppr;
+    border-radius: 10px/$ppr;
+    background-color: #fff;
+    z-index: 100;
+    &.active{display: block;}
+    .tmall-box-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 24px/$ppr;
+        line-height: 40px/$ppr;
+        &.confirm{
+            margin: 15px/$ppr 0;
+            padding: 0 90px/$ppr;
+            strong{
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+    .tmall-box-head {
+        padding: 10px/$ppr 0;
+        border-bottom: 5px solid #a4a4a4;
+    }
+    .tmall-box-body {
+        padding: 10px/$ppr 0;
+    }
+    .tmall-box-foot {
+        display: flex;
+        justify-content: space-between;
+        .btn {
+            flex: 1;
+            margin-right: 40px/$ppr;
+            &:last-child {margin-right: 0;}
+        }
+    }
+}

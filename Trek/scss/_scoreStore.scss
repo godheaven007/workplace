@@ -1,0 +1,83 @@
+.score-store {
+    padding: 0 40px/$ppr;
+    .my-score {
+        font-size: 24px/$ppr;
+        text-decoration: underline;
+        margin-bottom: 10px/$ppr;
+    }
+    .service-item {
+        width: 640px/$ppr;
+        height: 300px/$ppr;
+        margin-bottom: 30px/$ppr;
+        background: url(../imgs/score-store1.png) no-repeat center center;
+        &.biking {
+            background: url(../imgs/score-store2.png) no-repeat center center;
+        }
+    }
+    .gift {
+        > div {
+            width: 640px/$ppr;
+            height: 640px/$ppr;
+            line-height: 640px/$ppr;
+            text-align: center;
+            color: #fff;
+            font-size: 40px/$ppr;
+            background-color: #d9d9d9;
+        }
+    }
+}
+.score-store-swiper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 220px/$x;
+    .swiper-slide {
+        width:100%;
+        height: 100%;
+        overflow-y: scroll;
+    }
+}
+
+.score-store-bullets {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    display: flex;
+    width: 100%;
+    height: 160px/$x;
+    font-size: 60px/$x;
+    .score-store-bullet {
+        flex: 1;
+        height: 160px/$x;
+        border-bottom: 22px/$x solid #f0f0f0;
+    }
+    .score-store-bullet-active {
+        border-bottom: 22px/$x solid #cc1a2b;
+    }
+}
+
+// 卡券模块
+.product-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    .product-item {
+        width: 300px/$ppr;
+        margin-bottom: 40px/$ppr;
+        a {
+            display: block;
+            width: 300px/$ppr;
+            height: 300px/$ppr;
+            border: 1px solid #f0f0f0;
+        }
+        img {
+            width: 100%;
+        }
+        p {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px/$ppr;
+            margin-top: 10px/$ppr;
+        }
+    }
+}

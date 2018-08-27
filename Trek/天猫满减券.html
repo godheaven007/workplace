@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/mobile-util.js"></script>
+    <title>天猫满减券</title>
+</head>
+
+<body>
+    <div class="breadCrumb">
+        <a href="javascript:history.go(-1)" class="back"></a>
+        <p>Trek天猫满减券100-20</p>
+    </div>
+    <div class="tmall-wrap">
+        <div class="product-show">
+            <img src="./imgs/score-store3.png" alt="天猫满减券">
+        </div>
+        <div class="product-item">
+            <span>库存: 999</span>
+            <span>有效期: 60天</span>
+        </div>
+        <div class="product-item">
+            <span>兑换数量</span>
+            <p class="product-item-add">
+                <i class="minus" id="minus"></i>
+                <input type="number" name="" id="quantity" value="1" readonly>
+                <i class="add" id="add"></i>
+            </p>
+        </div>
+        <div class="product-item">
+            <em>使用积分: 200</em>
+            <a href="#">查看积分详情</a>
+        </div>
+        <div class="product-btns">
+            <div class="btn btnGrey">返回</div>
+            <div class="btn btnRed" id="submit">提交</div>
+        </div>
+        <div class="product-desc">
+            代金券说明:
+            <p>1. XXXXXXXXXXXXXXXXx</p>
+            <p>2. XXXXXXXXXXXXXXXXx</p>
+            <p>3. XXXXXXXXXXXXXXXXx</p>
+        </div>
+    </div>
+    <!-- 提交确认 -->
+    <div class="mask"></div>
+    <div class="tmall-box">
+        <div class="tmall-box-head">
+            <div class="tmall-box-item">
+                <span>Trek天猫满减券100-20</span>
+                <span>2张</span>
+            </div>
+            <div class="tmall-box-item">
+                <span>有效期:</span>
+                <span>20天</span>
+            </div>
+
+        </div>
+        <div class="tmall-box-body">
+            <div class="tmall-box-item">
+                <span>使用积分</span>
+                <span>400</span>
+            </div>
+            <div class="tmall-box-item">
+                <span>积分余额</span>
+                <span>2600</span>
+            </div>
+            <div class="tmall-box-item confirm">
+                
+                <p>确认无误后点击发送，卡券将以短信形式发送至您的注册手机号：<strong>1866XXXXXXX</strong></p>
+            </div>
+        </div>
+        <div class="tmall-box-foot">
+            <div class="btn btnGrey" id="cancel">返回</div>
+            <div class="btn btnRed" id="send">发送</div>
+        </div>
+    </div>
+    <script>
+        function $(selector) {
+            return document.querySelector(selector);
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var quantity = $('#quantity');
+            $('#minus').addEventListener('click', function () {
+                if (quantity.value <= 1) return;
+                quantity.value = parseInt(quantity.value) - 1;
+            });
+            $('#add').addEventListener('click', function () {
+                quantity.value = parseInt(quantity.value) + 1;
+            });
+
+            // 提交
+            $('#submit').addEventListener('click', function () {
+                $('.tmall-box').classList.add('active');
+                $('.mask').classList.add('active');
+            });
+            // 取消
+            $('#cancel').addEventListener('click', function () {
+                $('.tmall-box').classList.remove('active');
+                $('.mask').classList.remove('active');
+            });
+            // 发送
+            $('#send').addEventListener('click', function () {
+                alert('发送！');
+            });
+        });
+    </script>
+</body>

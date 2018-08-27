@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/mobile-util.js"></script>
+    <title>积分商城</title>
+</head>
+
+<body>
+    <div class="breadCrumb">
+        <a href="javascript:history.go(-1)" class="back"></a>
+        <p>积分商城</p>
+    </div>
+
+    <div class="score-store">
+        <p class="my-score">我的积分: 5000</p>
+        <div class="swiper-container score-store-swiper">
+            <div class="swiper-pagination"></div>
+            <div class="swiper-wrapper">
+                <!-- 卡券模块 -->
+                <div class="swiper-slide card">
+                    <ul class="product-list">
+                        <li class="product-item">
+                            <a href="./天猫满减券.html">
+                                <img src="./imgs/card1.png" alt="卡券">
+                            </a>
+                            <p>
+                                <span class="left">Trek天猫满减券100-20</span>
+                                <span class="right">200积分</span>
+                            </p>
+                        </li>
+                        <li class="product-item">
+                            <a href="./天猫满减券.html">
+                                <img src="./imgs/card1.png" alt="卡券">
+                            </a>
+                            <p>
+                                <span class="left">Trek天猫满减券100-20</span>
+                                <span class="right">200积分</span>
+                            </p>
+                        </li>
+                        <li class="product-item">
+                            <a href="./天猫满减券.html">
+                                <img src="./imgs/card1.png" alt="卡券">
+                            </a>
+                            <p>
+                                <span class="left">Trek天猫满减券100-20</span>
+                                <span class="right">200积分</span>
+                            </p>
+                        </li>
+                        <li class="product-item">
+                            <a href="./天猫满减券.html">
+                                <img src="./imgs/card1.png" alt="卡券">
+                            </a>
+                            <p>
+                                <span class="left">Trek天猫满减券100-20</span>
+                                <span class="right">200积分</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 服务模块 -->
+                <div class="swiper-slide service">
+                    <div class="service-item keep">
+
+                    </div>
+                    <div class="service-item biking">
+
+                    </div>
+                </div>
+                <!-- 礼品模块 -->
+                <div class="swiper-slide gift">
+                    <div>
+                        敬请期待
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./js/swiper.min.js"></script>
+
+    <script>
+        var arr = ['卡券', '服务', '礼品'];
+        var mySwiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                // type : 'custom',
+                renderBullet: function (index, className) {
+                    return '<div class="' + className + '">' + arr[index] + '</div>';
+                },
+                modifierClass: 'score-store-',
+                bulletClass: 'score-store-bullet',
+                bulletActiveClass: 'score-store-bullet-active'
+            },
+        })
+    </script>
+</body>
