@@ -1,0 +1,15 @@
+{
+  "name": "trek",
+  "version": "1.0.0",
+  "description": "Trek ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server --files \" **/*.html, **/*.css, **/*.js\""
+  },
+  "author": "xusf",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.7"
+  }
+}
