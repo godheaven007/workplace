@@ -1,0 +1,71 @@
+.ui-calendar-wrapper{
+  width: 100%;
+  padding: 0 50px/$base;
+  font-size: 32px/$base;
+  color: #606266;
+  // box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  .ui-calendar-header{
+    display: flex;
+    height: 80px/$base;
+    line-height: 80px/$base;
+    .ui-calendar-btn {
+      width: 15%;
+      text-align: center;
+      font-size: 24px/$base;
+      color: #606266;
+      &.prev-month-btn,
+      &.next-month-btn {
+        font-size: 30px/$base;
+      }
+    }
+    .ui-calendar-date {
+      width: 40%;
+      text-align: center;
+    }
+  }
+  .ui-calendar-body {
+    color: #606266;
+    border: 2px solid #ebeef5;
+    border-right: none;
+    .ui-calendar-title,
+    .ui-calendar-bar {
+      display: flex;
+      width: 100%;
+      height: 70px/$base;
+      line-height: 70px/$base;
+      text-align: center;
+      div {
+        flex: 1;
+      }
+    }
+    .ui-calendar-title {
+      border-right: 2px solid #ebeef5;
+      font-weight: 600;
+    }
+    .ui-calendar-item {
+      position: relative;
+      font-size: 26px/$base;
+      border-top: 2px solid #ebeef5;
+      border-right: 2px solid #ebeef5;
+      &.invalid{
+        color: #ccc;
+      }
+      &.today {
+        color: #f00;
+      }
+      span {
+        display: none;
+        &.mark {
+          display: block;
+          position: absolute;
+          top: -20px/$base;
+          right: -2px/$base;
+          width: 30px/$base;
+          height: 30px/$base;
+          font-size:32px/$base;
+          color: orange;
+        }
+      }
+    }
+  }
+}

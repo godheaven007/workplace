@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="text/javascript" src="./js/mobile-util.js"></script>
+  <title>日历</title>
+</head>
+
+<body>
+  <div class="ui-calendar-wrapper">
+
+  </div>
+  <script src="./js/calendar.js"></script>
+  <script>
+    var calendar;
+    fetch('./data/calendar.json').then( res => res.json()).then( data => {
+      calendar = Calendar.show('.ui-calendar-wrapper', data)
+    })
+    
+  </script>
+</body>
