@@ -192,6 +192,7 @@ main {
   font-size: 0.58667rem;
   line-height: 1.5;
   text-align: center;
+  min-height: 0.02133rem;
 }
 
 .ui-dialog-wrapper .ui-dialog-bottom {
@@ -228,12 +229,16 @@ main {
 
 .dialog-test {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .dialog-test li {
-  flex: 1;
+  flex: none;
+  width: 30%;
   height: 1.92rem;
   line-height: 1.92rem;
+  margin-bottom: 0.42667rem;
   background-color: #0ff;
   margin-right: 0.42667rem;
   font-size: 30px;

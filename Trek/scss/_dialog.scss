@@ -34,6 +34,7 @@
             font-size: 55px/$x;
             line-height: 1.5;
             text-align: center;
+            min-height: 2px/$x;
         }
         margin-bottom: 80px/$x;
     }
@@ -68,10 +69,14 @@
 }
 .dialog-test {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     li{
-        flex: 1;
+        flex: none;
+        width: 30%;
         height: 180px/$x;
         line-height: 180px/$x;
+        margin-bottom: 40px/$x;
         background-color: #0ff;
         margin-right: 40px/$x;
         font-size: 30px;

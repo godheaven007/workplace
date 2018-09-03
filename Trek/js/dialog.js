@@ -30,7 +30,7 @@
             }
 
             this.config.title = !_config.title ? ' ' : _config.title;
-            this.config.content = !_config.content ? '确定不需要弹框内容吗?' : _config.content;
+            this.config.content = !_config.content ? '' : _config.content;
             if (!_config.buttons && Object.prototype.toString.call(_config) !== '[object Array]') {
                 // 按钮未传参或传参错误，则指定一个默认为红色的无回调函数的确认按钮
                 this.config.buttons = [{
@@ -74,7 +74,7 @@
         // 按钮事件(回调函数)
         bind: function () {
             let buttonArr = this.config.buttons;
-            let btnNodes = doc.querySelectorAll('.ui-dialog-btn');
+            let btnNodes = this.dialogNode.querySelectorAll('.ui-dialog-btn');
 
             btnNodes.forEach((item, index) => {
                 if (!buttonArr[index].callback) {
@@ -85,7 +85,6 @@
                 } else {
                     item.addEventListener('click', () => {
                         buttonArr[index].callback();
-                        this.close();
                     });
                 }
             })
