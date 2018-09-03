@@ -1,13 +1,15 @@
 .ui-calendar-wrapper{
   width: 100%;
-  padding: 0 50px/$base;
   font-size: 32px/$base;
   color: #606266;
-  // box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
   .ui-calendar-header{
     display: flex;
     height: 80px/$base;
     line-height: 80px/$base;
+    border: 2px solid #ebeef5;
+    border-bottom: none;
+    background-color: #ccc;
     .ui-calendar-btn {
       width: 15%;
       text-align: center;

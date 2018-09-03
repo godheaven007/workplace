@@ -14,6 +14,42 @@
         <a href="javascript:history.go(-1)" class="back"></a>
         <p>我的签到</p>
     </div>
+    <main>
+        <div class="sign">
+            <span id="sign">今日签到</span>
+            <!-- 已签到置灰 -->
+            <!-- <span id="sign" class="invalid">今日签到</span> -->
+        </div>
+        <div class="ui-calendar-wrapper" id="test">
+
+        </div>
+    </main>
+
+    <script src="./js/calendar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendar;
+            var sign = document.querySelector('#sign');
+
+            // 本地测试,数据格式参考【calendar.json】
+            fetch('./data/calendar.json')
+                .then(res => res.json())
+                .then(data => {
+                    calendar = Calendar.show('.ui-calendar-wrapper', data)
+                });
+
+            // 今日签到
+            sign.addEventListener('click', function () {
+                if (this.classList.contains('invalid')) return;
+                this.classList.add('invalid');
+                // 更新日历签到标记
+                calendar.update();
+            });
+        });
+
+
+    </script>
+
 </body>
 
 </html>

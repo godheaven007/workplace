@@ -1,0 +1,20 @@
+.sign {
+  display: flex;
+  height: 100px/$base;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px/$base;
+  span {
+    width: 200px/$base;
+    height: 80px/$base;
+    line-height: 80px/$base;
+    border-radius: 40px/$base;
+    color: #fff;
+    font-size: 32px/$base;
+    background-color: #e31c23;
+    &.invalid {
+      background-color: #ccc;
+    }
+  }
+}

@@ -1017,6 +1017,29 @@ main {
   line-height: 2.88rem;
 }
 
+.sign {
+  display: flex;
+  height: 2.13333rem;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0.42667rem;
+}
+
+.sign span {
+  width: 4.26667rem;
+  height: 1.70667rem;
+  line-height: 1.70667rem;
+  border-radius: 0.85333rem;
+  color: #fff;
+  font-size: 0.68267rem;
+  background-color: #e31c23;
+}
+
+.sign span.invalid {
+  background-color: #ccc;
+}
+
 .avatar {
   text-align: center;
   margin-bottom: 0.44444rem;
@@ -1387,15 +1410,18 @@ main {
 
 .ui-calendar-wrapper {
   width: 100%;
-  padding: 0 1.06667rem;
   font-size: 0.68267rem;
   color: #606266;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 
 .ui-calendar-wrapper .ui-calendar-header {
   display: flex;
   height: 1.70667rem;
   line-height: 1.70667rem;
+  border: 2px solid #ebeef5;
+  border-bottom: none;
+  background-color: #ccc;
 }
 
 .ui-calendar-wrapper .ui-calendar-header .ui-calendar-btn {

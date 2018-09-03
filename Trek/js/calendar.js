@@ -4,12 +4,15 @@
  * description: 日历组件（展示用）
  */
 
-; (function (win, doc) {
-  function Calendar(selector, markData) {
-    // 日历最外层容器
-    this.wrapNode = document.querySelector(selector);
-    this.totalMarkData = markData;
-    this.getCurMarkData(markData);
+;(function (win, doc) {
+  function Calendar(selector, data) {
+    this.wrapNode = document.querySelector(selector);       // 日历最外层容器
+    this.totalMarkData = data;                              // 所有签到数据
+    this.curMarkData = null;                                // 当月的签到数据
+    this.monthData = null;                                  // 整个月的数据
+    this.year = null;
+    this.month = null;
+    this.getCurMarkData();
     this.setMonthData();
   }
 
@@ -23,7 +26,7 @@
         year = today.getFullYear();
         month = today.getMonth() + 1;
       }
-      console.log(year, month)
+      
       month = month < 10 ? '0' + month : month + '';
       this.curMarkData = this.totalMarkData[year + month];
     },
@@ -41,7 +44,7 @@
       var html = `<div class="ui-calendar-header">
                     <span class="ui-calendar-btn prev-year-btn iconfont icon-prev-year"></span>
                     <span class="ui-calendar-btn prev-month-btn iconfont icon-prev-month"></span>
-                    <span class="ui-calendar-date">${this.year} - ${this.month}</span>
+                    <span class="ui-calendar-date">${this.year} - ${this.month < 10 ? '0' + this.month : this.month}</span>
                     <span class="ui-calendar-btn next-month-btn iconfont icon-next-month"></span>
                     <span class="ui-calendar-btn next-year-btn iconfont icon-next-year"></span>
                   </div>
@@ -158,15 +161,27 @@
         month: month,
         days: ret
       };
+    },
+    // 今日签到，更新数据并渲染
+    update: function() {
+      var d = new Date();
+      var year = d.getFullYear();
+      var month = d.getMonth() + 1;
+      var date = d.getDate();
+
+      month = month < 10 ? '0' + month : '' + month;
+
+      this.totalMarkData[year + month].push(date);
+      this.setMonthData(year, month);
+      this.render();
     }
   }
 
   window.Calendar = {
-    show: function (selector, markData) {
+    show: function (selector, data) {
       if (!document.querySelector(selector)) return;
       
-      return new Calendar(selector, markData);
-    },
-    test: Calendar.prototype.getMonthData
+      return new Calendar(selector, data);
+    }
   }
 })(window, document);
