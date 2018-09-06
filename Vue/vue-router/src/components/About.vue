@@ -1,5 +1,5 @@
 <template>
-  <h1>关于</h1>
+  <h1>关于-{{$route.params.name}}</h1>
 </template>
 
 <script>
