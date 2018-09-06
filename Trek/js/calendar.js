@@ -73,7 +73,7 @@
         if (i % 7 === 0) {
           html += `<div class="ui-calendar-bar">`;
         }
-        html += `<div class="ui-calendar-item ${date.month !== this.month ? "invalid" : ""}" data-date="${date.date}">
+        html += `<div class="ui-calendar-item ${date.month !== this.month ? "invalid" : ""} ${this.setToday(date)}" data-date="${date.date}">
                   ${date.showDate}<span class="iconfont icon-mark ${date.mark ? 'mark' : ''}"></span>
                 </div>`;
         if (i % 7 === 6) {
@@ -81,6 +81,22 @@
         }
       }
       return html;
+    },
+    // 当天标记
+    setToday: function(data) {
+      
+      var d = new Date();
+      var date = d.getDate();
+      var month = d.getMonth() + 1;
+      var year =  d.getFullYear();
+
+      var compare1 = '' + data.year + data.month + data.showDate;
+      var compare2 = '' + year + month + date;
+      // console.log(compare1, compare2)
+      if(compare1 === compare2) {
+        return 'today';
+      }
+      return '';
     },
     // 上一月/下一月 上一年/下一年
     bindEvent: function () {
@@ -149,6 +165,7 @@
         if (thisMonth === 13) thisMonth = 1;
 
         ret.push({
+          year: year,
           month: thisMonth,
           date: date,
           showDate: showDate,

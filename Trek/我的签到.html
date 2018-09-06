@@ -24,11 +24,12 @@
 
         </div>
     </main>
-
+    <script src="./js/dialog.js"></script>
     <script src="./js/calendar.js"></script>
     <script>
+        var calendar;
         document.addEventListener('DOMContentLoaded', function () {
-            var calendar;
+            // var calendar;
             var sign = document.querySelector('#sign');
 
             // 本地测试,数据格式参考【calendar.json】
@@ -44,6 +45,15 @@
                 this.classList.add('invalid');
                 // 更新日历签到标记
                 calendar.update();
+                Dialog.open({
+                    title: '签到成功',
+                    buttons: [
+                        {
+                            text: '确定'
+                        }
+                    ]
+                })
+
             });
         });
 
