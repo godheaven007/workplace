@@ -21,7 +21,7 @@ export default new Router({
       component: About,
       children: [
         {
-          // 访问/about时，提供默认的组件供展示
+          // 访问/about时，提供默认的组件供展示(或者写成path: '/'也是可以的)
           path: '',
           name: 'DefaultContent',
           component: DefaultContent
