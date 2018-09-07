@@ -1,10 +1,12 @@
 <template>
-  <h1>关于</h1>
+  <div>
+    <h1>学生信息修改</h1>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'About'
+  name: 'Student'
 }
 </script>
 

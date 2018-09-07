@@ -1,11 +1,9 @@
 <template>
-  <h1>首页</h1>
+  <h1>5班</h1>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Classes'
 }
 </script>
-<style scoped>
-</style>
