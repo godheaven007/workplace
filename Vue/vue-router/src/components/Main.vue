@@ -1,11 +1,13 @@
 <template>
-  <h1>首页</h1>
+  <div>主体区域</div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Main'
 }
 </script>
-<style scoped>
+
+<style>
+
 </style>

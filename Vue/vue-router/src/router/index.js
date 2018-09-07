@@ -1,21 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import About from '@/components/About'
+// import Hello from '@/components/Hello'
+import Sidebar from '@/components/Sidebar'
+import Main from '@/components/Main'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Home',
-      component: Home
+      path: '/router1',
+      components: {
+        sidebar: Sidebar
+      }
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
+      path: '/router2',
+      components: {
+        sidebar: Sidebar,
+        main: Main
+      }
     }
   ]
 })

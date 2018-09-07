@@ -1,10 +1,10 @@
 <template>
-  <h1>关于</h1>
+  <div>侧边栏</div>
 </template>
 
 <script>
 export default {
-  name: 'About'
+  name: 'Sidebar'
 }
 </script>
 
