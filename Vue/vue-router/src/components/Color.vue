@@ -1,9 +1,9 @@
 <template>
-  <h1>关于</h1>
+  <h1>颜色</h1>
 </template>
 
 <script>
 export default {
-  name: 'About'
+  name: 'Color'
 }
 </script>
