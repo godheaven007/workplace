@@ -1,9 +1,11 @@
 <template>
-  <h1>关于</h1>
+  <h1>404 Error</h1>
 </template>
 
 <script>
 export default {
-  name: 'About'
+  name: 'Error'
 }
 </script>
+<style scoped>
+</style>
