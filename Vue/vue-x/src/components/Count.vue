@@ -2,30 +2,36 @@
   <div>
     <h1>{{getCount}}</h1>
     <p>
-      <button @click="add">+</button>
-      <button @click="reduce">-</button>
+      <button @click="plus">+</button>
+      <button @click="minus(3)">-</button>
     </p>
   </div>
 </template>
 
 <script>
 import store from '@/store/index'
-import {mapState} from 'vuex'
+import {mapState, mapMutations, mapGetters} from 'vuex'
 export default {
   name: 'Count',
-  data () {
-    return {
-      msg: 'hello'
-    }
-  },
   store,
   methods: {
-    add () {
-      this.$store.commit('add')
-    },
-    reduce () {
-      this.$store.commit('reduce')
-    }
+    // Mutations方式一
+    // add () {
+    //   this.$store.commit('add')
+    // },
+    // reduce () {
+    //   this.$store.commit('reduce')
+    // }
+
+    // Mutations方式二
+    // 转换后同上(需要注意的是，这里的方法名必须与Vuex中mutations中的方法名一致， 若不一致，可采用方式三)
+    //  ...mapMutations(['add', 'reduce'])
+
+    // Mutations方式san
+    ...mapMutations({
+      plus: 'add',
+      minus: 'reduce'
+    })
   },
   // 状态取值方式一
   // computed: {
@@ -48,8 +54,18 @@ export default {
 
   // 状态取值方式五
   computed: {
-    ...mapState({
-      getCount: 'count'
+    // ...mapState({
+    //   getCount: 'count'
+    // }),
+
+    // Getters使用方式一
+    // getCount () {
+    //   return this.$store.getters.doubleCount
+    // }
+
+    // Getters使用方式二
+    ...mapGetters({
+      getCount: 'doubleCount'
     })
   }
 }

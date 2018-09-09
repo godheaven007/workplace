@@ -11,8 +11,13 @@ export default new Vuex.Store({
     add (state) {
       state.count += 1
     },
-    reduce (state) {
-      state.count -= 1
+    reduce (state, count) {
+      state.count -= count
+    }
+  },
+  getters: {
+    doubleCount: (state) => {
+      return state.count + ' ' + state.count
     }
   }
 })
