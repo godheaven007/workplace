@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <title>简易音乐播放器</title>
+</head>
+
+<body>
+    <div class="music">
+        <!-- 歌曲列表 -->
+        <ul class="music-list">
+            <li class="music-item active">歌曲1</li>
+            <li class="music-item">歌曲2</li>
+        </ul>
+        <!-- 播放器 -->
+        <div class="music-player">
+            <div class="music-player-body">
+                <!-- 开始/暂停、上一首、下一首 -->
+                <div class="music-control">
+                    <span class="iconfont icon-previousSong previous"></span>
+                    <span class="iconfont icon-play play"></span>
+                    <span class="iconfont icon-pause pause"></span>
+                    <span class="iconfont icon-nextSong next"></span>
+                </div>
+                <!-- 歌曲信息 -->
+                <div class="music-info">
+                    
+                </div>
+            </div>
+            <div class="music-player-bot">
+                <div class="progress">
+                    <div class="progressBar totalBar"></div>
+                    <div class="progressBar currentBar"></div>
+                </div>
+                <div class="time">0:00</div>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
