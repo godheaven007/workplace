@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>History</title>
+	<style>
+		*{margin: 0; padding: 0; box-sizing: border-box;}
+		.history {
+			overflow: hidden;
+			width: 200px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 50px auto;
+		}
+		.side-bar {
+			float: left;
+			width: 80px;
+			height: 100%;
+			border-right: 1px solid #000;
+		} 
+		.side-bar a {
+			display: block;
+		}
+		.main {
+			float: left;
+			width: 110px;
+			height: 100%;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="history">
+		<div class="side-bar">
+			<a href="/xiaoming" data-student="1">小明</a>
+			<a href="/xiaohong" data-student="2">小红</a>
+			<a href="/xiaogang" data-student="3">小刚</a>
+		</div>
+		<div class="main">
+
+		</div>
+	</div>
+	<script>
+		function $(selector) {
+			return document.querySelector(selector);
+		}
+
+		function getStudentInfo(which, callback, url) {
+			
+			let API = `./student${which}.json`;
+			fetch(API)
+				.then((response)=> {
+					return response.json();
+				}).then((data) => {
+					if(typeof callback === 'function') {
+						callback(data, url);
+					}
+				})
+		}
+		function render(student, url) {
+			var html = `<h2>${student.name}</h2>
+									<p>${student.age}</p>
+									`
+			document.querySelector('.main').innerHTML = html;
+			// history模式
+			// history.pushState({
+			// 	data: student,
+			// 	url: url
+			// }, null, url);
+
+			// hash模式
+			location.hash = url;
+		}
+		window.onload = function () {
+			
+			$('.side-bar').addEventListener('click', function (e) {
+				e.preventDefault();
+				let id = e.target.dataset.student;
+				let url = e.target.pathname;
+				getStudentInfo(id, render, url);
+			});
+			// history模式
+			// window.addEventListener('popstate', function (e) {
+			// 	console.log(e.state)
+			// 	render(e.state.data, e.state.url)
+			// });
+
+			// hash模式
+			window.addEventListener('hashchange', function (e) {
+				console.log({
+					href: location.href,
+					hash: location.hash
+				})
+			});
+		}
+	</script>
+</body>
+
+</html>
