@@ -1,0 +1,89 @@
+.comment-box {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1250px/$x;
+  padding: 70px/$x;
+  border-radius: 50px/$x;
+  color: #000;
+  box-shadow: 0 0 8px 2px rgba(0,0,0,0.3);
+  background-color: #fff;
+  z-index: 20;
+  &.active {
+    display: block;
+  }
+  .comment-level {
+    overflow: hidden;
+    width: 100%;
+    height: 250px/$x;
+    font-size: 50px/$x;
+    li {
+      float: left;
+      width: 10%;
+      height: 100%;
+      text-align: center;
+      span {
+        display: inline-block;
+        width: 100%;
+        height: 50%;
+        opacity: 0;
+      }
+      &:first-child span,
+      &:last-child span{
+        opacity: 1;
+      }
+      i {
+        display: inline-block;
+        width: 60px/$x;
+        height: 60px/$x;
+        border-radius: 50%;
+        background-color: #a6a6a6;
+      }
+      
+      &.active i{
+        background-color: #e11c24;
+      }
+    }
+  }
+  .comment-msg {
+    position: relative;
+    padding-left: 190px/$x;
+    padding-right: 40px/$x;
+    font-size: 50px/$x;
+    margin-bottom: 60px/$x;
+    > div {
+      position: absolute;
+      top: 20px/$x;
+      left: 40px/$x;
+      width: 130px/$x;
+    }
+    textarea {
+      width: 100%;
+      height: 400px/$x;
+      padding: 20px/$x;
+      font-size: 50px/$x;
+      border: 1px solid #ccc;
+    }
+  }
+  .comment-btns {
+    display: flex;
+    justify-content: space-around;
+    .comment-btn {
+      width: 480px/$x;
+      height: 160px/$x;
+      line-height: 160px/$x;
+      color: #fff;
+      text-align: center;
+      font-size: 70px/$x;
+      border-radius: 20px/$x;
+      &:first-child {
+          background-color: #e11c24;
+      }
+      &:last-child {
+          background-color: #a6a6a6;
+      }
+    }
+  }
+}

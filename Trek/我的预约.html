@@ -38,7 +38,7 @@
                             <p>2018年9月20日下午6点</p>
                         </div>
                     </div>
-                    <div class="my-order-status">评价</div>
+                    <div class="my-order-status" id="comment">评价</div>
                 </div>
                 <div class="my-order-item invalid">
                     <div class="my-order-type">高级保养</div>
@@ -196,6 +196,33 @@
             </div>
         </div>
     </div>
+    <!-- 评论框 -->
+    <div class="mask"></div>
+    <div class="comment-box">
+        <ul class="comment-level">
+            <li class="active" data-level="1"><span>1</span><i></i></li>
+            <li data-level="2"><span>2</span><i></i></li>
+            <li data-level="3"><span>3</span><i></i></li>
+            <li data-level="4"><span>4</span><i></i></li>
+            <li data-level="5"><span>5</span><i></i></li>
+            <li data-level="6"><span>6</span><i></i></li>
+            <li data-level="7"><span>7</span><i></i></li>
+            <li data-level="8"><span>8</span><i></i></li>
+            <li data-level="9"><span>9</span><i></i></li>
+            <li data-level="10"><span>10</span><i></i></li>
+        </ul>
+        <div class="comment-msg">
+            <div class="">
+                <p>留言</p>
+                <p style="color:#999;">选填</p>
+            </div>
+            <textarea>留言留言留言留言留言留言留言留言留言</textarea>
+        </div>
+        <div class="comment-btns">
+            <div class="comment-btn comment">评价</div>
+            <div class="comment-btn close">关闭</div>
+        </div>
+    </div>
     <script src="./js/swiper.min.js"></script>
 
     <script>
@@ -212,7 +239,43 @@
                 bulletClass: 'my-order-bullet',
                 bulletActiveClass: 'my-order-bullet-active'
             },
-        })
+        });
+    </script>
+    <script>
+        function $(selector) {
+            return document.querySelector(selector);
+        }
+        function resetLevel() {
+            var levelNodes = document.querySelectorAll('.comment-level li');
+            levelNodes.forEach(function(node, index) {
+                node.classList.remove('active');
+            })
+        }
+        function setLevel(level) {
+            var levelNodes = document.querySelectorAll('.comment-level li');
+            if(level === 1) return;
+            resetLevel();
+            levelNodes.forEach(function(node, index) {
+                if(index < level) {
+                    node.classList.add('active');
+                }
+            })
+        }
+
+        window.onload = function() {
+            var levelNodes = document.querySelectorAll('.comment-level li');
+            levelNodes.forEach(function(node, index) {
+                node.addEventListener('click', function(e) {
+                    setLevel(e.currentTarget.dataset.level);
+                })
+            });
+            
+            // 评价
+            $('#comment').addEventListener('click', function() {
+                $('.mask').classList.add('active');
+                $('.comment-box').classList.add('active');
+            });
+        };
     </script>
 </body>
 
