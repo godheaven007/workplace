@@ -1638,3 +1638,44 @@ main {
 .icon-mark:before {
   content: "\e7e6";
 }
+
+.register-bike-wrap {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.register-bike-wrap .breadCrumb {
+  padding-left: 0.42667rem;
+}
+
+.register-bike-wrap .register-bike-head {
+  display: flex;
+  width: 100%;
+  height: 1.28rem;
+  line-height: 1.28rem;
+  font-size: 0.64rem;
+  text-align: center;
+}
+
+.register-bike-wrap .register-bike-head span {
+  flex: 1;
+}
+
+.register-bike-wrap .register-bike-body {
+  flex: 1;
+  font-size: 0.42667rem;
+  background: #f0f0f0;
+}
+
+.register-bike-wrap .register-bike-body .register-bike-item {
+  display: flex;
+  height: 1.06667rem;
+  line-height: 1.06667rem;
+  font-size: 0.53333rem;
+  text-align: center;
+}
+
+.register-bike-wrap .register-bike-body .register-bike-item span {
+  flex: 1;
+}
