@@ -7,6 +7,7 @@
 1. Page Ruler(尺寸选择) 
 2. ColorZilla(颜色选择)
 3. DownFaster（下载JS、Img、CSS等静态资源文件）
+4. Postman[https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=zh-CN]
 
 
 ## 常用工具软件
