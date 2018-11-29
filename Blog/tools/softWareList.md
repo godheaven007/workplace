@@ -2,6 +2,7 @@
 1. http-server
 2. fanyi
 3. sprity  npm包管理工具（自动合并精灵图） 
+4. git-open (打开Github仓库)
 
 ## chrome插件
 1. Page Ruler(尺寸选择) 
