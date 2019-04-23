@@ -27,13 +27,12 @@
     </div>
 
     <script>
+        document.domain = "course.com";
         var course = document.querySelector("#course");
         course.addEventListener("input", function () {
             var frame_document = window.frames[0].document; // 获取iframe的document对象
             frame_document.querySelector("#myCourse").innerText = this.value;
-        });
-
-        document.domain = "course.com";
+        });        
     </script>
 </body>
 
